@@ -1,5 +1,6 @@
-
-function App() {
+import Header from "./components/layout/Header"
+export default function App() {
+  return (
+    <Header></Header>
+  );
 }
-
-export default App
