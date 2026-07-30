@@ -2,6 +2,7 @@ import Card from "../components/ui/Card";
 import Table, { type Column } from "../components/ui/Table";
 import Input from "../components/ui/Input";
 import Label from "../components/ui/Label";
+import Button from "../components/ui/Button"
 
 interface Order {
   id: string;
@@ -271,7 +272,6 @@ export default function OrdersPage() {
           </Card>
         </div>
       </div>
-
       {/* ======= Content ======= */}
 
       <div className="row">
@@ -288,6 +288,8 @@ export default function OrdersPage() {
               <div style={{ width: "360px" }}>
                 <Input state="none" leftIcon={<i className="bi bi-search"/>} placeholder="Tìm kiếm sản phẩm..."></Input>
               </div>
+               <Button customVariant="secondary" > <i className="bi bi-printer "></i>Tạo đơn với OCR</Button>
+                <Button > <i className="bi bi-funnel"></i>Lọc</Button>
             </div>
 
             {/* Table */}
