@@ -12,9 +12,23 @@ dist
 dist-ssr
 *.local
 
+# Biến môi trường — không bao giờ commit, dùng .env.example làm mẫu.
+# Repo này từng commit nhầm src/components/.env và src/pages/.env.
+.env
+.env.*
+!.env.example
+
+# Artifact của toolchain
+*.tsbuildinfo
+
 # Editor directories and files
+# Chặn .vscode/* rồi mở lại đúng các file cấu hình nên dùng chung cho cả team;
+# những file còn lại trong .vscode/ là của riêng từng máy.
 .vscode/*
 !.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/launch.json
+!.vscode/tasks.json
 .idea
 .DS_Store
 *.suo
@@ -22,3 +36,15 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Claude Code — chỉ mình mình dùng nên không đưa vào repo.
+# Claude Code vẫn đọc CLAUDE.md bình thường từ đĩa, không phụ thuộc git.
+CLAUDE.md
+CLAUDE.local.md
+.claude/

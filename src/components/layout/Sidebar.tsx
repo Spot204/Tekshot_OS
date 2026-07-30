@@ -1,210 +1,135 @@
-import React, { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Nav, Stack, Collapse } from "react-bootstrap";
-import { useNavigate, useLocation } from "react-router-dom";
-import {
-  ShoppingCart,
-  Box,
-  Warehouse,
-  Wallet,
-  Receipt,
-  ChevronDown,
-  Contact,
-  ChartColumn,
-  UserRound,
-  Settings,
-} from "lucide-react";
-
-interface SubMenuItem {
-  id: string;
-  label: string;
-}
-
-interface MenuItem {
-  id: string;
-  label: string;
-  icon: React.ReactNode;
-  children?: SubMenuItem[];
-}
+import { NavLink, useLocation } from "react-router-dom";
+import { ChevronDown } from "lucide-react";
+import clsx from "clsx";
+import { menuItems, findParentMenuId, isMenuPathActive } from "./menuItems";
 
 interface SidebarProps {
-  setIsOpen?: (open: boolean) => void;
+  isOpen: boolean;
+  /** Gọi sau khi điều hướng — dùng để đóng sidebar trên mobile */
+  onNavigate: () => void;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ setIsOpen }) => {
-  const navigate = useNavigate();
-  const location = useLocation();
-  const activeTab = location.pathname.substring(1) || "don-hang";
+const ROW_BASE =
+  "d-flex align-items-center justify-content-between w-100 p-3 rounded-3 border-0 text-start text-decoration-none";
 
-  const [openMenus, setOpenMenus] = useState<Record<string, boolean>>({
-    "hang-hoa": true,
-    "hoa-don": true,
+const Sidebar = ({ isOpen, onNavigate }: SidebarProps) => {
+  const { pathname } = useLocation();
+
+  const [openMenus, setOpenMenus] = useState<Record<string, boolean>>(() => {
+    const parent = findParentMenuId(pathname);
+    return parent ? { [parent]: true } : {};
   });
 
+  // Vào URL trực tiếp (hoặc bấm back) thì mở sẵn nhóm chứa route đang active
   useEffect(() => {
-    menuItems.forEach((item) => {
-      if (item.children?.some((child) => child.id === activeTab)) {
-        setOpenMenus((prev) => ({ ...prev, [item.id]: true }));
-      }
-    });
-  }, [activeTab]);
+    const parent = findParentMenuId(pathname);
+    if (!parent) return;
+    setOpenMenus((prev) => (prev[parent] ? prev : { ...prev, [parent]: true }));
+  }, [pathname]);
 
   const toggleMenu = (menuId: string) => {
-    setOpenMenus((prev) => ({
-      ...prev,
-      [menuId]: !prev[menuId],
-    }));
+    setOpenMenus((prev) => ({ ...prev, [menuId]: !prev[menuId] }));
   };
 
-  const menuItems: MenuItem[] = [
-    { id: "order", label: "Đơn hàng", icon: <ShoppingCart size={18} /> },
-    {
-      id: "hang-hoa",
-      label: "Hàng hóa",
-      icon: <Box size={18} />,
-      children: [
-        { id: "products", label: "Sản phẩm" },
-        { id: "Ingredient-Tool", label: "Vật tư" },
-        { id: "Combo", label: "Combo" },
-      ],
-    },
-    {
-      id: "kho-hang",
-      label: "Kho hàng",
-      icon: <Warehouse size={18} />,
-      children: [
-        { id: "nguyen-lieu", label: "Nguyên liệu" },
-        { id: "Tool", label: "Dụng cụ" },
-        { id: "inventory", label: "Tồn kho" },
-        { id: "ordering", label: "Gọi hàng" },
-        { id: "inbound", label: "Nhập hàng" },
-        { id: "outbound", label: "Xuất hàng" },
-        { id: "history", label: "Lịch sử" },
-      ],
-    },
-    {
-      id: "so-quy",
-      label: "Sổ quỹ",
-      icon: <Wallet size={18} />,
-      children: [
-        { id: "cashbook", label: "Sổ quỹ" },
-        { id: "cash-receipt", label: "Phiếu thu chi" },
-        { id: "shift-closing", label: "Danh sách chốt ca" },
-      ],
-    },
-    {
-      id: "hoa-don",
-      label: "Hóa đơn",
-      icon: <Receipt size={18} />,
-      children: [
-        { id: "invoice-in", label: "Hóa đơn đầu vào" },
-        { id: "invoice-out", label: "Hóa đơn đầu ra" },
-      ],
-    },
-    {
-      id: "nhan-su",
-      label: "Nhân sự",
-      icon: <UserRound size={18} />,
-      children: [
-        { id: "employee", label: "Nhân viên" },
-        { id: "attendance", label: "Chấm công" },
-      ],
-    },
-    { id: "customer", label: "Khách hàng", icon: <Contact size={18} /> },
-    { id: "report", label: "Báo cáo", icon: <ChartColumn size={18} /> },
-    { id: "setting", label: "Cấu hình", icon: <Settings size={18} /> },
-  ];
-
   return (
-    <div
-      className="bg-white border-end shadow-sm vh-100 d-flex pt-3 flex-column"
-      style={{
-        width: "260px",
-        position: "fixed",
-        left: 0,
-        top: "72px",
-        height: "calc(100vh - 72px)",
-        zIndex: 1000,
-      }}
+    <aside
+      className={clsx(
+        "app-sidebar bg-white border-end shadow-sm d-flex flex-column position-fixed start-0",
+        isOpen && "is-open",
+      )}
     >
       <div className="flex-grow-1 overflow-y-auto overflow-x-hidden  custom-sidebar-scroll">
         <Nav className="flex-column px-2 pb-4">
           {menuItems.map((item) => {
-            const isParentActive = item.children?.some(
-              (child) => child.id === activeTab,
-            );
-            const isOpen = !!openMenus[item.id];
-            const isActive = activeTab === item.id || isParentActive;
+            // Nhóm cha không phải link — chỉ đóng/mở, và sáng lên khi con active
+            if (item.children) {
+              const isOpenGroup = !!openMenus[item.id];
+              const hasActiveChild = item.children.some((child) =>
+                isMenuPathActive(pathname, child.id),
+              );
 
-            return (
-              <div key={item.id} className="w-100 mb-1">
-                <div
-                  onClick={() => {
-                    if (item.children) {
-                      toggleMenu(item.id);
-                    } else {
-                      navigate(`/${item.id}`);
-                      setIsOpen?.(false);
-                    }
-                  }}
-                  className={`d-flex align-items-center justify-content-between p-3 rounded-3 cursor-pointer transition-all ${
-                    isActive
-                      ? "bg-primary text-white shadow-sm"
-                      : "text-dark hover-menu-item"
-                  }`}
-                  style={{
-                    cursor: "pointer",
-                    transition: "0.2s all ease",
-                    userSelect: "none",
-                  }}
-                >
-                  <Stack direction="horizontal" gap={3}>
-                    <div className="flex-shrink-0">{item.icon}</div>
-                    <span className="small fw-semibold">{item.label}</span>
-                  </Stack>
+              return (
+                <div key={item.id} className="w-100 mb-1">
+                  <button
+                    type="button"
+                    aria-expanded={isOpenGroup}
+                    onClick={() => toggleMenu(item.id)}
+                    className={clsx(
+                      ROW_BASE,
+                      hasActiveChild
+                        ? "bg-primary text-white shadow-sm"
+                        : "bg-transparent text-dark hover-menu-item",
+                    )}
+                  >
+                    <Stack direction="horizontal" gap={3}>
+                      <span className="flex-shrink-0 d-flex">{item.icon}</span>
+                      <span className="small fw-semibold">{item.label}</span>
+                    </Stack>
 
-                  {item.children && (
                     <span
-                      style={{
-                        transition: "transform 0.3s ease",
-                        transform: isOpen ? "rotate(0deg)" : "rotate(-90deg)",
-                      }}
+                      className={clsx(
+                        "menu-chevron d-flex",
+                        !isOpenGroup && "is-collapsed",
+                      )}
                     >
                       <ChevronDown size={14} />
                     </span>
-                  )}
-                </div>
+                  </button>
 
-                {item.children && (
-                  <Collapse in={isOpen}>
+                  <Collapse in={isOpenGroup}>
                     <div>
                       <div className="mt-1 d-flex flex-column gap-1">
                         {item.children.map((child) => (
-                          <div
+                          <NavLink
                             key={child.id}
-                            onClick={() => {
-                              navigate(`/${child.id}`);
-                              setIsOpen?.(false);
-                            }}
-                            className={`ps-5 py-2 mx-2 rounded-2 small cursor-pointer transition-all ${
-                              activeTab === child.id
-                                ? "bg-primary bg-opacity-10 text-primary fw-bold"
-                                : "text-dark hover-menu-item fw-semibold"
-                            }`}
-                            style={{ cursor: "pointer", transition: "0.2s" }}
+                            to={`/${child.id}`}
+                            onClick={onNavigate}
+                            className={({ isActive }) =>
+                              clsx(
+                                "ps-5 py-2 mx-2 rounded-2 small text-decoration-none",
+                                isActive
+                                  ? "bg-primary bg-opacity-10 text-primary fw-bold"
+                                  : "text-dark hover-menu-item fw-semibold",
+                              )
+                            }
                           >
                             {child.label}
-                          </div>
+                          </NavLink>
                         ))}
                       </div>
                     </div>
                   </Collapse>
-                )}
-              </div>
+                </div>
+              );
+            }
+
+            return (
+              <NavLink
+                key={item.id}
+                to={`/${item.id}`}
+                onClick={onNavigate}
+                className={({ isActive }) =>
+                  clsx(
+                    ROW_BASE,
+                    "mb-1",
+                    isActive
+                      ? "bg-primary text-white shadow-sm"
+                      : "text-dark hover-menu-item",
+                  )
+                }
+              >
+                <Stack direction="horizontal" gap={3}>
+                  <span className="flex-shrink-0 d-flex">{item.icon}</span>
+                  <span className="small fw-semibold">{item.label}</span>
+                </Stack>
+              </NavLink>
             );
           })}
         </Nav>
       </div>
-    </div>
+    </aside>
   );
 };
 

@@ -1,0 +1,140 @@
+/* ============================================================
+   Design tokens + các class dùng chung toàn app.
+   Mọi kích thước của shell (header / sidebar) khai báo ở đây,
+   không rải magic number trong component.
+   ============================================================ */
+
+:root {
+  --header-h: 72px;
+  --sidebar-w: 260px;
+  --brand: #084298;
+  --brand-hover: #063677;
+}
+
+/* ================= Shell ================= */
+
+.app-header {
+  height: var(--header-h);
+  z-index: 1050;
+}
+
+.app-sidebar {
+  width: var(--sidebar-w);
+  top: var(--header-h);
+  height: calc(100vh - var(--header-h));
+  z-index: 1040;
+  transition: transform 0.25s ease;
+}
+
+/* Padding gộp cả offset header vào đây, không đặt inline ở component và
+   không dùng thêm p-4 của Bootstrap — tránh hai class cùng set padding-top
+   rồi thắng thua theo thứ tự file CSS. */
+.app-main {
+  margin-left: var(--sidebar-w);
+  padding: calc(var(--header-h) + 1.5rem) 1.5rem 1.5rem;
+  transition: margin-left 0.25s ease;
+}
+
+/* Dưới lg: sidebar thành off-canvas, main chiếm toàn bộ chiều ngang */
+@media (max-width: 991.98px) {
+  .app-sidebar {
+    transform: translateX(-100%);
+  }
+
+  .app-sidebar.is-open {
+    transform: translateX(0);
+  }
+
+  .app-main {
+    margin-left: 0;
+  }
+}
+
+.app-sidebar-backdrop {
+  position: fixed;
+  inset: var(--header-h) 0 0 0;
+  z-index: 1030;
+  background: rgb(0 0 0 / 35%);
+}
+
+/* ================= Sidebar menu ================= */
+
+.hover-menu-item:hover {
+  background-color: #f1f5fb;
+}
+
+.menu-chevron {
+  transition: transform 0.3s ease;
+}
+
+.menu-chevron.is-collapsed {
+  transform: rotate(-90deg);
+}
+
+/* Scrollbar mảnh cho vùng menu */
+.custom-sidebar-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+}
+
+.custom-sidebar-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-sidebar-scroll::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 3px;
+}
+
+/* ================= Brand button ================= */
+
+.btn-brand,
+.btn-brand:focus {
+  color: #fff;
+  background-color: var(--brand);
+  border-color: var(--brand);
+}
+
+.btn-brand:hover,
+.btn-brand:active {
+  color: #fff;
+  background-color: var(--brand-hover);
+  border-color: var(--brand-hover);
+}
+
+.btn-brand-outline,
+.btn-brand-outline:focus {
+  color: var(--brand);
+  background-color: #fff;
+  border-color: var(--brand);
+}
+
+.btn-brand-outline:hover,
+.btn-brand-outline:active {
+  color: #fff;
+  background-color: var(--brand);
+  border-color: var(--brand);
+}
+
+/* ================= Tiện ích dùng nhiều chỗ ================= */
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/* Ẩn mũi tên mặc định của Dropdown.Toggle khi dùng as="div" */
+.no-caret::after {
+  display: none !important;
+}
+
+.pagination .page-link {
+  margin: 0 2px;
+  color: #4b5563;
+  border: 0;
+  border-radius: 4px;
+}
+
+.pagination .page-item.active .page-link {
+  color: #fff;
+  background-color: var(--brand);
+}

@@ -1,9 +1,9 @@
-import { type Column } from "../components/ui/Table";
-import Card from "../components/ui/Card";
-import Input from "../components/ui/Input";
-import Label from "../components/ui/Label";
-import Table from "../components/ui/Table";
-import Button from "../components/ui/Button";
+import { type Column } from "../../components/ui/Table";
+import Card from "../../components/ui/Card";
+import Input from "../../components/ui/Input";
+import Badge from "../../components/ui/Badge";
+import Table from "../../components/ui/Table";
+import Button from "../../components/ui/Button";
 interface Transaction {
   id: string;
   date: string;
@@ -83,7 +83,7 @@ export default function CashBook() {
 
   const columns: Column<Transaction>[] = [
     {
-      key: "date",
+      id: "date",
       header: "Ngày giờ",
       render: (row) => (
         <>
@@ -93,14 +93,14 @@ export default function CashBook() {
       ),
     },
     {
-      key: "id",
+      id: "id",
       header: "Mã phiếu",
       render: (row) => (
         <span className="text-primary fw-semibold">{row.id}</span>
       ),
     },
     {
-      key: "type",
+      id: "type",
       header: "Loại giao dịch",
       render: (row) => (
         <span
@@ -115,11 +115,11 @@ export default function CashBook() {
       ),
     },
     {
-      key: "content",
+      id: "content",
       header: "Nội dung",
     },
     {
-      key: "method",
+      id: "method",
       header: "Phương thức",
       render: (row) => {
         let cls = "bg-primary-subtle text-primary";
@@ -136,7 +136,7 @@ export default function CashBook() {
       },
     },
     {
-      key: "income",
+      id: "income",
       header: "Thu",
       align: "end",
       render: (row) => (
@@ -144,7 +144,7 @@ export default function CashBook() {
       ),
     },
     {
-      key: "expense",
+      id: "expense",
       header: "Chi",
       align: "end",
       render: (row) => (
@@ -152,16 +152,16 @@ export default function CashBook() {
       ),
     },
     {
-      key: "balance",
+      id: "balance",
       header: "Số dư",
       align: "end",
     },
     {
-      key: "user",
+      id: "user",
       header: "Người thực hiện",
     },
     {
-      key: "id",
+      id: "id",
       header: "Thao tác",
       align: "center",
       render: () => (
@@ -205,7 +205,9 @@ export default function CashBook() {
         <div className="d-flex flex-wrap align-items-end gap-3">
           {/* Khoảng thời gian */}
           <div style={{ width: "240px" }}>
-            <Label background={false} variant="dark">Khoảng thời gian</Label>
+            <Badge background={false} variant="dark">
+              Khoảng thời gian
+            </Badge>
             <Input
               state="none"
               leftIcon={<i className="bi bi-calendar-event" />}
@@ -215,7 +217,9 @@ export default function CashBook() {
 
           {/* Loại giao dịch */}
           <div style={{ width: "180px" }}>
-            <Label background={false} variant="dark">Loại giao dịch</Label>
+            <Badge background={false} variant="dark">
+              Loại giao dịch
+            </Badge>
             <select className="form-select rounded-4">
               <option>Tất cả</option>
               <option>Thu</option>
@@ -225,7 +229,9 @@ export default function CashBook() {
 
           {/* Phương thức */}
           <div style={{ width: "180px" }}>
-            <Label background={false} variant="dark">Phương thức</Label>
+            <Badge background={false} variant="dark">
+              Phương thức
+            </Badge>
             <select className="form-select rounded-4">
               <option>Tất cả</option>
               <option>Tiền mặt</option>
@@ -258,7 +264,7 @@ export default function CashBook() {
 
       {/* Table */}
       <Card className="p-4 shadow-sm border-0">
-        <Table columns={columns} data={transactions} rowKey="id" />
+        <Table<Transaction> columns={columns} data={transactions} rowKey="id" />
 
         <div className="d-flex justify-content-between align-items-center mt-4">
           <small className="text-secondary">

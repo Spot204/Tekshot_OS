@@ -1,7 +1,7 @@
 import React from "react";
 import clsx from "clsx";
 
-export type LabelVariant =
+export type BadgeVariant =
   | "primary"
   | "secondary"
   | "success"
@@ -10,21 +10,18 @@ export type LabelVariant =
   | "info"
   | "dark";
 
-export type LabelSize = "sm" | "md";
+export type BadgeSize = "sm" | "md";
 
-interface LabelProps extends React.HTMLAttributes<HTMLSpanElement> {
+interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
   children: React.ReactNode;
-
-  variant?: LabelVariant;
-
-  size?: LabelSize;
-
+  variant?: BadgeVariant;
+  size?: BadgeSize;
   rounded?: boolean;
-
+  /** false = chỉ tô màu chữ, không có nền */
   background?: boolean;
 }
 
-const backgroundClass: Record<LabelVariant, string> = {
+const backgroundClass: Record<BadgeVariant, string> = {
   primary: "bg-primary-subtle text-primary",
   secondary: "bg-secondary-subtle text-secondary",
   success: "bg-success-subtle text-success",
@@ -34,7 +31,7 @@ const backgroundClass: Record<LabelVariant, string> = {
   dark: "bg-dark-subtle text-dark"
 };
 
-const textClass: Record<LabelVariant, string> = {
+const textClass: Record<BadgeVariant, string> = {
   primary: "text-primary",
   secondary: "text-secondary",
   success: "text-success",
@@ -44,7 +41,11 @@ const textClass: Record<LabelVariant, string> = {
   dark:"text-dark"
 };
 
-export default function Label({
+/**
+ * Nhãn trạng thái dạng pill. Trước đây tên là `Label` nên hay bị dùng nhầm
+ * làm nhãn form / caption — đổi tên cho khớp việc nó thực sự làm.
+ */
+export default function Badge({
   children,
   variant = "primary",
   size = "md",
@@ -52,22 +53,16 @@ export default function Label({
   background = true,
   className,
   ...props
-}: LabelProps) {
+}: BadgeProps) {
   return (
     <span
       {...props}
       className={clsx(
         "badge fw-semibold",
-
         rounded && "rounded-pill",
-
         size === "sm" ? "px-2 py-1" : "px-3 py-2",
-
-        background
-          ? backgroundClass[variant]
-          : textClass[variant],
-
-        className
+        background ? backgroundClass[variant] : textClass[variant],
+        className,
       )}
     >
       {children}

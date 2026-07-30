@@ -4,27 +4,21 @@ import clsx from "clsx";
 interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
 
-  /**
-   * Hiển thị nền trắng
-   * true = bg-white
-   * false = trong suốt
-   */
+  /** true = bg-white, false = trong suốt */
   background?: boolean;
 
-  /**
-   * Hiển thị viền
-   */
   bordered?: boolean;
 
-  /**
-   * Hiển thị shadow
-   */
   shadow?: boolean;
 
-  /**
-   * Bo góc
-   */
   rounded?: boolean;
+
+  /**
+   * Class padding của Bootstrap. Tách thành prop riêng vì nếu hardcode "p-3"
+   * rồi truyền thêm "p-4" qua className thì hai class cùng tồn tại và thứ tự
+   * trong file CSS quyết định class nào thắng — không phải ý người gọi.
+   */
+  padding?: string;
 }
 
 export default function Card({
@@ -33,6 +27,7 @@ export default function Card({
   bordered = true,
   shadow = false,
   rounded = true,
+  padding = "p-3",
   className,
   ...props
 }: CardProps) {
@@ -44,8 +39,8 @@ export default function Card({
         bordered && "border",
         rounded && "rounded-4",
         shadow && "shadow-sm",
-        "p-3",
-        className
+        padding,
+        className,
       )}
     >
       {children}
