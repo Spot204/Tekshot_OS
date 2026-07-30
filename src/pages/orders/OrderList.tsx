@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import Card from "../../components/ui/Card";
+import Button from "../../components/ui/Button";
 import Table from "../../components/ui/Table";
 import TablePagination from "../../components/ui/TablePagination";
 import { createOrderColumns } from "./orderColumns";
@@ -68,6 +69,22 @@ export default function OrderList({
         searchValue={search}
         onSearchChange={handleSearchChange}
         searchPlaceholder="Tìm theo mã đơn, khách hàng..."
+        actions={
+          <>
+            <Button
+              customVariant="secondary"
+              size="sm"
+              onClick={() => console.log("Tạo đơn với OCR")}
+            >
+              <i className="bi bi-printer me-1" aria-hidden="true" />
+              Tạo đơn với OCR
+            </Button>
+            <Button size="sm" onClick={() => console.log("Lọc đơn hàng")}>
+              <i className="bi bi-funnel me-1" aria-hidden="true" />
+              Lọc
+            </Button>
+          </>
+        }
         emptyMessage="Không tìm thấy đơn hàng phù hợp"
         activeRowKey={selectedOrderId}
         onRowClick={(order) => onSelectOrder(order.id)}

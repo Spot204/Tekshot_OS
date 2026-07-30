@@ -31,6 +31,8 @@ export interface TableProps<T> {
   /** Field làm React key cho từng dòng */
   rowKey: keyof T;
   title?: string;
+  /** Nút/điều khiển thêm ở hàng tiêu đề, đứng cạnh ô tìm kiếm */
+  actions?: ReactNode;
   searchValue?: string;
   /** Truyền vào thì Table tự hiện ô tìm kiếm ở hàng tiêu đề */
   onSearchChange?: (value: string) => void;
@@ -58,6 +60,7 @@ function Table<T>({
   data,
   rowKey,
   title,
+  actions,
   searchValue,
   onSearchChange,
   searchPlaceholder = "Tìm kiếm...",
@@ -70,7 +73,7 @@ function Table<T>({
 }: TableProps<T>) {
   const effectivePageSize = pageSize ?? data.length;
   const totalColumnCount = columns.length + (showIndex ? 1 : 0);
-  const hasTitleRow = Boolean(title || onSearchChange);
+  const hasTitleRow = Boolean(title || onSearchChange || actions);
 
   const cellContent = (column: Column<T>, row: T): ReactNode => {
     if (column.render) return column.render(row);
@@ -92,17 +95,21 @@ function Table<T>({
                     )}
                   </div>
 
-                  {onSearchChange && (
-                    <div style={{ maxWidth: "260px", width: "100%" }}>
-                      <Input
-                        size="sm"
-                        placeholder={searchPlaceholder}
-                        value={searchValue}
-                        onChange={(e) => onSearchChange(e.target.value)}
-                        leftIcon={<i className="bi bi-search" />}
-                      />
-                    </div>
-                  )}
+                  <div className="d-flex align-items-center flex-wrap gap-2">
+                    {onSearchChange && (
+                      <div style={{ width: "260px" }}>
+                        <Input
+                          size="sm"
+                          placeholder={searchPlaceholder}
+                          value={searchValue}
+                          onChange={(e) => onSearchChange(e.target.value)}
+                          leftIcon={<i className="bi bi-search" />}
+                        />
+                      </div>
+                    )}
+
+                    {actions}
+                  </div>
                 </div>
               </th>
             </tr>
