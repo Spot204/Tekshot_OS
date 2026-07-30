@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Nav, Stack, Collapse } from "react-bootstrap";
+import { useNavigate, useLocation } from "react-router-dom";
 import {
   ShoppingCart,
   Box,
@@ -26,26 +27,36 @@ interface MenuItem {
 }
 
 interface SidebarProps {
-  activeTab: string;
-  setActiveTab: (id: string) => void;
   setIsOpen?: (open: boolean) => void;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({
-  activeTab,
-  setActiveTab,
-  setIsOpen,
-}) => {
+const Sidebar: React.FC<SidebarProps> = ({ setIsOpen }) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const activeTab = location.pathname.substring(1) || "don-hang";
+
   const [openMenus, setOpenMenus] = useState<Record<string, boolean>>({
     "hang-hoa": true,
+    "hoa-don": true,
   });
 
+  useEffect(() => {
+    menuItems.forEach((item) => {
+      if (item.children?.some((child) => child.id === activeTab)) {
+        setOpenMenus((prev) => ({ ...prev, [item.id]: true }));
+      }
+    });
+  }, [activeTab]);
+
   const toggleMenu = (menuId: string) => {
-    setOpenMenus((prev) => (prev[menuId] ? {} : { [menuId]: true }));
+    setOpenMenus((prev) => ({
+      ...prev,
+      [menuId]: !prev[menuId],
+    }));
   };
 
   const menuItems: MenuItem[] = [
-    { id: "don-hang", label: "Đơn hàng", icon: <ShoppingCart size={18} /> },
+    { id: "order", label: "Đơn hàng", icon: <ShoppingCart size={18} /> },
     {
       id: "hang-hoa",
       label: "Hàng hóa",
@@ -110,15 +121,12 @@ const Sidebar: React.FC<SidebarProps> = ({
         width: "260px",
         position: "fixed",
         left: 0,
-        top: 0,
+        top: "72px",
+        height: "calc(100vh - 72px)",
         zIndex: 1000,
       }}
     >
-      <div className="p-4 border-bottom flex-shrink-0">
-        <h5 className="fw-bold text-primary mb-0"></h5>
-      </div>
-
-      <div className="flex-grow-1 overflow-y-auto overflow-x-hidden pt-2 custom-sidebar-scroll">
+      <div className="flex-grow-1 overflow-y-auto overflow-x-hidden pt-5 custom-sidebar-scroll">
         <Nav className="flex-column px-2 pb-4">
           {menuItems.map((item) => {
             const isParentActive = item.children?.some(
@@ -134,7 +142,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                     if (item.children) {
                       toggleMenu(item.id);
                     } else {
-                      setActiveTab(item.id);
+                      navigate(`/${item.id}`);
                       setIsOpen?.(false);
                     }
                   }}
@@ -174,7 +182,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                           <div
                             key={child.id}
                             onClick={() => {
-                              setActiveTab(child.id);
+                              navigate(`/${child.id}`);
                               setIsOpen?.(false);
                             }}
                             className={`ps-5 py-2 mx-2 rounded-2 small cursor-pointer transition-all ${
