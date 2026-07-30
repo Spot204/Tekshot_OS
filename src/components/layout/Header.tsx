@@ -46,7 +46,7 @@ export default function Header() {
             </select>
             {/* Cài đặt */}
             <div
-              className="btn btn-outline-secondary rounded-circle"
+              className="btn btn-outline-secondary rounded-circle j"
               style={{
                 width: 42,
                 height: 42,
