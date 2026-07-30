@@ -56,7 +56,7 @@ const Sidebar: React.FC<SidebarProps> = ({ setIsOpen }) => {
   };
 
   const menuItems: MenuItem[] = [
-    { id: "don-hang", label: "Đơn hàng", icon: <ShoppingCart size={18} /> },
+    { id: "order", label: "Đơn hàng", icon: <ShoppingCart size={18} /> },
     {
       id: "hang-hoa",
       label: "Hàng hóa",
@@ -126,7 +126,7 @@ const Sidebar: React.FC<SidebarProps> = ({ setIsOpen }) => {
         zIndex: 1000,
       }}
     >
-      <div className="flex-grow-1 overflow-y-auto overflow-x-hidden pt-3 custom-sidebar-scroll">
+      <div className="flex-grow-1 overflow-y-auto overflow-x-hidden pt-5 custom-sidebar-scroll">
         <Nav className="flex-column px-2 pb-4">
           {menuItems.map((item) => {
             const isParentActive = item.children?.some(
