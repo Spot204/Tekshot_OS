@@ -33,10 +33,7 @@ const startOfDay = (value: Date | string): number => {
   return date.getTime();
 };
 
-/**
- * So sánh chỉ theo ngày, bỏ qua giờ.
- * `from`/`to` là Date đang nằm trong state nên tuyệt đối không mutate.
- */
+/** So sánh theo ngày, bỏ giờ. Không mutate `from`/`to` — chúng nằm trong state. */
 export const isWithinRange = (
   iso: string,
   from: Date | null,

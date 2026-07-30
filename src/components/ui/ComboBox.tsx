@@ -18,10 +18,7 @@ export interface ComboBoxProps
   placeholder?: string;
 }
 
-/**
- * Ô chọn dùng chung. API cố tình giống Input (size / state / message)
- * để form dùng lẫn hai component không phải nhớ hai bộ prop.
- */
+/** API cố tình giống Input (size / state / message) */
 const ComboBox = forwardRef<HTMLSelectElement, ComboBoxProps>(
   (
     {
@@ -51,7 +48,7 @@ const ComboBox = forwardRef<HTMLSelectElement, ComboBoxProps>(
         <select
           ref={ref}
           className={clsx(
-            "form-select shadow-none rounded-4",
+            "form-select shadow-none",
             sizeClass,
             stateClass,
             className,

@@ -36,7 +36,7 @@ const Sidebar = ({ isOpen, onNavigate }: SidebarProps) => {
   return (
     <aside
       className={clsx(
-        "app-sidebar bg-white border-end shadow-sm d-flex flex-column position-fixed start-0",
+        "app-sidebar border-end d-flex flex-column position-fixed start-0",
         isOpen && "is-open",
       )}
     >
@@ -60,7 +60,7 @@ const Sidebar = ({ isOpen, onNavigate }: SidebarProps) => {
                       ROW_BASE,
                       hasActiveChild
                         ? "bg-primary text-white shadow-sm"
-                        : "bg-transparent text-dark hover-menu-item",
+                        : "bg-transparent text-body hover-menu-item",
                     )}
                   >
                     <Stack direction="horizontal" gap={3}>
@@ -91,7 +91,7 @@ const Sidebar = ({ isOpen, onNavigate }: SidebarProps) => {
                                 "ps-5 py-2 mx-2 rounded-2 small text-decoration-none",
                                 isActive
                                   ? "bg-primary bg-opacity-10 text-primary fw-bold"
-                                  : "text-dark hover-menu-item fw-semibold",
+                                  : "text-body hover-menu-item fw-semibold",
                               )
                             }
                           >
@@ -116,7 +116,7 @@ const Sidebar = ({ isOpen, onNavigate }: SidebarProps) => {
                     "mb-1",
                     isActive
                       ? "bg-primary text-white shadow-sm"
-                      : "text-dark hover-menu-item",
+                      : "text-body hover-menu-item",
                   )
                 }
               >

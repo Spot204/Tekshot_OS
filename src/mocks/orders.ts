@@ -1,9 +1,6 @@
 import type { Order, OrderLine, OrderStat } from "../types/order";
 
-/**
- * Dữ liệu mẫu. Khi có API thì thay bằng service fetch, các trang không phải
- * đổi gì ngoài chỗ lấy dữ liệu.
- */
+/** Dữ liệu mẫu — thay bằng service fetch khi có API */
 export const orders: Order[] = [
   { id: "#2", customer: "Khách vãng lai", status: "Hoàn thành", payment: "Tiền mặt", total: 308000, createdAt: "2026-06-29T11:49:00" },
   { id: "#1", customer: "Nguyễn Văn A", status: "Đang xử lý", payment: "Tiền mặt", total: 256000, createdAt: "2026-06-29T10:12:00" },

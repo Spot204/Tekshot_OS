@@ -4,10 +4,7 @@ import InvoiceInPage from "../pages/invoices/InvoiceInPage";
 import InvoiceOutPage from "../pages/invoices/InvoiceOutPage";
 import ComingSoonPage from "../pages/ComingSoonPage";
 
-/**
- * Mỗi path ở đây phải khớp một `id` trong menuItems.tsx — sidebar điều hướng
- * bằng `/${id}` nên id không có route sẽ rơi vào catch-all bên dưới.
- */
+/** Mỗi path phải khớp một `id` trong menuItems.tsx, không thì rơi vào catch-all */
 const AppRoutes = () => {
   return (
     <Routes>

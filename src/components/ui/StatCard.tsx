@@ -16,10 +16,7 @@ export interface StatCardProps {
   };
 }
 
-/**
- * Ô số liệu ở đầu trang. Tách ra vì bản trước lặp lại nguyên khối 4 lần
- * trong OrdersPage, chỉ khác màu và nhãn.
- */
+/** Ô số liệu ở đầu trang */
 export default function StatCard({
   icon,
   variant,

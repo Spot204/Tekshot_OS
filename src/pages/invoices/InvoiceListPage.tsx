@@ -21,12 +21,7 @@ export interface InvoiceListPageProps {
   submitLabel: string;
 }
 
-/**
- * Thân chung của hai trang hóa đơn (đầu vào / đầu ra).
- *
- * Hai trang trước đây là hai file giống nhau từng byte trừ tên component,
- * nên mọi sửa đổi phải làm hai lần và tiêu đề bị lệch.
- */
+/** Thân chung của hai trang hóa đơn (đầu vào / đầu ra) */
 export default function InvoiceListPage({
   title,
   subtitle,
@@ -95,7 +90,7 @@ export default function InvoiceListPage({
       {/* ================= Tiêu đề + hành động ================= */}
       <div className="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4">
         <div className="d-flex align-items-center gap-3">
-          <div className="p-3 rounded-3 bg-white shadow-sm text-warning">
+          <div className="p-3 rounded-3 app-surface shadow-sm text-warning">
             <FileText size={28} />
           </div>
           <div>
@@ -133,7 +128,7 @@ export default function InvoiceListPage({
           </Button>
           <Button
             variant="link"
-            className="text-decoration-none text-dark d-flex align-items-center"
+            className="text-decoration-none text-body d-flex align-items-center"
             onClick={resetFilter}
           >
             <RotateCcw size={18} className="me-1" /> Đặt lại

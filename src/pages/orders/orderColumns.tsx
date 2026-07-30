@@ -21,12 +21,7 @@ interface OrderColumnHandlers {
   onDelete: (order: Order) => void;
 }
 
-/**
- * Factory vì cột "Thao tác" cần handler từ phía trang.
- *
- * Chú ý `id` khác `accessor`: cột thao tác không ứng với field nào của Order
- * nên chỉ có `id` — không phải mượn key của cột khác như bản trước.
- */
+/** Factory vì cột "Thao tác" cần handler từ trang. Cột đó chỉ có `id`, không `accessor`. */
 export const createOrderColumns = ({
   onEdit,
   onDelete,

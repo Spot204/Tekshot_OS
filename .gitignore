@@ -48,3 +48,7 @@ $RECYCLE.BIN/
 CLAUDE.md
 CLAUDE.local.md
 .claude/
+
+# Ảnh mockup thiết kế (~90 MB PNG) — file nhị phân nặng, git không diff được
+# và mỗi lần sửa ảnh là phình repo. Giữ ở đĩa/Drive, không push lên git.
+Tekshot UI/

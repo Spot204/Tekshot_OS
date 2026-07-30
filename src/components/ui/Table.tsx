@@ -3,13 +3,8 @@ import clsx from "clsx";
 import Input from "./Input";
 
 export interface Column<T> {
-  /**
-   * Định danh cột — dùng làm React key. Bắt buộc và phải duy nhất.
-   *
-   * Tách khỏi `accessor` vì cột chỉ-render (vd "Thao tác") không ứng với
-   * field nào của T; bản trước dùng chung một prop nên các cột đó phải mượn
-   * key của cột khác và sinh ra key trùng.
-   */
+  /** React key, bắt buộc và duy nhất. Tách khỏi `accessor` vì cột chỉ-render
+   *  (vd "Thao tác") không ứng với field nào của T. */
   id: string;
 
   header: string;
@@ -84,14 +79,14 @@ function Table<T>({
   return (
     <div className="border rounded-4 overflow-hidden">
       <table className="table table-hover align-middle mb-0">
-        <thead className="table-light">
+        <thead className="app-table-head">
           {hasTitleRow && (
             <tr>
               <th colSpan={totalColumnCount} className="border-bottom-0">
                 <div className="d-flex justify-content-between align-items-center flex-wrap gap-2 px-3">
                   <div>
                     {title && (
-                      <div className="fw-semibold text-dark">{title}</div>
+                      <div className="fw-semibold text-body-emphasis">{title}</div>
                     )}
                   </div>
 
@@ -157,7 +152,7 @@ function Table<T>({
                 onClick={onRowClick ? () => onRowClick(row) : undefined}
                 className={clsx(
                   onRowClick && "cursor-pointer",
-                  activeRowKey === key && "table-primary",
+                  activeRowKey === key && "app-row-active",
                 )}
               >
                 {showIndex && (

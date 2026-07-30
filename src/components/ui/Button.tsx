@@ -15,16 +15,7 @@ const BRAND_CONFIG = {
   secondary: { variant: "light", brandClass: "btn-brand-outline" },
 } as const;
 
-/**
- * Nút mặc định của app.
- *
- * Nếu người gọi truyền `variant` của react-bootstrap (vd variant="link") thì
- * bỏ hẳn styling thương hiệu và tôn trọng variant đó. Bản trước gộp style
- * thương hiệu vào inline style nên nút variant="link" vẫn bị nền xanh navy.
- *
- * Màu nằm trong .btn-brand / .btn-brand-outline ở global.css, không phải
- * inline style — nhờ vậy hover/active mới có màu riêng.
- */
+/** Truyền `variant` của react-bootstrap là bỏ hẳn styling thương hiệu */
 const Button: React.FC<CustomButtonProps> = ({
   customVariant,
   variant,

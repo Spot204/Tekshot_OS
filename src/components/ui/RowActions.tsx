@@ -17,13 +17,7 @@ interface RowActionsProps {
   label?: string;
 }
 
-/**
- * Menu hành động ở cuối mỗi dòng bảng.
- *
- * Dùng Dropdown của react-bootstrap thay vì `data-bs-toggle="dropdown"`:
- * app chỉ import CSS của Bootstrap chứ không import bundle JS, nên các
- * data-attribute của Bootstrap không có gì xử lý và menu sẽ không mở.
- */
+/** Menu hành động cuối dòng bảng. Không dùng data-bs-toggle: app không có JS Bootstrap. */
 export default function RowActions({
   actions,
   label = "Hành động",

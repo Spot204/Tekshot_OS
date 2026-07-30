@@ -39,13 +39,7 @@ const buildPageList = (page: number, pageCount: number): (number | null)[] => {
   return withGaps;
 };
 
-/**
- * Phân trang dùng chung cho các bảng.
- *
- * Component chỉ hiển thị — trang hiện tại do page giữ. Hiện dữ liệu là mock
- * nên các trang tự cắt mảng ở client; khi có API thì chỉ cần đổi chỗ cắt đó
- * thành request, phần này không phải sửa.
- */
+/** Chỉ hiển thị — trang hiện tại do page giữ */
 export default function TablePagination({
   page,
   pageSize,

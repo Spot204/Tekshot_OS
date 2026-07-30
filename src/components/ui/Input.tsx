@@ -31,7 +31,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(({ className = "", size =
 
                     <input
                         ref={ref}
-                        className={`form-control shadow-none rounded-4 ${sizeClass} ${stateClass} ${className}`}
+                        className={`form-control shadow-none ${sizeClass} ${stateClass} ${className}`}
                         style={{ paddingLeft: leftIcon ? "2.25rem" : undefined, paddingRight: rightIcon ? "2.25rem" : undefined, ...style }}
                         {...rest}
                     />

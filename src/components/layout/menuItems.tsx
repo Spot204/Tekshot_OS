@@ -22,15 +22,7 @@ export interface MenuItem extends SubMenuItem {
   children?: SubMenuItem[];
 }
 
-/**
- * Nguồn duy nhất cho menu sidebar.
- *
- * `id` được dùng trực tiếp làm URL (`/${id}`), nên mỗi id ở đây cần có
- * một <Route> tương ứng trong AppRouter — nếu không sẽ rơi vào route
- * catch-all và hiện trang "đang phát triển".
- *
- * Khai báo ngoài component để không tạo lại mảng mỗi lần render.
- */
+/** Nguồn duy nhất cho menu sidebar. Mỗi `id` cần một <Route> trong AppRouter. */
 export const menuItems: MenuItem[] = [
   { id: "order", label: "Đơn hàng", icon: <ShoppingCart size={18} /> },
   {
@@ -90,11 +82,7 @@ export const menuItems: MenuItem[] = [
   { id: "setting", label: "Cấu hình", icon: <Settings size={18} /> },
 ];
 
-/**
- * Path có đang trỏ vào menu id này không.
- * Khớp cả route con (`/invoice-in/123`) để sau này thêm trang chi tiết
- * thì sidebar vẫn highlight đúng.
- */
+/** Khớp cả route con (`/invoice-in/123`) để sidebar highlight đúng */
 export const isMenuPathActive = (pathname: string, id: string): boolean =>
   pathname === `/${id}` || pathname.startsWith(`/${id}/`);
 

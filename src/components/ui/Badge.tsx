@@ -38,10 +38,7 @@ const textClass: Record<BadgeVariant, string> = {
   info: "text-info",
 };
 
-/**
- * Nhãn trạng thái dạng pill. Trước đây tên là `Label` nên hay bị dùng nhầm
- * làm nhãn form / caption — đổi tên cho khớp việc nó thực sự làm.
- */
+/** Nhãn trạng thái dạng pill, không phải nhãn form */
 export default function Badge({
   children,
   variant = "primary",
