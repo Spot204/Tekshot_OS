@@ -2,6 +2,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import InvoiceIn from "../pages/InvoiceInPage";
 import InvoiceOut from "../pages/InvoiceOutPage";
 import OrdersPage from "../pages/OrdersPage"
+import CashBook from "../pages/CashBook"
 
 const AppRoutes = () => {
   return (
@@ -11,6 +12,7 @@ const AppRoutes = () => {
       <Route path="/invoice-in" element={<InvoiceIn />} />
       <Route path="/invoice-out" element={<InvoiceOut />} />
       <Route path="/order" element={<OrdersPage />} />
+      <Route path="/cashbook" element={<CashBook/>}/>
 
       <Route
         path="/:tabId"

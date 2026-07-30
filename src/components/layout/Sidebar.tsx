@@ -86,7 +86,7 @@ const Sidebar: React.FC<SidebarProps> = ({ setIsOpen }) => {
       label: "Sổ quỹ",
       icon: <Wallet size={18} />,
       children: [
-        { id: "wallet", label: "Sổ quỹ" },
+        { id: "cashbook", label: "Sổ quỹ" },
         { id: "cash-receipt", label: "Phiếu thu chi" },
         { id: "shift-closing", label: "Danh sách chốt ca" },
       ],
