@@ -1,28 +1,23 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import InvoiceIn from "../pages/InvoiceInPage";
-import InvoiceOut from "../pages/InvoiceOutPage";
-import OrdersPage from "../pages/OrdersPage"
+import OrdersPage from "../pages/orders/OrdersPage";
+import InvoiceInPage from "../pages/invoices/InvoiceInPage";
+import InvoiceOutPage from "../pages/invoices/InvoiceOutPage";
+import ComingSoonPage from "../pages/ComingSoonPage";
 
+/**
+ * Mỗi path ở đây phải khớp một `id` trong menuItems.tsx — sidebar điều hướng
+ * bằng `/${id}` nên id không có route sẽ rơi vào catch-all bên dưới.
+ */
 const AppRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<Navigate to="/don-hang" />} />
+      <Route path="/" element={<Navigate to="/order" replace />} />
 
-      <Route path="/invoice-in" element={<InvoiceIn />} />
-      <Route path="/invoice-out" element={<InvoiceOut />} />
       <Route path="/order" element={<OrdersPage />} />
+      <Route path="/invoice-in" element={<InvoiceInPage />} />
+      <Route path="/invoice-out" element={<InvoiceOutPage />} />
 
-      <Route
-        path="/:tabId"
-        element={
-          <div className="d-flex justify-content-center align-items-center  h-100">
-            <div className="text-center">
-              <h3 className="text-muted">Tính năng đang phát triển</h3>
-              <p>Vui lòng quay lại sau!</p>
-            </div>
-          </div>
-        }
-      />
+      <Route path="*" element={<ComingSoonPage />} />
     </Routes>
   );
 };

@@ -1,0 +1,12 @@
+{
+  // Ẩn mọi thứ đã khai trong .gitignore khỏi Explorer (dist/, node_modules/...).
+  // .gitignore một mình KHÔNG ẩn file — nó chỉ khiến git bỏ qua chúng.
+  "explorer.excludeGitIgnore": true,
+
+  // Không tìm kiếm trong file bị gitignore
+  "search.useIgnoreFiles": true,
+
+  // Dùng TypeScript của project (6.0.2) thay vì bản built-in cũ hơn của VSCode,
+  // nếu không editor có thể báo lỗi sai với các flag mới như erasableSyntaxOnly
+  "typescript.tsdk": "node_modules/typescript/lib"
+}
