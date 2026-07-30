@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import clsx from "clsx";
+import { ChevronDown, ChevronsUpDown, ChevronUp } from "lucide-react";
 import Input from "./Input";
 
 export interface Column<T> {
@@ -7,7 +8,8 @@ export interface Column<T> {
    *  (vd "Thao tác") không ứng với field nào của T. */
   id: string;
 
-  header: string;
+  /** ReactNode để cột chọn dòng đặt được checkbox "chọn tất cả" vào tiêu đề */
+  header: ReactNode;
 
   /** Field lấy giá trị mặc định. Bỏ trống nếu đã có `render`. */
   accessor?: keyof T;
@@ -18,6 +20,18 @@ export interface Column<T> {
   render?: (row: T) => ReactNode;
 
   width?: string;
+
+  /** Bấm tiêu đề để sắp xếp. Cần `accessor` hoặc `sortValue`. */
+  sortable?: boolean;
+
+  /** Khoá so sánh riêng — dùng khi giá trị lưu khác giá trị hiển thị
+   *  (vd role "staff" hiện là "Nhân viên") */
+  sortValue?: (row: T) => string | number;
+}
+
+export interface TableSort {
+  columnId: string;
+  direction: "asc" | "desc";
 }
 
 export interface TableProps<T> {
@@ -41,6 +55,10 @@ export interface TableProps<T> {
   onRowClick?: (row: T) => void;
   /** Giá trị rowKey của dòng đang được chọn, để tô sáng */
   activeRowKey?: string;
+
+  sort?: TableSort | null;
+  /** Thiếu prop này thì cột sortable vẫn render như tiêu đề thường */
+  onSortChange?: (columnId: string) => void;
 }
 
 const alignClass = (align?: "start" | "center" | "end") =>
@@ -49,6 +67,26 @@ const alignClass = (align?: "start" | "center" | "end") =>
     : align === "end"
       ? "text-end"
       : "text-start";
+
+const ariaSort = (sort: TableSort | null | undefined, columnId: string) => {
+  if (sort?.columnId !== columnId) return undefined;
+  return sort.direction === "asc" ? "ascending" : "descending";
+};
+
+function SortIcon({
+  sort,
+  columnId,
+}: {
+  sort: TableSort | null | undefined;
+  columnId: string;
+}) {
+  if (sort?.columnId !== columnId) {
+    return <ChevronsUpDown size={14} className="opacity-50" aria-hidden="true" />;
+  }
+
+  const Icon = sort.direction === "asc" ? ChevronUp : ChevronDown;
+  return <Icon size={14} aria-hidden="true" />;
+}
 
 function Table<T>({
   columns,
@@ -65,6 +103,8 @@ function Table<T>({
   emptyMessage = "Không có dữ liệu",
   onRowClick,
   activeRowKey,
+  sort,
+  onSortChange,
 }: TableProps<T>) {
   const effectivePageSize = pageSize ?? data.length;
   const totalColumnCount = columns.length + (showIndex ? 1 : 0);
@@ -77,7 +117,7 @@ function Table<T>({
   };
 
   return (
-    <div className="border rounded-4 overflow-hidden">
+    <div className="border rounded-4 app-table-wrap">
       <table className="table table-hover align-middle mb-0">
         <thead className="app-table-head">
           {hasTitleRow && (
@@ -124,8 +164,20 @@ function Table<T>({
                 key={column.id}
                 className={`${alignClass(column.align)} text-primary`}
                 style={column.width ? { width: column.width } : undefined}
+                aria-sort={ariaSort(sort, column.id)}
               >
-                {column.header}
+                {column.sortable && onSortChange ? (
+                  <button
+                    type="button"
+                    className="app-sort-btn"
+                    onClick={() => onSortChange(column.id)}
+                  >
+                    {column.header}
+                    <SortIcon sort={sort} columnId={column.id} />
+                  </button>
+                ) : (
+                  column.header
+                )}
               </th>
             ))}
           </tr>

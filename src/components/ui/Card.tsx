@@ -33,7 +33,7 @@ export default function Card({
       className={clsx(
         background ? "app-surface" : "bg-transparent",
         bordered && "border",
-        rounded && "rounded-3",
+        rounded && "rounded-4",
         shadow && "app-shadow",
         padding,
         className,

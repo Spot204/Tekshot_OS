@@ -40,8 +40,8 @@ const Sidebar = ({ isOpen, onNavigate }: SidebarProps) => {
         isOpen && "is-open",
       )}
     >
-      <div className="flex-grow-1 overflow-y-auto overflow-x-hidden pt-3 custom-sidebar-scroll">
-        <Nav as="nav" className="flex-column px-2 pb-4">
+      <div className="flex-grow-1 overflow-y-auto overflow-x-hidden  custom-sidebar-scroll">
+        <Nav className="flex-column px-2 pb-4">
           {menuItems.map((item) => {
             // Nhóm cha không phải link — chỉ đóng/mở, và sáng lên khi con active
             if (item.children) {
