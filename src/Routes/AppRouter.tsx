@@ -6,7 +6,7 @@ import OrdersPage from "../pages/OrdersPage"
 const AppRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<Navigate to="/don-hang" />} />
+      <Route path="/" element={<Navigate to="/order" />} />
 
       <Route path="/invoice-in" element={<InvoiceIn />} />
       <Route path="/invoice-out" element={<InvoiceOut />} />
