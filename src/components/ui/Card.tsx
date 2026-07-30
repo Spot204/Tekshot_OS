@@ -42,7 +42,7 @@ export default function Card({
       className={clsx(
         background ? "bg-white" : "bg-transparent",
         bordered && "border",
-        rounded && "rounded-3",
+        rounded && "rounded-4",
         shadow && "shadow-sm",
         "p-3",
         className
