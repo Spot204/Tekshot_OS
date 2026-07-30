@@ -14,6 +14,8 @@ const users: User[] = [
     { id: 2, name: "Bình", email: "binh@example.com"}
 ];
 
+import Sidebar from "./layout/Sidebar";
+import Header from "./components/layout/Header";
 function App() {
     const [date, setDate] = useState<Date | null>(null);
 
