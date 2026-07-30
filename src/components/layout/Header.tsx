@@ -2,7 +2,13 @@ import logo from "../../assets/Tekshot_OS.jpg";
 
 export default function Header() {
   return (
-    <header className="sticky-top bg-body border-bottom shadow-sm">
+    <header
+      className="top-0 start-0 end-0 bg-body border-bottom shadow-sm position-fixed"
+      style={{
+        height: "100px",
+        zIndex: 1050,
+      }}
+    >
       <div className="container-fluid">
         <div className="d-flex align-items-center justify-content-between py-2">
           {/* ================= Logo ================= */}
@@ -16,7 +22,7 @@ export default function Header() {
           </div>
 
           {/* ================= Tìm kiếm chức năng ================= */}
-          <div className="flex-grow-2 mx-4 " >
+          <div className="flex-grow-2 mx-4 ">
             <div className="input-group ">
               <span className="input-group-text bg-body border-end-0">
                 <i className="bi bi-search"></i>
@@ -33,10 +39,7 @@ export default function Header() {
           {/* ================= Chọn cửa hàng + Cài đặt ================= */}
           <div className="d-flex align-items-center gap-3">
             {/* Chọn cửa hàng */}
-            <select
-              className="form-select"
-              style={{ width: 220 }}
-            >
+            <select className="form-select" style={{ width: 220 }}>
               <option>Cửa hàng Hà Nội</option>
               <option>Cửa hàng Hải Phòng</option>
               <option>Cửa hàng Hồ Chí Minh</option>
@@ -49,7 +52,7 @@ export default function Header() {
                 height: 42,
               }}
             >
-              <i className="bi bi-person"></i>
+              <i className="bi bi-gear"></i>
             </div>
           </div>
         </div>

@@ -105,19 +105,12 @@ const Sidebar: React.FC<SidebarProps> = ({
 
   return (
     <div
-      className="bg-white border-end shadow-sm vh-100 d-flex flex-column"
+      className="bg-white border-end shadow-sm hv-100 d-flex flex-column position-fixed"
       style={{
         width: "260px",
-        position: "fixed",
-        left: 0,
-        top: 0,
-        zIndex: 1000,
+        zIndex: 1049,
       }}
     >
-      <div className="p-4 border-bottom flex-shrink-0">
-        <h5 className="fw-bold text-primary mb-0"></h5>
-      </div>
-
       <div className="flex-grow-1 overflow-y-auto overflow-x-hidden pt-2 custom-sidebar-scroll">
         <Nav className="flex-column px-2 pb-4">
           {menuItems.map((item) => {
