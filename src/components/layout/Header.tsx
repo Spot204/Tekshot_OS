@@ -5,7 +5,7 @@ export default function Header() {
     <header
       className="top-0 start-0 end-0 bg-body border-bottom shadow-sm position-fixed"
       style={{
-        height: "100px",
+        height: "80px",
         zIndex: 1050,
       }}
     >
@@ -17,7 +17,7 @@ export default function Header() {
               src={logo}
               alt="Tekshot"
               className="rounded object-fit-cover"
-              style={{ width: 160 }}
+              style={{ width: 120 }}
             />
           </div>
 
@@ -38,7 +38,7 @@ export default function Header() {
             </select>
             {/* Cài đặt */}
             <div
-              className="btn btn-outline-secondary rounded-circle j"
+              className="btn btn-outline-secondary rounded-circle d-flex align-items-center"
               style={{
                 width: 42,
                 height: 42,

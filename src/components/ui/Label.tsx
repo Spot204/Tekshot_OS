@@ -7,7 +7,8 @@ export type LabelVariant =
   | "success"
   | "danger"
   | "warning"
-  | "info";
+  | "info"
+  | "dark";
 
 export type LabelSize = "sm" | "md";
 
@@ -30,6 +31,7 @@ const backgroundClass: Record<LabelVariant, string> = {
   danger: "bg-danger-subtle text-danger",
   warning: "bg-warning-subtle text-warning",
   info: "bg-info-subtle text-info",
+  dark: "bg-dark-subtle text-dark"
 };
 
 const textClass: Record<LabelVariant, string> = {
@@ -39,6 +41,7 @@ const textClass: Record<LabelVariant, string> = {
   danger: "text-danger",
   warning: "text-warning",
   info: "text-info",
+  dark:"text-dark"
 };
 
 export default function Label({

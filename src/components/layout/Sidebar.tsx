@@ -62,7 +62,7 @@ const Sidebar: React.FC<SidebarProps> = ({ setIsOpen }) => {
       label: "Hàng hóa",
       icon: <Box size={18} />,
       children: [
-        { id: "san-pham", label: "Sản phẩm" },
+        { id: "products", label: "Sản phẩm" },
         { id: "Ingredient-Tool", label: "Vật tư" },
         { id: "Combo", label: "Combo" },
       ],
@@ -86,7 +86,7 @@ const Sidebar: React.FC<SidebarProps> = ({ setIsOpen }) => {
       label: "Sổ quỹ",
       icon: <Wallet size={18} />,
       children: [
-        { id: "wallet", label: "Sổ quỹ" },
+        { id: "cashbook", label: "Sổ quỹ" },
         { id: "cash-receipt", label: "Phiếu thu chi" },
         { id: "shift-closing", label: "Danh sách chốt ca" },
       ],
@@ -116,7 +116,7 @@ const Sidebar: React.FC<SidebarProps> = ({ setIsOpen }) => {
 
   return (
     <div
-      className="bg-white border-end shadow-sm vh-100 d-flex flex-column"
+      className="bg-white border-end shadow-sm vh-100 d-flex pt-3 flex-column"
       style={{
         width: "260px",
         position: "fixed",
@@ -126,7 +126,7 @@ const Sidebar: React.FC<SidebarProps> = ({ setIsOpen }) => {
         zIndex: 1000,
       }}
     >
-      <div className="flex-grow-1 overflow-y-auto overflow-x-hidden pt-5 custom-sidebar-scroll">
+      <div className="flex-grow-1 overflow-y-auto overflow-x-hidden  custom-sidebar-scroll">
         <Nav className="flex-column px-2 pb-4">
           {menuItems.map((item) => {
             const isParentActive = item.children?.some(
