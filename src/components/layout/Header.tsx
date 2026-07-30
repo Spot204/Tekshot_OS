@@ -2,7 +2,13 @@ import logo from "../../assets/Tekshot_OS.jpg";
 
 export default function Header() {
   return (
-    <header className="sticky-top bg-body border-bottom shadow-sm">
+    <header
+      className="top-0 start-0 end-0 bg-body border-bottom shadow-sm position-fixed"
+      style={{
+        height: "100px",
+        zIndex: 1050,
+      }}
+    >
       <div className="container-fluid">
         <div className="d-flex align-items-center justify-content-between py-2">
           {/* ================= Logo ================= */}
@@ -46,7 +52,7 @@ export default function Header() {
                 height: 42,
               }}
             >
-              <i className="bi bi-person"></i>
+              <i className="bi bi-gear"></i>
             </div>
           </div>
         </div>
