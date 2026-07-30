@@ -1,34 +1,26 @@
-import { useState } from 'react'
-import Header from "./components/layout/Header";
+import { BrowserRouter as Router } from "react-router-dom";
 import Sidebar from "./components/layout/Sidebar";
-import OrdersPage from "./pages/OrdersPage"
-
+import Header from "./components/layout/Header";
+import AppRoutes from "./Routes/AppRouter";
 function App() {
 
-  const [activeTab, setActiveTab] = useState("don-hang");
-
   return (
-    <div className="vh-100 overflow-hidden">
-      <Header />
+    <Router>
+      <div className="d-flex flex-column vh-100">
+        <Header />
 
-      <div
-        className="d-flex"
-        style={{
-          height: "calc(100vh - 100px)",
-          marginTop: "100px",
-        }}
-      >
-        <Sidebar
-          activeTab={activeTab}
-          setActiveTab={setActiveTab}
-        />
-
-        <main className="flex-grow-1 overflow-auto p-4">
-          <OrdersPage/>
-        </main>
+        <div className="d-flex flex-grow-1 overflow-hidden">
+          <Sidebar />
+          <main
+            className="flex-grow-1 bg-light p-4  overflow-auto"
+            style={{ marginLeft: "260px" }}
+          >
+            <AppRoutes />
+          </main>
+        </div>
       </div>
-    </div>
+    </Router>
   );
 }
 
-export default App
+export default App;

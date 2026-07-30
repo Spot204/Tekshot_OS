@@ -1,5 +1,5 @@
 import logo from "../../assets/Tekshot_OS.jpg";
-
+import Input from "../ui/Input"
 export default function Header() {
   return (
     <header
@@ -22,17 +22,9 @@ export default function Header() {
           </div>
 
           {/* ================= Tìm kiếm chức năng ================= */}
-          <div className="flex-grow-2 mx-4 ">
-            <div className="input-group ">
-              <span className="input-group-text bg-body border-end-0">
-                <i className="bi bi-search"></i>
-              </span>
-
-              <input
-                type="text"
-                className="form-control border-start-0"
-                placeholder="Tìm kiếm chức năng..."
-              />
+          <div className="mx-auto" style={{width:"500px"}}>
+            <div className="input-group " style={{width:"500px"}}>
+              <Input state="none" leftIcon={<i className="bi bi-search"/>} placeholder="Tìm kiếm sản phẩm..."></Input>
             </div>
           </div>
 
