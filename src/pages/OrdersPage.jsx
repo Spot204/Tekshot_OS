@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Col, Card, Table, Form, InputGroup, Pagination } from 'react-bootstrap';
 import { FiSearch, FiFilter, FiPlus, FiMoreVertical, FiFileText, FiShoppingCart, FiClock, FiRotateCcw } from 'react-icons/fi';
-import MyButton from './components/Button';
+import Button from './components/Button';
 
 const OrdersPage = () => {
   // Hàm render Badge trực tiếp trong file này

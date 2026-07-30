@@ -110,8 +110,8 @@ const Sidebar: React.FC<SidebarProps> = ({
         width: "260px",
         position: "fixed",
         left: 0,
-        top: 0,
-        zIndex: 1000,
+        top: "72px",
+        height: "calc(100vh - 72px)",
       }}
     >
       <div className="p-4 border-bottom flex-shrink-0">

@@ -16,7 +16,7 @@ export default function Header() {
           </div>
 
           {/* ================= Tìm kiếm chức năng ================= */}
-          <div className="flex-grow-2 mx-4 " >
+          <div className="flex-grow-2 mx-4 ">
             <div className="input-group ">
               <span className="input-group-text bg-body border-end-0">
                 <i className="bi bi-search"></i>
@@ -33,10 +33,7 @@ export default function Header() {
           {/* ================= Chọn cửa hàng + Cài đặt ================= */}
           <div className="d-flex align-items-center gap-3">
             {/* Chọn cửa hàng */}
-            <select
-              className="form-select"
-              style={{ width: 220 }}
-            >
+            <select className="form-select" style={{ width: 220 }}>
               <option>Cửa hàng Hà Nội</option>
               <option>Cửa hàng Hải Phòng</option>
               <option>Cửa hàng Hồ Chí Minh</option>
