@@ -95,7 +95,7 @@ function Products () {
         },
         {
             key: "stock",
-            header: "Tồn kho",
+            header: "Số lượng",
             align: "center",
             render: (row) => (
                 <Label variant={stockVariant(row.stock)} size="sm">

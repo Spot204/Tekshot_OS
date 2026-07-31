@@ -62,9 +62,9 @@ const Sidebar: React.FC<SidebarProps> = ({ setIsOpen }) => {
       label: "Hàng hóa",
       icon: <Box size={18} />,
       children: [
-        { id: "invoice/products", label: "Sản phẩm" },
-        { id: "invoice/materials", label: "Vật tư" },
-        { id: "invoice/combos", label: "Combo" },
+        { id: "invoices/products", label: "Sản phẩm" },
+        { id: "invoices/materials", label: "Vật tư" },
+        { id: "invoices/combos", label: "Combo" },
       ],
     },
     {
@@ -72,13 +72,13 @@ const Sidebar: React.FC<SidebarProps> = ({ setIsOpen }) => {
       label: "Kho hàng",
       icon: <Warehouse size={18} />,
       children: [
-        { id: "nguyen-lieu", label: "Nguyên liệu" },
-        { id: "Tool", label: "Dụng cụ" },
-        { id: "inventory", label: "Tồn kho" },
-        { id: "ordering", label: "Gọi hàng" },
-        { id: "inbound", label: "Nhập hàng" },
-        { id: "outbound", label: "Xuất hàng" },
-        { id: "history", label: "Lịch sử" },
+        { id: "warehouse/ingredients", label: "Nguyên liệu" },
+        { id: "warehouse/tools", label: "Dụng cụ" },
+        { id: "warehouse/stocks", label: "Tồn kho" },
+        { id: "warehouse/stock-orders", label: "Gọi hàng" },
+        { id: "warehouse/imports", label: "Nhập hàng" },
+        { id: "warehouse/exports", label: "Xuất hàng" },
+        { id: "warehouse/stock-history", label: "Lịch sử" },
       ],
     },
     {

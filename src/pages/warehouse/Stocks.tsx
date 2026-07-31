@@ -1,4 +1,3 @@
-import StatCard from "../../components/invoices/StatCard"
 import Card from "../../components/ui/Card"
 import Input from "../../components/ui/Input"
 import Label from "../../components/ui/Label"
@@ -7,9 +6,8 @@ import { useState } from "react"
 import type { Column } from "../../components/ui/Table"
 import Button from "../../components/ui/Button"
 import Pagination from "../../components/ui/Pagination"
-import ProductModal from "../../components/invoices/ProductModal"
 
-interface Combo {
+interface StockProps {
     id: number;
     name: string;
     variant: string;
@@ -22,7 +20,7 @@ interface Combo {
     statusText: string;
 }
 
-const mockCombos: Combo[] = [
+const mockStocks: StockProps[] = [
     { id: 1, name: "Áo bếp Pizza - XS", variant: "Màu đen, Size XS", image: "/images/ao-bep-1.png", sku: "BEPPIZZA-XS", category: "Áo bếp Pizza", price: 235000, stock: 25, status: "active", statusText: "Đang bán" },
     { id: 2, name: "Áo bếp Pizza - S", variant: "Màu đen, Size S", image: "/images/ao-bep-1.png", sku: "BEPPIZZA-S", category: "Áo bếp Pizza", price: 235000, stock: 18, status: "active", statusText: "Đang bán" },
     { id: 3, name: "Áo bếp Pizza - M", variant: "Màu đen, Size M", image: "/images/ao-bep-1.png", sku: "BEPPIZZA-M", category: "Áo bếp Pizza", price: 235000, stock: 30, status: "active", statusText: "Đang bán" },
@@ -53,15 +51,14 @@ const stockVariant = (stock: number): "success" | "warning" | "danger" => {
     return "success";
 };
 
-function Combos () {
+function Stocks () {
     const [keyword, setKeyword] = useState("");
     const [page, setPage] = useState(1);
     const [pageSize, setPageSize] = useState(8);
-    const [showCreateModal, setShowCreateModal] = useState(false);
 
-    const pageData = mockCombos.slice((page - 1) * pageSize, page * pageSize);
+    const pageData = mockStocks.slice((page - 1) * pageSize, page * pageSize);
 
-    const columns: Column<Combo>[] = [
+    const columns: Column<StockProps>[] = [
         {
             key: "id",
             header: "",
@@ -69,7 +66,7 @@ function Combos () {
         },
         {
             key: "name",
-            header: "Combo",
+            header: "Tên sản phẩm",
             render: (row) => (
                 <div className="d-flex align-items-center gap-2">
                     <img
@@ -127,68 +124,14 @@ function Combos () {
     return (
         <div className="bg-light mt-5 pt-5">
             <div className="fs-4 fw-bold mb-3">
-                <i className="bi bi-box-seam text-warning"/> Combo
-            </div>
-
-            <div className="row row-cols-2 row-cols-sm-3 row-cols-lg-5 row-cols-xl-5 g-3 mb-3">
-                <div className="col">
-                    <StatCard
-                        icon={<i className="bi bi-box-seam" />}
-                        iconBgClassName="bg-primary-subtle text-primary"
-                        label="Tổng combo"
-                        value="1,247"
-                        change={{ value: "12.6%", direction: "up" }}
-                    />
-                </div>
-
-                <div className="col">
-                    <StatCard
-                        icon={<i className="bi bi-tag" />}
-                        iconBgClassName="bg-success-subtle text-success"
-                        label="Giá trị tồn kho"
-                        value="2.450.000.000đ"
-                        change={{ value: "8.4%", direction: "up" }}
-                    />
-                </div>
-
-                <div className="col">
-                    <StatCard
-                        icon={<i className="bi bi-bag" />}
-                        iconBgClassName=""
-                        iconStyle={{ backgroundColor: "#f3e8ff", color: "#9333ea" }}
-                        label="Đang bán"
-                        value="986"
-                        change={{ value: "10.3%", direction: "up" }}
-                    />
-                </div>
-
-                <div className="col">
-                    <StatCard
-                        icon={<i className="bi bi-exclamation-triangle" />}
-                        iconBgClassName="bg-warning-subtle text-warning"
-                        label="Sắp hết hàng"
-                        value="72"
-                        change={{ value: "4.2%", direction: "down" }}
-                    />
-                </div>
-
-                <div className="col">
-                    <StatCard
-                        icon={<i className="bi bi-slash-circle" />}
-                        iconBgClassName=""
-                        iconStyle={{ backgroundColor: "#d1f5f0", color: "#0d9488" }}
-                        label="Ngừng kinh doanh"
-                        value="24"
-                        change={{ value: "2.1%", direction: "down" }}
-                    />
-                </div>
+                <i className="bi bi-box-seam text-warning"/> Tồn kho
             </div>
 
             <div >
                 <Card className="mb-3">
                     <div className="d-flex flex-wrap align-items-center gap-2">
                         <div className="flex-grow-1" style={{ minWidth: "220px" }}>
-                            <Input state="none" leftIcon={<i className="bi bi-search"/>} placeholder="Tìm kiếm combo..." value={keyword} onChange={(e) => setKeyword(e.target.value)}></Input>
+                            <Input state="none" leftIcon={<i className="bi bi-search"/>} placeholder="Tìm kiếm kho..." value={keyword} onChange={(e) => setKeyword(e.target.value)}></Input>
                         </div>
 
                         <select className="form-select rounded-4" style={{ width: "160px" }}>
@@ -207,17 +150,13 @@ function Combos () {
                             <i className="bi bi-funnel me-1" /> Bộ lọc
                         </Button>
 
-                        <Button customVariant="primary" className="rounded-4" onClick={() => setShowCreateModal(true)}>
-                            <i className="bi bi-plus-lg me-1" /> Thêm mới
-                        </Button>
-
                         <Button customVariant="secondary" className="rounded-4">
                             <i className="bi bi-gear" />
                         </Button>
                     </div>
                 </Card>
                 
-                <Table<Combo>
+                <Table<StockProps>
                     columns={columns}
                     data={pageData}
                     rowKey="id"
@@ -229,22 +168,13 @@ function Combos () {
                 <Pagination 
                     currentPage={page}
                     pageSize={pageSize}
-                    totalItems={mockCombos.length}
+                    totalItems={mockStocks.length}
                     onPageChange={setPage}
                     onPageSizeChange={(size) => {
                         setPageSize(size);
                         setPage(1);
                     }}
-                    itemLabel="combo"
-                />
-
-                <ProductModal
-                    open={showCreateModal}
-                    onClose={() => setShowCreateModal(false)}
-                    onSave={(data) => {
-                        console.log("Lưu sản phẩm:", data);
-                        setShowCreateModal(false);
-                    }}
+                    itemLabel="tồn kho"
                 />
             </div>
         </div>
@@ -252,4 +182,4 @@ function Combos () {
 }
 
 
-export default Combos;
+export default Stocks;
