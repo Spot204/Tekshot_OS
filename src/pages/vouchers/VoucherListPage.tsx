@@ -116,14 +116,14 @@ export default function VoucherListPage() {
 
   return (
     <>
-      <div className="d-flex align-items-center gap-3 mb-4">
+      <div className="d-flex align-items-center gap-3 mb-2">
         <span className="cashbook-page-icon">
           <ReceiptText size={24} />
         </span>
         <h4 className="fw-bold mb-0">Phiếu thu chi</h4>
       </div>
 
-      <div className="app-tabs mb-4" role="tablist">
+      <div className="app-tabs mb-2" role="tablist">
         {TABS.map((item) => (
           <button
             key={item.id || "all"}

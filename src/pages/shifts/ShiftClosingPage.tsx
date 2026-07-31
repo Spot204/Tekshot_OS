@@ -62,7 +62,7 @@ export default function ShiftClosingPage() {
 
   return (
     <>
-      <div className="d-flex align-items-center gap-3 mb-4">
+      <div className="d-flex align-items-center gap-3 mb-2">
         <span className="cashbook-page-icon">
           <ReceiptText size={24} />
         </span>
@@ -71,7 +71,7 @@ export default function ShiftClosingPage() {
 
       <ShiftFilters value={filter} onChange={patchFilter} />
 
-      <Card shadow bordered={false} padding="p-4">
+      <Card shadow bordered={false} padding="p-3">
         <Table
           columns={columns}
           data={visible}
@@ -83,7 +83,7 @@ export default function ShiftClosingPage() {
           emptyMessage="Không có lượt chốt ca phù hợp"
         />
 
-        <div className="mt-4">
+        <div className="mt-2">
           <TablePagination
             page={page}
             pageSize={pageSize}

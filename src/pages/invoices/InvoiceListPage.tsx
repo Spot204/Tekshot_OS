@@ -88,7 +88,7 @@ export default function InvoiceListPage({
   return (
     <>
       {/* ================= Tiêu đề + hành động ================= */}
-      <div className="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4">
+      <div className="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-2">
         <div className="d-flex align-items-center gap-3">
           <div className="p-3 rounded-3 app-surface shadow-sm text-warning">
             <FileText size={28} />
@@ -118,7 +118,7 @@ export default function InvoiceListPage({
       </div>
 
       {/* ================= Bộ lọc ================= */}
-      <Card shadow bordered={false} padding="p-4" className="mb-4">
+      <Card shadow bordered={false} padding="p-3" className="mb-2">
         <div className="d-flex justify-content-end gap-2">
           <Button
             customVariant="secondary"
@@ -178,7 +178,7 @@ export default function InvoiceListPage({
       </Card>
 
       {/* ================= Bảng ================= */}
-      <Card shadow bordered={false} padding="p-4">
+      <Card shadow bordered={false} padding="p-3">
         <Table
           columns={columns}
           data={visible}

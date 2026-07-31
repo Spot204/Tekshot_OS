@@ -21,7 +21,7 @@ export default function ReportPage() {
     <>
       <ReportToolbar range={range} onRangeChange={setRange} />
 
-      <div className="row g-4 mb-4">
+      <div className="row g-2 mb-2">
         <div className="col-xl-5">
           <RevenueHero />
         </div>
@@ -33,7 +33,7 @@ export default function ReportPage() {
         </div>
       </div>
 
-      <div className="row g-4 mb-4">
+      <div className="row g-2 mb-2">
         <div className="col-xl-8">
           <PeriodComparison />
         </div>
@@ -42,7 +42,7 @@ export default function ReportPage() {
         </div>
       </div>
 
-      <div className="row g-4">
+      <div className="row g-2">
         <div className="col-xl-4">
           <ChannelRevenue />
         </div>

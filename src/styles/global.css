@@ -152,7 +152,7 @@
 /* Gộp cả offset header. Không thêm p-* của Bootstrap lên <main>. */
 .app-main {
   margin-left: var(--sidebar-w);
-  padding: calc(var(--header-h) + 1.5rem) 1.5rem 1.5rem;
+  padding: calc(var(--header-h) + 0.5rem) 0.5rem 0.5rem;
   transition: margin-left var(--t-base);
 }
 

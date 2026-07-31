@@ -96,7 +96,7 @@ export default function AttendancePage() {
 
   return (
     <>
-      <div className="d-flex justify-content-between align-items-start flex-wrap gap-3 mb-4">
+      <div className="d-flex justify-content-between align-items-start flex-wrap gap-3 mb-2">
         <div className="d-flex align-items-center gap-3">
           <div className="attendance-page-icon">
             <Fingerprint size={28} />

@@ -100,7 +100,7 @@ export default function StockItemListPage({
 
   return (
     <>
-      <div className="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4">
+      <div className="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-2">
         <div className="d-flex align-items-center gap-3">
           <span className="warehouse-page-icon">{icon}</span>
           <div>
@@ -118,7 +118,7 @@ export default function StockItemListPage({
         </Button>
       </div>
 
-      <div className="row g-3 mb-4">
+      <div className="row g-2 mb-2">
         <div className="col-md-4">
           <Card shadow bordered={false} padding="p-4">
             <div className="text-secondary small">Tổng danh mục</div>
@@ -144,7 +144,7 @@ export default function StockItemListPage({
         </div>
       </div>
 
-      <Card shadow bordered={false} padding="p-4" className="mb-4">
+      <Card shadow bordered={false} padding="p-4" className="mb-2">
         <div className="row g-3">
           <div className="col-xl-5 col-md-6">
             <Input

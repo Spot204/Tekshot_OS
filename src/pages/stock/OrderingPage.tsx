@@ -204,7 +204,7 @@ export default function OrderingPage() {
 
   return (
     <>
-      <div className="d-flex align-items-center gap-3 mb-4">
+      <div className="d-flex align-items-center gap-3 mb-2">
         <span className="warehouse-page-icon">
           <PackageSearch size={24} />
         </span>
@@ -214,7 +214,7 @@ export default function OrderingPage() {
         </div>
       </div>
 
-      <div className="row g-3 mb-4">
+      <div className="row g-2 mb-2">
         <div className="col-md-4">
           <Card shadow bordered={false} padding="p-4">
             <div className="text-secondary small">Cần gọi thêm</div>
@@ -239,7 +239,7 @@ export default function OrderingPage() {
         </div>
       </div>
 
-      <div className="row g-4">
+      <div className="row g-2">
         <div className="col-xl-8">
           <Card shadow bordered={false} padding="p-4">
             <div className="app-tabs mb-3" role="tablist">

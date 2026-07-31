@@ -93,7 +93,7 @@ export default function ProductsPage() {
 
   return (
     <>
-      <div className="d-flex align-items-center gap-3 mb-4">
+      <div className="d-flex align-items-center gap-3 mb-2">
         <span className="product-page-icon">
           <Package size={24} />
         </span>
@@ -107,7 +107,7 @@ export default function ProductsPage() {
 
       <ProductStats />
 
-      <Card shadow bordered={false} padding="p-4" className="mb-4">
+      <Card shadow bordered={false} padding="p-4" className="mb-2">
         <div className="row g-3 align-items-center">
           <div className="col-xl-4 col-md-6">
             <Input

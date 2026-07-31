@@ -91,7 +91,7 @@ export default function InboundPage() {
 
   return (
     <>
-      <div className="d-flex align-items-center gap-3 mb-4">
+      <div className="d-flex align-items-center gap-3 mb-2">
         <span className="warehouse-page-icon">
           <PackagePlus size={24} />
         </span>
@@ -101,9 +101,9 @@ export default function InboundPage() {
         </div>
       </div>
 
-      <div className="row g-4">
+      <div className="row g-2">
         <div className="col-xl-8">
-          <Card shadow bordered={false} padding="p-4" className="mb-4">
+          <Card shadow bordered={false} padding="p-4" className="mb-2">
             <div className="row g-3">
               <div className="col-md-6">
                 <label htmlFor="inbound-warehouse" className="form-label fw-semibold">

@@ -31,7 +31,7 @@ export default function AttendanceFilters({
   onReset,
 }: AttendanceFiltersProps) {
   return (
-    <Card shadow bordered={false} padding="p-4" className="mb-4">
+    <Card shadow bordered={false} padding="p-4" className="mb-2">
       <div className="row g-3">
         <div className="col-lg-3 col-md-6">
           <label htmlFor="attendance-search" className="form-label fw-semibold">

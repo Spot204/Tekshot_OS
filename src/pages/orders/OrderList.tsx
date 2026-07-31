@@ -57,7 +57,7 @@ export default function OrderList({
   };
 
   return (
-    <Card shadow bordered={false} padding="p-4">
+    <Card shadow bordered={false} padding="p-3">
       <Table
         columns={columns}
         data={visible}

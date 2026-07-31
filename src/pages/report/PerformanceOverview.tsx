@@ -16,7 +16,7 @@ const ICONS: Record<string, ReactNode> = {
 export default function PerformanceOverview() {
   return (
     <SectionCard title="Tổng quan hiệu suất" className="h-100">
-      <div className="row g-3">
+      <div className="row g-2">
         {performanceMetrics.map((metric) => (
           <div key={metric.id} className="col-sm-6">
             <div className="border rounded-3 p-3 h-100 d-flex gap-3">

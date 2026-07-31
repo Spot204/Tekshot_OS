@@ -15,9 +15,9 @@ export default function ReportToolbar({
   const [from, to] = range;
 
   return (
-    <div className="d-flex flex-wrap align-items-start justify-content-between gap-3 mb-4">
+    <div className="d-flex flex-wrap align-items-start justify-content-between gap-3 mb-2">
       <div>
-        <h1 className="h3 fw-bold mb-1">Báo cáo</h1>
+        <h1 className="h3 fw-bold">Báo cáo</h1>
         <p className="text-secondary mb-0">
           Phân tích hiệu suất kinh doanh, theo dõi xu hướng và đưa ra quyết định
           chính xác hơn.

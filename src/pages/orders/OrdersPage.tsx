@@ -14,7 +14,7 @@ export default function OrdersPage() {
     <>
       <OrderStats stats={orderStats} />
 
-      <div className="row g-4">
+      <div className="row g-2">
         <div className="col-xl-7">
           <OrderList
             orders={orders}

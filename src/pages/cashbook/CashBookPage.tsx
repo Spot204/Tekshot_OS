@@ -72,7 +72,7 @@ export default function CashBookPage() {
 
   return (
     <>
-      <div className="d-flex align-items-center gap-3 mb-4">
+      <div className="d-flex align-items-center gap-3 mb-2">
         <span className="cashbook-page-icon">
           <ReceiptText size={24} />
         </span>

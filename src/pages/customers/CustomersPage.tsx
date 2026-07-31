@@ -41,7 +41,7 @@ export default function CustomersPage() {
 
   return (
     <>
-      <div className="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4">
+      <div className="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-2">
         <div className="d-flex align-items-center gap-3">
           <div className="customer-page-icon">
             <Users size={28} />
@@ -59,7 +59,7 @@ export default function CustomersPage() {
         </div>
       </div>
 
-      <Card shadow bordered={false} padding="p-4" className="mb-4">
+      <Card shadow bordered={false} padding="p-4" className="mb-2">
         <label htmlFor="customer-search" className="form-label fw-semibold">
           Tìm kiếm
         </label>

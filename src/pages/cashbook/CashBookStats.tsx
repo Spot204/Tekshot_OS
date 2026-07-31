@@ -53,7 +53,7 @@ export default function CashBookStats({
   periodLabel,
 }: CashBookStatsProps) {
   return (
-    <div className="row g-3 mb-4">
+    <div className="row g-2 mb-2">
       <div className="col-xl-3 col-md-6">
         <Stat
           icon={<Wallet size={20} />}

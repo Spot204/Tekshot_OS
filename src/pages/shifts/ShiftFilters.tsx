@@ -28,7 +28,7 @@ interface ShiftFiltersProps {
 
 export default function ShiftFilters({ value, onChange }: ShiftFiltersProps) {
   return (
-    <Card shadow bordered={false} padding="p-4" className="mb-4">
+    <Card shadow bordered={false} padding="p-3" className="mb-2">
       <div className="d-flex justify-content-end gap-2 mb-3">
         <button type="button" className="app-header-icon-btn border" aria-label="Chọn cột hiển thị">
           <List size={18} />

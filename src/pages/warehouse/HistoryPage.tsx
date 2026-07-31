@@ -215,7 +215,7 @@ export default function HistoryPage() {
 
   return (
     <>
-      <div className="d-flex align-items-center gap-3 mb-4">
+      <div className="d-flex align-items-center gap-3 mb-2">
         <span className="warehouse-page-icon">
           <History size={24} />
         </span>
@@ -225,7 +225,7 @@ export default function HistoryPage() {
         </div>
       </div>
 
-      <Card shadow bordered={false} padding="p-4" className="mb-4">
+      <Card shadow bordered={false} padding="p-4" className="mb-2">
         <div className="row g-3 align-items-center">
           <div className="col-xl-2 col-md-6">
             <ComboBox

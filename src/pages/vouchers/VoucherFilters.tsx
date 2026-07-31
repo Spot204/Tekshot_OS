@@ -25,7 +25,7 @@ export default function VoucherFilters({
   onCreate,
 }: VoucherFiltersProps) {
   return (
-    <Card shadow bordered={false} padding="p-4" className="mb-4">
+    <Card shadow bordered={false} padding="p-4" className="mb-2">
       <div className="row g-3 align-items-end">
         <div className="col-xl-3 col-md-6">
           <label className="form-label fw-semibold">Ngày tạo</label>

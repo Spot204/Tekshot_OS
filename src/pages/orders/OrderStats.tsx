@@ -8,7 +8,7 @@ interface OrderStatsProps {
 
 export default function OrderStats({ stats }: OrderStatsProps) {
   return (
-    <div className="row g-4 mb-4">
+    <div className="row g-2 mb-2">
       {stats.map((stat) => (
         <div key={stat.id} className="col-md-6 col-xl-3">
           <StatCard
