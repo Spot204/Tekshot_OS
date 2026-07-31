@@ -1,0 +1,21 @@
+{
+  // KHÔNG ẩn theo .gitignore. Trước đây bật true, nhưng "Tekshot UI/" (ảnh
+  // mockup) bị gitignore để khỏi push 90 MB lên repo — mà vẫn cần mở xem hằng
+  // ngày. excludeGitIgnore là all-or-nothing, không chừa ngoại lệ được, nên
+  // tắt hẳn rồi liệt kê tay đúng thứ cần giấu ở files.exclude bên dưới.
+  "explorer.excludeGitIgnore": false,
+
+  // Giấu khỏi Explorer: rác build + thư viện, không phải thứ mình sửa tay.
+  "files.exclude": {
+    "**/node_modules": true,
+    "dist": true,
+    "**/*.tsbuildinfo": true
+  },
+
+  // Không tìm kiếm trong file bị gitignore (kể cả Tekshot UI/ — toàn ảnh PNG).
+  "search.useIgnoreFiles": true,
+
+  // Dùng TypeScript của project (6.0.2) thay vì bản built-in cũ hơn của VSCode,
+  // nếu không editor có thể báo lỗi sai với các flag mới như erasableSyntaxOnly
+  "typescript.tsdk": "node_modules/typescript/lib"
+}

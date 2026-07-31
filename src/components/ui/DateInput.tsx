@@ -1,36 +1,77 @@
-import "react-datepicker/dist/react-datepicker.css"
+import "react-datepicker/dist/react-datepicker.css";
+import { forwardRef } from "react";
 import DatePicker from "react-datepicker";
+import { Calendar, ChevronDown } from "lucide-react";
 import Input from "./Input";
+import type { InputProps } from "./Input";
+import { formatDateWithWeekday } from "../../utils/format";
 
 export interface DateInputProps {
-    selected: Date | null;
-    onChange: (date: Date | null) => void;
-    placeholder?: string;
-    size?: "sm" | "md" | "lg";
-    state?: "none" | "error" | "success";
-    message?: string;
-    disabled?: boolean;
+  selected: Date | null;
+  onChange: (date: Date | null) => void;
+  placeholder?: string;
+  size?: "sm" | "md" | "lg";
+  state?: "none" | "error" | "success";
+  message?: string;
+  disabled?: boolean;
+  /** Hiện "Thứ Hai, 27/07/2026" thay vì "27/07/2026" */
+  showWeekday?: boolean;
 }
 
-const DateInput = ({ 
-    selected, onChange, placeholder = "Chọn ngày", size = "md", state = "none", message, disabled }: DateInputProps) => {
-        return (
-            <DatePicker
-            selected={selected}
-            onChange={onChange}
-            dateFormat="dd/MM/yyyy"
-            disabled={disabled}
-            customInput={
-                <Input
-                    placeholder={placeholder}
-                    size={size}
-                    state={state}
-                    message={message}
-                    rightIcon={<i className="bi bi-calendar3" />}
-                />
-            }
-        />
-    ); 
+interface WeekdayInputProps extends InputProps {
+  pickedDate: Date | null;
+}
+
+/**
+ * react-datepicker clone customInput và ghi đè `value`, nên muốn đổi nhãn
+ * phải chặn ở một lớp bọc rồi tự truyền value xuống Input.
+ */
+const WeekdayInput = forwardRef<HTMLInputElement, WeekdayInputProps>(
+  ({ pickedDate, ...props }, ref) => (
+    <Input
+      {...props}
+      ref={ref}
+      readOnly
+      value={pickedDate ? formatDateWithWeekday(pickedDate) : ""}
+    />
+  ),
+);
+WeekdayInput.displayName = "WeekdayInput";
+
+const DateInput = ({
+  selected,
+  onChange,
+  placeholder = "Chọn ngày",
+  size = "md",
+  state = "none",
+  message,
+  disabled,
+  showWeekday = false,
+}: DateInputProps) => {
+  const shared = {
+    placeholder,
+    size,
+    state,
+    message,
+    leftIcon: <Calendar size={16} />,
+    rightIcon: <ChevronDown size={16} />,
+  };
+
+  return (
+    <DatePicker
+      selected={selected}
+      onChange={onChange}
+      dateFormat="dd/MM/yyyy"
+      disabled={disabled}
+      customInput={
+        showWeekday ? (
+          <WeekdayInput {...shared} pickedDate={selected} />
+        ) : (
+          <Input {...shared} />
+        )
+      }
+    />
+  );
 };
 
 export default DateInput;

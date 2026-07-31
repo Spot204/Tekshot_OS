@@ -1,4 +1,5 @@
 import React from "react";
+import clsx from "clsx";
 import {
   Button as BsButton,
   type ButtonProps as BsButtonProps,
@@ -8,38 +9,34 @@ interface CustomButtonProps extends BsButtonProps {
   customVariant?: "primary" | "secondary";
 }
 
-const VARIANT_CONFIG = {
-  primary: {
-    variant: "primary",
-    style: {
-      backgroundColor: "#084298",
-      borderColor: "#084298",
-    },
-  },
-  secondary: {
-    variant: "light",
-    style: {
-      backgroundColor: "#fff",
-      borderColor: "#084298",
-      color: "#084298",
-    },
-  },
+/** Map customVariant -> variant của react-bootstrap + class màu thương hiệu */
+const BRAND_CONFIG = {
+  primary: { variant: "primary", brandClass: "btn-brand" },
+  secondary: { variant: "light", brandClass: "btn-brand-outline" },
 } as const;
 
+/** Truyền `variant` của react-bootstrap là bỏ hẳn styling thương hiệu */
 const Button: React.FC<CustomButtonProps> = ({
-  customVariant = "primary",
+  customVariant,
+  variant,
   className,
-  style,
   children,
   ...props
 }) => {
-  const config = VARIANT_CONFIG[customVariant];
+  if (variant) {
+    return (
+      <BsButton variant={variant} className={className} {...props}>
+        {children}
+      </BsButton>
+    );
+  }
+
+  const config = BRAND_CONFIG[customVariant ?? "primary"];
 
   return (
     <BsButton
       variant={config.variant}
-      className={className}
-      style={{ ...config.style, ...style }}
+      className={clsx(config.brandClass, className)}
       {...props}
     >
       {children}
