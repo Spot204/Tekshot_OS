@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import Card from "../../ui/Card";
+import Card from "../ui/Card";
 
 export interface StatCardProps {
     icon: ReactNode;
@@ -24,7 +24,7 @@ export default function StatCard({
     change,
 }: StatCardProps) {
     return (
-        <Card className="h-100">
+        <Card className="shadow-sm border-0 h-100">
             <div
                 className={`d-inline-flex align-items-center justify-content-center rounded-4 ${iconBgClassName}`}
                 style={{ width: 40, height: 40, ...iconStyle }}

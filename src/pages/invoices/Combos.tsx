@@ -9,7 +9,7 @@ import Button from "../../components/ui/Button"
 import Pagination from "../../components/ui/Pagination"
 import ProductModal from "../../components/invoices/ProductModal"
 
-interface Product {
+interface Combo {
     id: number;
     name: string;
     variant: string;
@@ -22,7 +22,7 @@ interface Product {
     statusText: string;
 }
 
-const mockProducts: Product[] = [
+const mockCombos: Combo[] = [
     { id: 1, name: "Áo bếp Pizza - XS", variant: "Màu đen, Size XS", image: "/images/ao-bep-1.png", sku: "BEPPIZZA-XS", category: "Áo bếp Pizza", price: 235000, stock: 25, status: "active", statusText: "Đang bán" },
     { id: 2, name: "Áo bếp Pizza - S", variant: "Màu đen, Size S", image: "/images/ao-bep-1.png", sku: "BEPPIZZA-S", category: "Áo bếp Pizza", price: 235000, stock: 18, status: "active", statusText: "Đang bán" },
     { id: 3, name: "Áo bếp Pizza - M", variant: "Màu đen, Size M", image: "/images/ao-bep-1.png", sku: "BEPPIZZA-M", category: "Áo bếp Pizza", price: 235000, stock: 30, status: "active", statusText: "Đang bán" },
@@ -53,15 +53,15 @@ const stockVariant = (stock: number): "success" | "warning" | "danger" => {
     return "success";
 };
 
-function Products () {
+function Combos () {
     const [keyword, setKeyword] = useState("");
     const [page, setPage] = useState(1);
     const [pageSize, setPageSize] = useState(8);
     const [showCreateModal, setShowCreateModal] = useState(false);
 
-    const pageData = mockProducts.slice((page - 1) * pageSize, page * pageSize);
+    const pageData = mockCombos.slice((page - 1) * pageSize, page * pageSize);
 
-    const columns: Column<Product>[] = [
+    const columns: Column<Combo>[] = [
         {
             key: "id",
             header: "",
@@ -69,7 +69,7 @@ function Products () {
         },
         {
             key: "name",
-            header: "Sản phẩm",
+            header: "Combo",
             render: (row) => (
                 <div className="d-flex align-items-center gap-2">
                     <img
@@ -127,7 +127,7 @@ function Products () {
     return (
         <div className="bg-light mt-5 pt-5">
             <div className="fs-4 fw-bold mb-3">
-                <i className="bi bi-box-seam text-warning"/> Sản phẩm
+                <i className="bi bi-box-seam text-warning"/> Combo
             </div>
 
             <div className="row row-cols-2 row-cols-sm-3 row-cols-lg-5 row-cols-xl-5 g-3 mb-3">
@@ -135,7 +135,7 @@ function Products () {
                     <StatCard
                         icon={<i className="bi bi-box-seam" />}
                         iconBgClassName="bg-primary-subtle text-primary"
-                        label="Tổng sản phẩm"
+                        label="Tổng combo"
                         value="1,247"
                         change={{ value: "12.6%", direction: "up" }}
                     />
@@ -188,7 +188,7 @@ function Products () {
                 <Card className="mb-3">
                     <div className="d-flex flex-wrap align-items-center gap-2">
                         <div className="flex-grow-1" style={{ minWidth: "220px" }}>
-                            <Input state="none" leftIcon={<i className="bi bi-search"/>} placeholder="Tìm kiếm sản phẩm..." value={keyword} onChange={(e) => setKeyword(e.target.value)}></Input>
+                            <Input state="none" leftIcon={<i className="bi bi-search"/>} placeholder="Tìm kiếm combo..." value={keyword} onChange={(e) => setKeyword(e.target.value)}></Input>
                         </div>
 
                         <select className="form-select rounded-4" style={{ width: "160px" }}>
@@ -217,7 +217,7 @@ function Products () {
                     </div>
                 </Card>
                 
-                <Table<Product>
+                <Table<Combo>
                     columns={columns}
                     data={pageData}
                     rowKey="id"
@@ -229,20 +229,20 @@ function Products () {
                 <Pagination 
                     currentPage={page}
                     pageSize={pageSize}
-                    totalItems={mockProducts.length}
+                    totalItems={mockCombos.length}
                     onPageChange={setPage}
                     onPageSizeChange={(size) => {
                         setPageSize(size);
                         setPage(1);
                     }}
-                    itemLabel="sản phẩm"
+                    itemLabel="combo"
                 />
 
                 <ProductModal
                     open={showCreateModal}
                     onClose={() => setShowCreateModal(false)}
                     onSave={(data) => {
-                        console.log("Lưu sản phẩm:", data); // sau này thay bằng gọi API
+                        console.log("Lưu sản phẩm:", data);
                         setShowCreateModal(false);
                     }}
                 />
@@ -252,4 +252,4 @@ function Products () {
 }
 
 
-export default Products;
+export default Combos;

@@ -3,6 +3,8 @@ import InvoiceIn from "../pages/InvoiceInPage";
 import InvoiceOut from "../pages/InvoiceOutPage";
 import OrdersPage from "../pages/OrdersPage"
 import Products from "../pages/invoices/Products"
+import Materials from "../pages/invoices/Materials"
+import Combos from "../pages/invoices/Combos"
 
 const AppRoutes = () => {
   return (
@@ -12,7 +14,9 @@ const AppRoutes = () => {
       <Route path="/invoice-in" element={<InvoiceIn />} />
       <Route path="/invoice-out" element={<InvoiceOut />} />
       <Route path="/order" element={<OrdersPage />} />
-      <Route path="/products" element={<Products />} />
+      <Route path="/invoice/products" element={<Products />} />
+      <Route path="/invoice/materials" element={<Materials />} />
+      <Route path="/invoice/combos" element={<Combos />} />
 
       <Route
         path="/:tabId"

@@ -62,9 +62,9 @@ const Sidebar: React.FC<SidebarProps> = ({ setIsOpen }) => {
       label: "Hàng hóa",
       icon: <Box size={18} />,
       children: [
-        { id: "san-pham", label: "Sản phẩm" },
-        { id: "Ingredient-Tool", label: "Vật tư" },
-        { id: "Combo", label: "Combo" },
+        { id: "invoice/products", label: "Sản phẩm" },
+        { id: "invoice/materials", label: "Vật tư" },
+        { id: "invoice/combos", label: "Combo" },
       ],
     },
     {
