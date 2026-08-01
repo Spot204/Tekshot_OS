@@ -3,7 +3,11 @@ import { Info } from "lucide-react";
 import Card from "../../components/ui/Card";
 import ChangeBadge from "./ChangeBadge";
 import { formatCurrency } from "../../utils/format";
-import { revenueTrend, totalRevenue, totalRevenueChange } from "../../mocks/report";
+import {
+  revenueTrend,
+  totalRevenue,
+  totalRevenueChange,
+} from "../../mocks/report";
 
 /** Card doanh thu tổng — nền gradient, biểu đồ tràn sát đáy */
 export default function RevenueHero() {
@@ -19,7 +23,9 @@ export default function RevenueHero() {
         <Info size={14} className="opacity-50" aria-hidden="true" />
       </div>
 
-      <div className="display-6 fw-bold mb-2">{formatCurrency(totalRevenue)}</div>
+      <div className="display-6 fw-bold mb-2">
+        {formatCurrency(totalRevenue)}
+      </div>
 
       <div className="d-flex align-items-center gap-2 mb-3">
         <span className="bg-white bg-opacity-25 rounded-pill px-2 py-1">
@@ -30,11 +36,22 @@ export default function RevenueHero() {
 
       <div className="report-hero-chart mt-auto" style={{ height: 180 }}>
         <ResponsiveContainer width="100%" height="100%">
-          <AreaChart data={revenueTrend} margin={{ top: 0, right: 0, bottom: 0, left: 0 }}>
+          <AreaChart
+            data={revenueTrend}
+            margin={{ top: 0, right: 0, bottom: 0, left: 0 }}
+          >
             <defs>
               <linearGradient id="heroRevenue" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="var(--hero-on)" stopOpacity={0.35} />
-                <stop offset="100%" stopColor="var(--hero-on)" stopOpacity={0} />
+                <stop
+                  offset="0%"
+                  stopColor="var(--hero-on)"
+                  stopOpacity={0.35}
+                />
+                <stop
+                  offset="100%"
+                  stopColor="var(--hero-on)"
+                  stopOpacity={0}
+                />
               </linearGradient>
             </defs>
 

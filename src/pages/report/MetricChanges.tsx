@@ -4,7 +4,11 @@ import type { ReactNode } from "react";
 import type { MetricChange } from "../../types/report";
 import SectionCard from "./SectionCard";
 import { chartColor } from "./chartTheme";
-import { formatCurrency, formatNumber, formatPercent } from "../../utils/format";
+import {
+  formatCurrency,
+  formatNumber,
+  formatPercent,
+} from "../../utils/format";
 import { metricChanges } from "../../mocks/report";
 
 const ICONS: Record<string, ReactNode> = {

@@ -2,7 +2,12 @@ import type { Product } from "../types/product";
 
 /** Dữ liệu mẫu — thay bằng service fetch khi có API */
 
-type VariantRow = [name: string, skuSuffix: string, price: number, stock: number];
+type VariantRow = [
+  name: string,
+  skuSuffix: string,
+  price: number,
+  stock: number,
+];
 
 const build = (
   id: string,

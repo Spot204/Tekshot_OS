@@ -1,9 +1,5 @@
 import type { BadgeVariant } from "../components/ui/Badge";
-import type {
-  CashFlow,
-  PaymentMethod,
-  VoucherStatus,
-} from "../types/cashbook";
+import type { CashFlow, PaymentMethod, VoucherStatus } from "../types/cashbook";
 
 export const FLOWS: Record<CashFlow, { label: string; variant: BadgeVariant }> =
   {

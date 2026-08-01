@@ -27,7 +27,9 @@ export default function VariantEditor({
         <Button
           customVariant="secondary"
           className="d-inline-flex align-items-center gap-2"
-          onClick={() => onChange([...variants, emptyVariant(`v-${Date.now()}`)])}
+          onClick={() =>
+            onChange([...variants, emptyVariant(`v-${Date.now()}`)])
+          }
         >
           <Plus size={16} aria-hidden="true" />
           Thêm biến thể
@@ -44,7 +46,9 @@ export default function VariantEditor({
                 size="sm"
                 className="d-inline-flex align-items-center gap-2"
                 disabled={variants.length === 1}
-                onClick={() => onChange(variants.filter((v) => v.id !== variant.id))}
+                onClick={() =>
+                  onChange(variants.filter((v) => v.id !== variant.id))
+                }
               >
                 <Trash2 size={14} aria-hidden="true" />
                 Xóa biến thể

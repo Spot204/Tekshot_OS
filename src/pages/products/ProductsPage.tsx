@@ -1,5 +1,11 @@
 import { useMemo, useState } from "react";
-import { Package, Plus, Search, Settings, SlidersHorizontal } from "lucide-react";
+import {
+  Package,
+  Plus,
+  Search,
+  Settings,
+  SlidersHorizontal,
+} from "lucide-react";
 import type { Product } from "../../types/product";
 import Card from "../../components/ui/Card";
 import Input from "../../components/ui/Input";
@@ -52,7 +58,10 @@ export default function ProductsPage() {
     });
   }, [rows, keyword, category, status]);
 
-  const { sort, sorted, onSortChange } = useTableSort(filtered, productSortSpec);
+  const { sort, sorted, onSortChange } = useTableSort(
+    filtered,
+    productSortSpec,
+  );
   const visible = sorted.slice((page - 1) * pageSize, page * pageSize);
 
   const toggle = (id: string) =>
@@ -99,9 +108,7 @@ export default function ProductsPage() {
         </span>
         <div>
           <h4 className="fw-bold mb-0">Hàng hóa</h4>
-          <p className="text-secondary small mb-0">
-            Mục phân loại · Hàng hóa
-          </p>
+          <p className="text-secondary small mb-0">Mục phân loại · Hàng hóa</p>
         </div>
       </div>
 

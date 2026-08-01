@@ -50,7 +50,9 @@ export default function CombosPage() {
   const visible = sorted.slice((page - 1) * pageSize, page * pageSize);
 
   const totalSaving = rows.reduce((sum, combo) => sum + combo.saving, 0);
-  const sellingCount = rows.filter((combo) => combo.status === "selling").length;
+  const sellingCount = rows.filter(
+    (combo) => combo.status === "selling",
+  ).length;
 
   const withPageReset =
     <T,>(setter: (value: T) => void) =>
@@ -102,7 +104,10 @@ export default function CombosPage() {
         <div className="col-md-4">
           <Card shadow bordered={false} padding="p-4">
             <div className="text-secondary small">Tổng mức tiết kiệm</div>
-            <div className="h4 fw-bold mb-0" style={{ color: "var(--chart-success)" }}>
+            <div
+              className="h4 fw-bold mb-0"
+              style={{ color: "var(--chart-success)" }}
+            >
               {formatCurrency(totalSaving)}
             </div>
           </Card>

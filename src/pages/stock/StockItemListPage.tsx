@@ -207,7 +207,10 @@ export default function StockItemListPage({
         onClose={() => setShowForm(false)}
         onSubmit={(item) => {
           setItems((prev) => [
-            { ...item, id: `${idPrefix}-${String(prev.length + 1).padStart(3, "0")}` },
+            {
+              ...item,
+              id: `${idPrefix}-${String(prev.length + 1).padStart(3, "0")}`,
+            },
             ...prev,
           ]);
           setPage(1);

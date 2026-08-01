@@ -59,7 +59,10 @@ export default function FileDropzone({ files, onChange }: FileDropzoneProps) {
           onChange={(event) => accept(event.target.files)}
         />
 
-        <span className="text-secondary" style={{ fontSize: "var(--fs-micro)" }}>
+        <span
+          className="text-secondary"
+          style={{ fontSize: "var(--fs-micro)" }}
+        >
           Định dạng: .jpg, .png, .pdf, .xls, .xlsx (≤ 10MB)
         </span>
       </div>

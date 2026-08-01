@@ -190,7 +190,8 @@ export default function ComboFormModal({
                             className="text-secondary"
                             style={{ fontSize: "var(--fs-micro)" }}
                           >
-                            {variant?.sku} · {formatCurrency(variant?.price ?? 0)}
+                            {variant?.sku} ·{" "}
+                            {formatCurrency(variant?.price ?? 0)}
                           </div>
                         </div>
 
@@ -214,7 +215,10 @@ export default function ComboFormModal({
                           aria-label={`Số lượng ${variant?.productName}`}
                           value={String(item.quantity)}
                           onChange={(e) =>
-                            setQuantity(item.variantId, toNumber(e.target.value))
+                            setQuantity(
+                              item.variantId,
+                              toNumber(e.target.value),
+                            )
                           }
                         />
 

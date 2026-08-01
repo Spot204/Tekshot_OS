@@ -81,7 +81,9 @@ export default function OrderingPage() {
   const setQuantity = (row: ReorderRow, quantity: number) =>
     setPicked((prev) =>
       quantity <= 0
-        ? Object.fromEntries(Object.entries(prev).filter(([id]) => id !== row.id))
+        ? Object.fromEntries(
+            Object.entries(prev).filter(([id]) => id !== row.id),
+          )
         : { ...prev, [row.id]: quantity },
     );
 
@@ -135,7 +137,10 @@ export default function OrderingPage() {
       id: "source",
       header: "Loại",
       render: (row) => (
-        <Badge variant={row.source === "supply" ? "primary" : "purple"} size="sm">
+        <Badge
+          variant={row.source === "supply" ? "primary" : "purple"}
+          size="sm"
+        >
           {row.source === "supply" ? "Vật tư" : "Nguyên liệu"}
         </Badge>
       ),
@@ -218,7 +223,10 @@ export default function OrderingPage() {
         <div className="col-md-4">
           <Card shadow bordered={false} padding="p-4">
             <div className="text-secondary small">Cần gọi thêm</div>
-            <div className="h4 fw-bold mb-0" style={{ color: "var(--warning)" }}>
+            <div
+              className="h4 fw-bold mb-0"
+              style={{ color: "var(--warning)" }}
+            >
               {formatNumber(needCount)}
             </div>
           </Card>
@@ -234,7 +242,9 @@ export default function OrderingPage() {
         <div className="col-md-4">
           <Card shadow bordered={false} padding="p-4">
             <div className="text-secondary small">Giá trị gọi hàng gợi ý</div>
-            <div className="h4 fw-bold mb-0">{formatCurrency(suggestedValue)}</div>
+            <div className="h4 fw-bold mb-0">
+              {formatCurrency(suggestedValue)}
+            </div>
           </Card>
         </div>
       </div>

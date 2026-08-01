@@ -1,9 +1,5 @@
 export type EmployeeRole =
-  | "staff"
-  | "manager"
-  | "cashier"
-  | "technician"
-  | "admin";
+  "staff" | "manager" | "cashier" | "technician" | "admin";
 
 /** Quyền cấp được từ form tạo tài khoản — không có "technician" */
 export type PermissionId = Extract<

@@ -16,7 +16,10 @@ import TablePagination from "../../components/ui/TablePagination";
 import DateInput from "../../components/ui/DateInput";
 import AttendanceFilters from "./AttendanceFilters";
 import type { AttendanceFilterState } from "./AttendanceFilters";
-import { createAttendanceColumns, attendanceSortSpec } from "./attendanceColumns";
+import {
+  createAttendanceColumns,
+  attendanceSortSpec,
+} from "./attendanceColumns";
 import { toAttendanceRows } from "./attendanceRow";
 import { useTableSort } from "../../hooks/useTableSort";
 import { attendanceFor } from "../../mocks/attendance";

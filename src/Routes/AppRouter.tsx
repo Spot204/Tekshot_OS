@@ -26,7 +26,7 @@ const ComingSoonPage = lazy(() => import("../pages/ComingSoonPage"));
 
 const PageFallback = () => (
   <div className="d-flex justify-content-center py-5">
-    <Spinner animation="border" variant="primary" role="status">
+    <Spinner animation="border" variant="primary" as="output">
       <span className="visually-hidden">Đang tải…</span>
     </Spinner>
   </div>

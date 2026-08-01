@@ -1,7 +1,4 @@
-export type InvoiceStatus =
-  | "Đã thanh toán"
-  | "Một phần"
-  | "Chưa thanh toán";
+export type InvoiceStatus = "Đã thanh toán" | "Một phần" | "Chưa thanh toán";
 
 export interface Invoice {
   /** Số hóa đơn */

@@ -53,7 +53,9 @@ export default function VoucherLineTable({
                     placeholder="Nhập nội dung"
                     aria-label="Nội dung"
                     value={line.content}
-                    onChange={(e) => patch(line.id, { content: e.target.value })}
+                    onChange={(e) =>
+                      patch(line.id, { content: e.target.value })
+                    }
                   />
                 </td>
                 <td>

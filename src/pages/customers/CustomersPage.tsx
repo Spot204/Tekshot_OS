@@ -30,7 +30,10 @@ export default function CustomersPage() {
     );
   }, [keyword]);
 
-  const { sort, sorted, onSortChange } = useTableSort(filtered, customerColumns);
+  const { sort, sorted, onSortChange } = useTableSort(
+    filtered,
+    customerColumns,
+  );
   const visible = sorted.slice((page - 1) * pageSize, page * pageSize);
 
   // Đổi bộ lọc mà không về trang 1 thì bảng render rỗng

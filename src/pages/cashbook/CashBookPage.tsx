@@ -25,10 +25,7 @@ export default function CashBookPage() {
   const [pageSize, setPageSize] = useState(10);
 
   // Số dư luỹ kế tính một lần trên toàn bộ dữ liệu, trước mọi bộ lọc
-  const allRows = useMemo(
-    () => toCashRows(cashEntries, openingBalance),
-    [],
-  );
+  const allRows = useMemo(() => toCashRows(cashEntries, openingBalance), []);
 
   const [from, to] = filter.range;
 

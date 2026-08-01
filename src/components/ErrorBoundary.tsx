@@ -41,7 +41,10 @@ export default class ErrorBoundary extends Component<
         <p className="text-secondary small font-monospace mb-4">
           {error.message}
         </p>
-        <Button customVariant="primary" onClick={() => window.location.reload()}>
+        <Button
+          customVariant="primary"
+          onClick={() => window.location.reload()}
+        >
           Tải lại trang
         </Button>
       </Card>

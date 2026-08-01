@@ -116,7 +116,6 @@ export const createShiftColumns = ({
   {
     id: "note",
     header: "Ghi chú",
-    render: (shift) =>
-      shift.note || <span className="text-secondary">-</span>,
+    render: (shift) => shift.note || <span className="text-secondary">-</span>,
   },
 ];

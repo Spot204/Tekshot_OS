@@ -39,13 +39,15 @@ export const createVoucherColumns = ({
         style={
           {
             "--voucher-flag-color":
-              voucher.flow === "in"
-                ? "var(--chart-success)"
-                : "var(--danger)",
+              voucher.flow === "in" ? "var(--chart-success)" : "var(--danger)",
           } as React.CSSProperties
         }
       >
-        {voucher.flow === "in" ? <ArrowDown size={18} /> : <ArrowUp size={18} />}
+        {voucher.flow === "in" ? (
+          <ArrowDown size={18} />
+        ) : (
+          <ArrowUp size={18} />
+        )}
       </span>
     ),
   },
@@ -61,7 +63,9 @@ export const createVoucherColumns = ({
         >
           {voucher.id}
         </button>
-        <div className="text-secondary small">{VOUCHER_KINDS[voucher.flow]}</div>
+        <div className="text-secondary small">
+          {VOUCHER_KINDS[voucher.flow]}
+        </div>
       </div>
     ),
   },

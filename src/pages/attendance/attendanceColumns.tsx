@@ -12,7 +12,8 @@ const SORT = {
   employee: { id: "employee", sortValue: (row) => row.employee.name },
 } satisfies Record<string, SortSpec<AttendanceRow>>;
 
-export const attendanceSortSpec: SortSpec<AttendanceRow>[] = Object.values(SORT);
+export const attendanceSortSpec: SortSpec<AttendanceRow>[] =
+  Object.values(SORT);
 
 /** Ô giờ trống hiện gạch ngang chứ không để rỗng */
 const time = (value: string | null) =>

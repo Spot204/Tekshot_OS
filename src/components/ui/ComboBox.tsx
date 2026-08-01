@@ -7,8 +7,10 @@ export interface ComboBoxOption {
   label: string;
 }
 
-export interface ComboBoxProps
-  extends Omit<SelectHTMLAttributes<HTMLSelectElement>, "size"> {
+export interface ComboBoxProps extends Omit<
+  SelectHTMLAttributes<HTMLSelectElement>,
+  "size"
+> {
   options: ComboBoxOption[];
   size?: "sm" | "md" | "lg";
   state?: "none" | "error" | "success";
@@ -39,9 +41,7 @@ const ComboBox = forwardRef<HTMLSelectElement, ComboBoxProps>(
       state === "error" ? "is-invalid" : state === "success" ? "is-valid" : "";
 
     const messageClass =
-      state === "error"
-        ? "invalid-feedback d-block"
-        : "valid-feedback d-block";
+      state === "error" ? "invalid-feedback d-block" : "valid-feedback d-block";
 
     return (
       <div>

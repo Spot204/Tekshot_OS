@@ -1,5 +1,9 @@
 import { useMemo, useState } from "react";
-import { Search, SlidersHorizontal, Warehouse as WarehouseIcon } from "lucide-react";
+import {
+  Search,
+  SlidersHorizontal,
+  Warehouse as WarehouseIcon,
+} from "lucide-react";
 import type { Column } from "../../components/ui/Table";
 import type { Warehouse } from "../../types/warehouse";
 import Card from "../../components/ui/Card";
@@ -78,7 +82,9 @@ const createColumns = (
     sortable: true,
     render: (warehouse) => (
       <div>
-        <div className="fw-semibold">{formatNumber(warehouse.productCount)}</div>
+        <div className="fw-semibold">
+          {formatNumber(warehouse.productCount)}
+        </div>
         <div className="text-secondary small">sản phẩm</div>
       </div>
     ),

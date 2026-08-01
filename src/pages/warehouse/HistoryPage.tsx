@@ -22,7 +22,12 @@ import DateRangeInput from "../../components/ui/DateRangeInput";
 import { useTableSort } from "../../hooks/useTableSort";
 import { MOVEMENTS, MOVEMENT_OPTIONS } from "../../constants/warehouse";
 import { stockMovements, warehouses } from "../../mocks/warehouses";
-import { formatCurrency, formatDate, formatTime, isWithinRange } from "../../utils/format";
+import {
+  formatCurrency,
+  formatDate,
+  formatTime,
+  isWithinRange,
+} from "../../utils/format";
 
 const TABS: { id: "" | MovementKind; label: string }[] = [
   { id: "", label: "Tất cả" },
@@ -58,7 +63,9 @@ const createColumns = (
         <span
           className="warehouse-icon"
           style={
-            { "--warehouse-color": MOVEMENTS[movement.kind].color } as React.CSSProperties
+            {
+              "--warehouse-color": MOVEMENTS[movement.kind].color,
+            } as React.CSSProperties
           }
         >
           <Icon size={18} aria-hidden="true" />
@@ -120,7 +127,9 @@ const createColumns = (
     render: (movement) => (
       <div className="text-nowrap">
         <div>{formatDate(movement.createdAt)}</div>
-        <div className="text-secondary small">{formatTime(movement.createdAt)}</div>
+        <div className="text-secondary small">
+          {formatTime(movement.createdAt)}
+        </div>
       </div>
     ),
   },
@@ -144,7 +153,10 @@ const createColumns = (
     header: "Trạng thái",
     render: () => (
       <span className="d-inline-flex align-items-center gap-2 text-success small fw-semibold">
-        <span className="report-dot" style={{ backgroundColor: "currentColor" }} />
+        <span
+          className="report-dot"
+          style={{ backgroundColor: "currentColor" }}
+        />
         Hoàn thành
       </span>
     ),
@@ -163,7 +175,11 @@ const createColumns = (
             icon: "bi-eye",
             onClick: () => onDetail(movement),
           },
-          { label: "In phiếu", icon: "bi-printer", onClick: () => onDetail(movement) },
+          {
+            label: "In phiếu",
+            icon: "bi-printer",
+            onClick: () => onDetail(movement),
+          },
         ]}
       />
     ),

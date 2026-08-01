@@ -8,7 +8,8 @@ export const toMinutes = (time: string): number => {
 
 /** 361 -> "06:01", tự quay vòng khi vượt quá nửa đêm */
 export const fromMinutes = (minutes: number): string => {
-  const wrapped = ((minutes % MINUTES_PER_DAY) + MINUTES_PER_DAY) % MINUTES_PER_DAY;
+  const wrapped =
+    ((minutes % MINUTES_PER_DAY) + MINUTES_PER_DAY) % MINUTES_PER_DAY;
   const hour = Math.floor(wrapped / 60);
   return `${String(hour).padStart(2, "0")}:${String(wrapped % 60).padStart(2, "0")}`;
 };

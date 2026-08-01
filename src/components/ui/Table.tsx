@@ -81,7 +81,9 @@ function SortIcon({
   columnId: string;
 }) {
   if (sort?.columnId !== columnId) {
-    return <ChevronsUpDown size={14} className="opacity-50" aria-hidden="true" />;
+    return (
+      <ChevronsUpDown size={14} className="opacity-50" aria-hidden="true" />
+    );
   }
 
   const Icon = sort.direction === "asc" ? ChevronUp : ChevronDown;
@@ -126,7 +128,9 @@ function Table<T>({
                 <div className="d-flex justify-content-between align-items-center flex-wrap gap-2 px-3">
                   <div>
                     {title && (
-                      <div className="fw-semibold text-body-emphasis">{title}</div>
+                      <div className="fw-semibold text-body-emphasis">
+                        {title}
+                      </div>
                     )}
                   </div>
 

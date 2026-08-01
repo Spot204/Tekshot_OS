@@ -112,7 +112,11 @@ export const createProductColumns = ({
     render: (row) => (
       <RowActions
         actions={[
-          { label: "Sửa sản phẩm", icon: "bi-pencil", onClick: () => onEdit(row) },
+          {
+            label: "Sửa sản phẩm",
+            icon: "bi-pencil",
+            onClick: () => onEdit(row),
+          },
           {
             label: "Xóa sản phẩm",
             icon: "bi-trash",

@@ -16,9 +16,7 @@ export default function PermissionPicker({
 }: PermissionPickerProps) {
   const toggle = (id: PermissionId) =>
     onChange(
-      value.includes(id)
-        ? value.filter((item) => item !== id)
-        : [...value, id],
+      value.includes(id) ? value.filter((item) => item !== id) : [...value, id],
     );
 
   return (

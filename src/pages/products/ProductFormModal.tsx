@@ -62,7 +62,8 @@ export default function ProductFormModal({
     const variantErrors: Record<string, string> = {};
     variants.forEach((variant) => {
       if (!variant.name.trim()) variantErrors[variant.id] = "Chưa nhập tên";
-      else if (variant.price <= 0) variantErrors[variant.id] = "Giá phải lớn hơn 0";
+      else if (variant.price <= 0)
+        variantErrors[variant.id] = "Giá phải lớn hơn 0";
     });
 
     const found: Errors = {};
@@ -147,7 +148,10 @@ export default function ProductFormModal({
             </div>
 
             <div className="col-md-4">
-              <label htmlFor="product-status" className="form-label fw-semibold">
+              <label
+                htmlFor="product-status"
+                className="form-label fw-semibold"
+              >
                 Trạng thái
               </label>
               <ComboBox
@@ -189,7 +193,9 @@ export default function ProductFormModal({
                 >
                   <ChevronDown
                     size={16}
-                    className={showExtra ? undefined : "menu-chevron is-collapsed"}
+                    className={
+                      showExtra ? undefined : "menu-chevron is-collapsed"
+                    }
                     aria-hidden="true"
                   />
                   Thông tin thêm
@@ -198,10 +204,16 @@ export default function ProductFormModal({
                 <Collapse in={showExtra}>
                   <div>
                     <div className="px-3 pb-3">
-                      <label htmlFor="product-note" className="form-label fw-semibold">
+                      <label
+                        htmlFor="product-note"
+                        className="form-label fw-semibold"
+                      >
                         Mô tả
                       </label>
-                      <Input id="product-note" placeholder="Nhập mô tả sản phẩm" />
+                      <Input
+                        id="product-note"
+                        placeholder="Nhập mô tả sản phẩm"
+                      />
                     </div>
                   </div>
                 </Collapse>

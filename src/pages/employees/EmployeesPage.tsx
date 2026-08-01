@@ -72,7 +72,9 @@ export default function EmployeesPage() {
   const toggleAll = () =>
     setSelectedIds((prev) => {
       const next = new Set(prev);
-      visible.forEach((e) => (allSelected ? next.delete(e.id) : next.add(e.id)));
+      visible.forEach((e) =>
+        allSelected ? next.delete(e.id) : next.add(e.id),
+      );
       return next;
     });
 

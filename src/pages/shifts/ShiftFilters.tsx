@@ -1,4 +1,10 @@
-import { Download, List, Printer, Search, SlidersHorizontal } from "lucide-react";
+import {
+  Download,
+  List,
+  Printer,
+  Search,
+  SlidersHorizontal,
+} from "lucide-react";
 import Card from "../../components/ui/Card";
 import Input from "../../components/ui/Input";
 import ComboBox from "../../components/ui/ComboBox";
@@ -30,13 +36,25 @@ export default function ShiftFilters({ value, onChange }: ShiftFiltersProps) {
   return (
     <Card shadow bordered={false} padding="p-3" className="mb-2">
       <div className="d-flex justify-content-end gap-2 mb-3">
-        <button type="button" className="app-header-icon-btn border" aria-label="Chọn cột hiển thị">
+        <button
+          type="button"
+          className="app-header-icon-btn border"
+          aria-label="Chọn cột hiển thị"
+        >
           <List size={18} />
         </button>
-        <button type="button" className="app-header-icon-btn border" aria-label="In danh sách">
+        <button
+          type="button"
+          className="app-header-icon-btn border"
+          aria-label="In danh sách"
+        >
           <Printer size={18} />
         </button>
-        <button type="button" className="app-header-icon-btn border" aria-label="Xuất dữ liệu">
+        <button
+          type="button"
+          className="app-header-icon-btn border"
+          aria-label="Xuất dữ liệu"
+        >
           <Download size={18} />
         </button>
       </div>

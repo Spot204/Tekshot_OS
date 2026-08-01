@@ -17,7 +17,11 @@ export default function HeaderThemeToggle() {
       aria-pressed={isDark}
       onClick={toggleTheme}
     >
-      {isDark ? <Sun size={ICON_SIZE.action} /> : <Moon size={ICON_SIZE.action} />}
+      {isDark ? (
+        <Sun size={ICON_SIZE.action} />
+      ) : (
+        <Moon size={ICON_SIZE.action} />
+      )}
     </button>
   );
 }

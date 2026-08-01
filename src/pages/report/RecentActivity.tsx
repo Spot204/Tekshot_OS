@@ -45,7 +45,10 @@ export default function RecentActivity() {
 
             <div className="min-w-0">
               <div className="small fw-semibold">{activity.title}</div>
-              <div className="text-secondary" style={{ fontSize: "var(--fs-desc)" }}>
+              <div
+                className="text-secondary"
+                style={{ fontSize: "var(--fs-desc)" }}
+              >
                 {activity.detail} · {formatRelativeTime(activity.at)}
               </div>
             </div>

@@ -23,11 +23,11 @@ export const INDUSTRIES: Record<string, Record<string, string[]>> = {
   },
   "Đồ uống": {
     "Cà phê": ["Cà phê pha máy", "Cà phê pha phin"],
-    "Trà": ["Trà trái cây", "Trà sữa"],
+    Trà: ["Trà trái cây", "Trà sữa"],
   },
   "Bao bì": {
     "Hộp giấy": ["Hộp pizza", "Hộp cơm"],
-    "Túi": ["Túi nilon", "Túi giấy"],
+    Túi: ["Túi nilon", "Túi giấy"],
   },
 };
 

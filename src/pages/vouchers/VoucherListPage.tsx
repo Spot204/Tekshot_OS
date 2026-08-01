@@ -68,7 +68,10 @@ export default function VoucherListPage() {
     });
   }, [rows, tab, filter, from, to]);
 
-  const { sort, sorted, onSortChange } = useTableSort(filtered, voucherSortSpec);
+  const { sort, sorted, onSortChange } = useTableSort(
+    filtered,
+    voucherSortSpec,
+  );
   const visible = sorted.slice((page - 1) * pageSize, page * pageSize);
 
   // Đổi bộ lọc mà không về trang 1 thì bảng render rỗng

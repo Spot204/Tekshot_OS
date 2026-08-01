@@ -1,7 +1,11 @@
 import { ArrowDown, ArrowUp, FileText, Wallet } from "lucide-react";
 import type { ReactNode } from "react";
 import Card from "../../components/ui/Card";
-import { formatCurrency, formatDateTime, formatNumber } from "../../utils/format";
+import {
+  formatCurrency,
+  formatDateTime,
+  formatNumber,
+} from "../../utils/format";
 
 interface StatProps {
   icon: ReactNode;

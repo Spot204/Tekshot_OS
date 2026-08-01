@@ -42,10 +42,7 @@ export default function RowActions({
               className={action.danger ? "text-danger" : undefined}
             >
               {action.icon && (
-                <i
-                  className={`bi ${action.icon} me-2`}
-                  aria-hidden="true"
-                />
+                <i className={`bi ${action.icon} me-2`} aria-hidden="true" />
               )}
               {action.label}
             </Dropdown.Item>

@@ -1,5 +1,11 @@
 import { useMemo, useState } from "react";
-import { ChevronDown, PackagePlus, Plus, Search, SlidersHorizontal } from "lucide-react";
+import {
+  ChevronDown,
+  PackagePlus,
+  Plus,
+  Search,
+  SlidersHorizontal,
+} from "lucide-react";
 import Card from "../../components/ui/Card";
 import Input from "../../components/ui/Input";
 import ComboBox from "../../components/ui/ComboBox";
@@ -106,7 +112,10 @@ export default function InboundPage() {
           <Card shadow bordered={false} padding="p-4" className="mb-2">
             <div className="row g-3">
               <div className="col-md-6">
-                <label htmlFor="inbound-warehouse" className="form-label fw-semibold">
+                <label
+                  htmlFor="inbound-warehouse"
+                  className="form-label fw-semibold"
+                >
                   Kho nhập hàng <span className="text-danger">*</span>
                 </label>
                 <ComboBox

@@ -2,8 +2,17 @@ import type { Column } from "../../components/ui/Table";
 import type { BadgeVariant } from "../../components/ui/Badge";
 import Badge from "../../components/ui/Badge";
 import RowActions from "../../components/ui/RowActions";
-import type { Order, OrderLine, OrderStatus, PaymentMethod } from "../../types/order";
-import { formatCurrency, formatDateTime, formatNumber } from "../../utils/format";
+import type {
+  Order,
+  OrderLine,
+  OrderStatus,
+  PaymentMethod,
+} from "../../types/order";
+import {
+  formatCurrency,
+  formatDateTime,
+  formatNumber,
+} from "../../utils/format";
 
 const STATUS_VARIANT: Record<OrderStatus, BadgeVariant> = {
   "Hoàn thành": "success",

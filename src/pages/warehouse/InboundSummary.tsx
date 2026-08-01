@@ -47,7 +47,11 @@ export default function InboundSummary({
 
       {lines.length === 0 ? (
         <div className="inbound-empty">
-          <ClipboardList size={40} className="text-secondary" aria-hidden="true" />
+          <ClipboardList
+            size={40}
+            className="text-secondary"
+            aria-hidden="true"
+          />
           <div className="fw-semibold mt-2">Chưa có sản phẩm nào</div>
           <p className="text-secondary small mb-0">
             Hãy chọn sản phẩm từ danh sách bên trái để thêm vào phiếu nhập.
@@ -62,7 +66,10 @@ export default function InboundSummary({
                   <div className="small fw-semibold text-truncate">
                     {row.productName}
                   </div>
-                  <div className="text-secondary" style={{ fontSize: "var(--fs-micro)" }}>
+                  <div
+                    className="text-secondary"
+                    style={{ fontSize: "var(--fs-micro)" }}
+                  >
                     {row.sku} · {formatCurrency(row.price)}
                   </div>
                 </div>
@@ -95,7 +102,9 @@ export default function InboundSummary({
                   className="text-center"
                   style={{ width: 64 }}
                   value={String(quantity)}
-                  onChange={(e) => onQuantityChange(row.id, toNumber(e.target.value))}
+                  onChange={(e) =>
+                    onQuantityChange(row.id, toNumber(e.target.value))
+                  }
                 />
 
                 <button
@@ -156,7 +165,10 @@ export default function InboundSummary({
 
       <div className="inbound-total">
         <span className="fw-semibold">Tổng thanh toán</span>
-        <span className="h5 fw-bold mb-0" style={{ color: "var(--chart-brand)" }}>
+        <span
+          className="h5 fw-bold mb-0"
+          style={{ color: "var(--chart-brand)" }}
+        >
           {formatCurrency(subtotal - discount)}
         </span>
       </div>
@@ -174,7 +186,11 @@ export default function InboundSummary({
       />
 
       <div className="d-flex gap-2 mt-3">
-        <Button customVariant="secondary" className="flex-fill" onClick={onCancel}>
+        <Button
+          customVariant="secondary"
+          className="flex-fill"
+          onClick={onCancel}
+        >
           Hủy
         </Button>
         <Button

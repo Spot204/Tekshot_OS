@@ -1,14 +1,21 @@
 import { useMemo, useState } from "react";
 import { Collapse, Modal } from "react-bootstrap";
 import { ChevronDown, FileText } from "lucide-react";
-import type { CashFlow, PaymentMethod, VoucherLine } from "../../types/cashbook";
+import type {
+  CashFlow,
+  PaymentMethod,
+  VoucherLine,
+} from "../../types/cashbook";
 import Input from "../../components/ui/Input";
 import ComboBox from "../../components/ui/ComboBox";
 import Button from "../../components/ui/Button";
 import VoucherLineTable from "./VoucherLineTable";
 import { emptyLine } from "./voucherLine";
 import FileDropzone from "./FileDropzone";
-import { PAYMENT_OPTIONS, VOUCHER_KIND_OPTIONS } from "../../constants/cashbook";
+import {
+  PAYMENT_OPTIONS,
+  VOUCHER_KIND_OPTIONS,
+} from "../../constants/cashbook";
 import { formatCurrency } from "../../utils/format";
 
 const AGENCY_OPTIONS = [
@@ -74,7 +81,8 @@ export default function VoucherFormModal({
     if (!title.trim()) found.title = "Chưa nhập tiêu đề";
     if (!flow) found.flow = "Chưa chọn loại phiếu";
     if (!method) found.method = "Chưa chọn kiểu thanh toán";
-    if (total <= 0) found.lines = "Cần ít nhất một dòng có thành tiền lớn hơn 0";
+    if (total <= 0)
+      found.lines = "Cần ít nhất một dòng có thành tiền lớn hơn 0";
 
     setErrors(found);
     if (Object.keys(found).length) return;
@@ -119,7 +127,10 @@ export default function VoucherFormModal({
 
             <div className="col-lg-5 d-flex flex-column gap-3">
               <div>
-                <label htmlFor="voucher-title" className="form-label fw-semibold">
+                <label
+                  htmlFor="voucher-title"
+                  className="form-label fw-semibold"
+                >
                   Tiêu đề <span className="text-danger">*</span>
                 </label>
                 <Input
@@ -136,7 +147,10 @@ export default function VoucherFormModal({
               </div>
 
               <div>
-                <label htmlFor="voucher-agency" className="form-label fw-semibold">
+                <label
+                  htmlFor="voucher-agency"
+                  className="form-label fw-semibold"
+                >
                   Đại lý
                 </label>
                 <ComboBox
@@ -148,7 +162,10 @@ export default function VoucherFormModal({
               </div>
 
               <div>
-                <label htmlFor="voucher-kind" className="form-label fw-semibold">
+                <label
+                  htmlFor="voucher-kind"
+                  className="form-label fw-semibold"
+                >
                   Loại phiếu <span className="text-danger">*</span>
                 </label>
                 <ComboBox
@@ -165,7 +182,10 @@ export default function VoucherFormModal({
               </div>
 
               <div>
-                <label htmlFor="voucher-method" className="form-label fw-semibold">
+                <label
+                  htmlFor="voucher-method"
+                  className="form-label fw-semibold"
+                >
                   Kiểu thanh toán <span className="text-danger">*</span>
                 </label>
                 <ComboBox
@@ -182,7 +202,10 @@ export default function VoucherFormModal({
               </div>
 
               <div>
-                <label htmlFor="voucher-total" className="form-label fw-semibold">
+                <label
+                  htmlFor="voucher-total"
+                  className="form-label fw-semibold"
+                >
                   Tổng tiền
                 </label>
                 <Input
@@ -202,7 +225,9 @@ export default function VoucherFormModal({
                 >
                   <ChevronDown
                     size={16}
-                    className={showFiles ? undefined : "menu-chevron is-collapsed"}
+                    className={
+                      showFiles ? undefined : "menu-chevron is-collapsed"
+                    }
                     aria-hidden="true"
                   />
                   Tệp đính kèm
