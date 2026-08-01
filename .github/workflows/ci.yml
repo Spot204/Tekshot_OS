@@ -24,6 +24,9 @@ jobs:
       - name: Lint
         run: npm run lint
 
+      - name: Test
+        run: npm test
+
       # build đã bao gồm `tsc -b`, nên đây cũng là bước typecheck
       - name: Typecheck + build
         run: npm run build
