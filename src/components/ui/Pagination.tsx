@@ -69,19 +69,23 @@ export default function Pagination({
 
       <div className="d-flex align-items-center gap-1">
         <button
+          type="button"
           className="btn btn-sm btn-light border px-2"
+          aria-label="Về trang đầu"
           disabled={currentPage <= 1}
-          onClick={() => onPageChange((currentPage = 1))}
+          onClick={() => onPageChange(1)}
         >
-          <i className="bi bi-chevron-double-left" />
+          <i className="bi bi-chevron-double-left" aria-hidden="true" />
         </button>
 
         <button
+          type="button"
           className="btn btn-sm btn-light border px-2"
+          aria-label="Trang trước"
           disabled={currentPage <= 1}
           onClick={() => onPageChange(currentPage - 1)}
         >
-          <i className="bi bi-chevron-left" />
+          <i className="bi bi-chevron-left" aria-hidden="true" />
         </button>
 
         {pages.map((p, i) =>
@@ -101,19 +105,23 @@ export default function Pagination({
         )}
 
         <button
+          type="button"
           className="btn btn-sm btn-light border px-2"
+          aria-label="Trang sau"
           disabled={currentPage >= totalPages}
           onClick={() => onPageChange(currentPage + 1)}
         >
-          <i className="bi bi-chevron-right" />
+          <i className="bi bi-chevron-right" aria-hidden="true" />
         </button>
 
         <button
+          type="button"
           className="btn btn-sm btn-light border px-2"
+          aria-label="Về trang cuối"
           disabled={currentPage >= totalPages}
-          onClick={() => onPageChange((currentPage = totalPages))}
+          onClick={() => onPageChange(totalPages)}
         >
-          <i className="bi bi-chevron-double-right" />
+          <i className="bi bi-chevron-double-right" aria-hidden="true" />
         </button>
       </div>
 

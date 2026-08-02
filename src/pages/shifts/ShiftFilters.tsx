@@ -61,16 +61,25 @@ export default function ShiftFilters({ value, onChange }: ShiftFiltersProps) {
 
       <div className="row g-3 align-items-end">
         <div className="col-xl-2 col-md-6">
-          <label className="form-label fw-semibold">Từ ngày</label>
+          <label htmlFor="shift-from" className="form-label fw-semibold">
+            Từ ngày
+          </label>
           <DateInput
+            id="shift-from"
             selected={value.from}
             onChange={(from) => onChange({ from })}
           />
         </div>
 
         <div className="col-xl-2 col-md-6">
-          <label className="form-label fw-semibold">Đến ngày</label>
-          <DateInput selected={value.to} onChange={(to) => onChange({ to })} />
+          <label htmlFor="shift-to" className="form-label fw-semibold">
+            Đến ngày
+          </label>
+          <DateInput
+            id="shift-to"
+            selected={value.to}
+            onChange={(to) => onChange({ to })}
+          />
         </div>
 
         <div className="col-xl-3 col-md-6">

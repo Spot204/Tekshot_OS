@@ -125,6 +125,8 @@ function Table<T>({
           {hasTitleRow && (
             <tr>
               <th colSpan={totalColumnCount} className="border-bottom-0">
+                {/* Hàng công cụ, không phải tiêu đề cột — cần tên cho screen reader */}
+                <span className="visually-hidden">Công cụ bảng</span>
                 <div className="d-flex justify-content-between align-items-center flex-wrap gap-2 px-3">
                   <div>
                     {title && (

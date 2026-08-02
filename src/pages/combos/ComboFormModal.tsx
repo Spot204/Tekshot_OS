@@ -250,11 +250,16 @@ export default function ComboFormModal({
             )}
 
             <div className="col-md-6">
-              <label className="form-label fw-semibold">Giá gốc</label>
+              <label
+                htmlFor="combo-origin-price"
+                className="form-label fw-semibold"
+              >
+                Giá gốc
+              </label>
               <Input
+                id="combo-origin-price"
                 readOnly
                 value={formatCurrency(originalPrice)}
-                aria-label="Giá gốc, tính từ thành phần"
               />
             </div>
 

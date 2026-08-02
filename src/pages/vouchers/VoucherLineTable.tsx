@@ -31,13 +31,17 @@ export default function VoucherLineTable({
         <table className="table align-middle mb-2" style={{ minWidth: 720 }}>
           <thead className="app-table-head">
             <tr>
-              <th style={{ width: 32 }} />
+              <th style={{ width: 32 }}>
+                <span className="visually-hidden">Kéo để sắp xếp</span>
+              </th>
               <th>Nội dung</th>
               <th style={{ width: 140 }}>Đơn vị</th>
               <th style={{ width: 110 }}>Số lượng</th>
               <th style={{ width: 140 }}>Thành tiền</th>
               <th>Diễn giải</th>
-              <th style={{ width: 48 }} />
+              <th style={{ width: 48 }}>
+                <span className="visually-hidden">Xoá dòng</span>
+              </th>
             </tr>
           </thead>
 

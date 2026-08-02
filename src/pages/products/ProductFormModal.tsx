@@ -165,7 +165,10 @@ export default function ProductFormModal({
             <CascadingCategory value={category} onChange={setCategory} />
 
             <div className="col-12">
-              <label className="form-label fw-semibold">Ảnh sản phẩm</label>
+              {/* Nhãn thật là <label> bọc input file bên dưới, đây chỉ là tiêu đề */}
+              <span className="form-label fw-semibold d-block">
+                Ảnh sản phẩm
+              </span>
               <label className="product-file-picker">
                 <span className="product-file-btn">
                   <Upload size={16} aria-hidden="true" />

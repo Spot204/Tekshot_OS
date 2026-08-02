@@ -127,10 +127,17 @@ export default function InboundPage() {
               </div>
 
               <div className="col-md-6">
-                <label className="form-label fw-semibold">
+                <label
+                  htmlFor="inbound-date"
+                  className="form-label fw-semibold"
+                >
                   Ngày nhập <span className="text-danger">*</span>
                 </label>
-                <DateInput selected={date} onChange={setDate} />
+                <DateInput
+                  id="inbound-date"
+                  selected={date}
+                  onChange={setDate}
+                />
               </div>
             </div>
           </Card>

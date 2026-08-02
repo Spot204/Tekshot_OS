@@ -12,11 +12,6 @@
     "no-console": ["warn", { "allow": ["warn", "error"] }],
 
     "react/react-in-jsx-scope": "off",
-    "import/no-unassigned-import": "off",
-
-    // 19 chỗ vi phạm sẵn, để "warn" cho CI xanh; siết lên "error" khi dọn xong
-    "jsx-a11y/label-has-associated-control": "warn",
-    "jsx-a11y/control-has-associated-label": "warn",
-    "jsx-a11y/prefer-tag-over-role": "warn"
+    "import/no-unassigned-import": "off"
   }
 }

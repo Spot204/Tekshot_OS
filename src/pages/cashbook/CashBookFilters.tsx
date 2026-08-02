@@ -27,8 +27,11 @@ export default function CashBookFilters({
     <Card shadow bordered={false} padding="p-4" className="mb-2">
       <div className="row g-3 align-items-end">
         <div className="col-xl-3 col-md-6">
-          <label className="form-label fw-semibold">Khoảng thời gian</label>
+          <label htmlFor="cash-range" className="form-label fw-semibold">
+            Khoảng thời gian
+          </label>
           <DateRangeInput
+            id="cash-range"
             startDate={value.range[0]}
             endDate={value.range[1]}
             onChange={(range) => onChange({ range })}
