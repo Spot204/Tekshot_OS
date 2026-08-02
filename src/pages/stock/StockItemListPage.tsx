@@ -1,8 +1,8 @@
 import { useMemo, useState } from "react";
-import { Plus, Search } from "lucide-react";
 import type { ReactNode } from "react";
 import type { StockItem } from "../../types/stockItem";
 import Card from "../../components/ui/Card";
+import Icon from "../../components/ui/Icon";
 import Input from "../../components/ui/Input";
 import ComboBox from "../../components/ui/ComboBox";
 import Button from "../../components/ui/Button";
@@ -113,7 +113,7 @@ export default function StockItemListPage({
           className="d-inline-flex align-items-center gap-2"
           onClick={() => setShowForm(true)}
         >
-          <Plus size={18} aria-hidden="true" />
+          <Icon name="plus-lg" size={18} />
           {createLabel}
         </Button>
       </div>
@@ -152,7 +152,7 @@ export default function StockItemListPage({
               aria-label={searchPlaceholder}
               value={keyword}
               onChange={(e) => withPageReset(setKeyword)(e.target.value)}
-              leftIcon={<Search size={18} />}
+              leftIcon={<Icon name="search" size={18} />}
             />
           </div>
 

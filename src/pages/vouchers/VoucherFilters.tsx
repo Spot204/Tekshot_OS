@@ -1,5 +1,5 @@
-import { Plus, Search, SlidersHorizontal } from "lucide-react";
 import Card from "../../components/ui/Card";
+import Icon from "../../components/ui/Icon";
 import Input from "../../components/ui/Input";
 import ComboBox from "../../components/ui/ComboBox";
 import Button from "../../components/ui/Button";
@@ -72,7 +72,7 @@ export default function VoucherFilters({
             placeholder="Tìm theo mã phiếu, nội dung..."
             value={value.keyword}
             onChange={(event) => onChange({ keyword: event.target.value })}
-            rightIcon={<Search size={16} />}
+            rightIcon={<Icon name="search" size={16} />}
           />
         </div>
 
@@ -81,7 +81,7 @@ export default function VoucherFilters({
             customVariant="secondary"
             className="d-inline-flex align-items-center gap-2 text-nowrap"
           >
-            <SlidersHorizontal size={16} aria-hidden="true" />
+            <Icon name="sliders" size={16} />
             Bộ lọc
           </Button>
 
@@ -89,7 +89,7 @@ export default function VoucherFilters({
             className="d-inline-flex align-items-center gap-2 text-nowrap"
             onClick={onCreate}
           >
-            <Plus size={16} aria-hidden="true" />
+            <Icon name="plus-lg" size={16} />
             Tạo phiếu
           </Button>
         </div>

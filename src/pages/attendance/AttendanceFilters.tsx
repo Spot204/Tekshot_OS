@@ -1,4 +1,4 @@
-import { RotateCcw, Search } from "lucide-react";
+import Icon from "../../components/ui/Icon";
 import Card from "../../components/ui/Card";
 import Input from "../../components/ui/Input";
 import ComboBox from "../../components/ui/ComboBox";
@@ -42,7 +42,7 @@ export default function AttendanceFilters({
             placeholder="Tìm theo tên, mã nhân viên..."
             value={value.keyword}
             onChange={(event) => onChange({ keyword: event.target.value })}
-            leftIcon={<Search size={18} />}
+            leftIcon={<Icon name="search" size={18} />}
           />
         </div>
 
@@ -89,12 +89,12 @@ export default function AttendanceFilters({
           className="d-inline-flex align-items-center gap-2"
           onClick={onReset}
         >
-          <RotateCcw size={16} aria-hidden="true" />
+          <Icon name="arrow-counterclockwise" size={16} />
           Đặt lại
         </Button>
 
         <Button className="d-inline-flex align-items-center gap-2">
-          <Search size={16} aria-hidden="true" />
+          <Icon name="search" size={16} />
           Tìm kiếm
         </Button>
       </div>

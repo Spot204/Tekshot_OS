@@ -29,7 +29,7 @@ export interface OrderStat {
   label: string;
   value: number;
   variant: StatVariant;
-  /** Tên icon Bootstrap Icons, vd "bi-receipt-cutoff" */
+  /** Tên Bootstrap Icons, không kèm tiền tố "bi-". Vd "receipt-cutoff" */
   icon: string;
   trend: {
     direction: "up" | "down";

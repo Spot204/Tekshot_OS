@@ -1,9 +1,9 @@
 import { useMemo, useState } from "react";
-import { PackageSearch, Search } from "lucide-react";
 import clsx from "clsx";
 import type { Column } from "../../components/ui/Table";
 import type { ReorderRow } from "./orderingRows";
 import Card from "../../components/ui/Card";
+import Icon from "../../components/ui/Icon";
 import Input from "../../components/ui/Input";
 import ComboBox from "../../components/ui/ComboBox";
 import Table from "../../components/ui/Table";
@@ -211,7 +211,7 @@ export default function OrderingPage() {
     <>
       <div className="d-flex align-items-center gap-3 mb-2">
         <span className="warehouse-page-icon">
-          <PackageSearch size={24} />
+          <Icon name="archive" size={24} />
         </span>
         <div>
           <h4 className="fw-bold mb-0">Gọi hàng</h4>
@@ -274,7 +274,7 @@ export default function OrderingPage() {
                   aria-label="Tìm kiếm vật phẩm"
                   value={keyword}
                   onChange={(e) => setKeyword(e.target.value)}
-                  leftIcon={<Search size={18} />}
+                  leftIcon={<Icon name="search" size={18} />}
                 />
               </div>
               <div className="col-lg-3">

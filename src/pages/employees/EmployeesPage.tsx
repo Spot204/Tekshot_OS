@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { ChevronDown, Download, LayoutGrid, Plus, Users } from "lucide-react";
+import Icon from "../../components/ui/Icon";
 import Card from "../../components/ui/Card";
 import Button from "../../components/ui/Button";
 import Table from "../../components/ui/Table";
@@ -100,7 +100,7 @@ export default function EmployeesPage() {
       <div className="d-flex justify-content-between align-items-start flex-wrap gap-3 mb-2">
         <div className="d-flex align-items-center gap-3">
           <div className="employee-page-icon">
-            <Users size={28} />
+            <Icon name="people" size={28} />
           </div>
           <div>
             <h4 className="fw-bold mb-0">Nhân viên</h4>
@@ -119,7 +119,7 @@ export default function EmployeesPage() {
             className="d-inline-flex align-items-center gap-2"
             onClick={() => setShowForm(true)}
           >
-            <Plus size={18} aria-hidden="true" />
+            <Icon name="plus-lg" size={18} />
             Thêm nhân viên
           </Button>
         </div>
@@ -138,7 +138,7 @@ export default function EmployeesPage() {
         <div className="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
           <div className="d-flex align-items-center gap-2">
             <span className="employee-list-icon">
-              <LayoutGrid size={18} />
+              <Icon name="grid" size={18} />
             </span>
             <h2 className="h6 fw-semibold mb-0">
               Danh sách nhân viên ({filtered.length})
@@ -149,9 +149,9 @@ export default function EmployeesPage() {
             customVariant="secondary"
             className="d-inline-flex align-items-center gap-2"
           >
-            <Download size={16} aria-hidden="true" />
+            <Icon name="download" size={16} />
             Xuất dữ liệu
-            <ChevronDown size={16} aria-hidden="true" />
+            <Icon name="chevron-down" size={16} />
           </Button>
         </div>
 

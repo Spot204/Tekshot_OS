@@ -1,4 +1,4 @@
-import { CircleCheck, CircleX } from "lucide-react";
+import Icon from "../../components/ui/Icon";
 import type { Column } from "../../components/ui/Table";
 import type { SortSpec } from "../../hooks/useTableSort";
 import type { AttendanceRow } from "./attendanceRow";
@@ -87,7 +87,11 @@ export const createAttendanceColumns = ({
     render: (row) => (
       <Badge variant={row.present ? "success" : "danger"} size="sm">
         <span className="d-inline-flex align-items-center gap-1">
-          {row.present ? <CircleCheck size={14} /> : <CircleX size={14} />}
+          {row.present ? (
+            <Icon name="check-circle" size={14} />
+          ) : (
+            <Icon name="x-circle" size={14} />
+          )}
           {row.present ? "Đã chấm công" : "Chưa chấm công"}
         </span>
       </Badge>
@@ -103,12 +107,12 @@ export const createAttendanceColumns = ({
         actions={[
           {
             label: "Xem chi tiết",
-            icon: "bi-eye",
+            icon: "eye",
             onClick: () => onDetail(row),
           },
           {
             label: "Sửa giờ chấm công",
-            icon: "bi-pencil",
+            icon: "pencil",
             onClick: () => onEdit(row),
           },
         ]}

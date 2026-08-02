@@ -1,5 +1,5 @@
-import { Plus, Trash2 } from "lucide-react";
 import type { ProductVariant } from "../../types/product";
+import Icon from "../../components/ui/Icon";
 import Input from "../../components/ui/Input";
 import Button from "../../components/ui/Button";
 import { toNumber } from "../vouchers/voucherLine";
@@ -31,7 +31,7 @@ export default function VariantEditor({
             onChange([...variants, emptyVariant(`v-${Date.now()}`)])
           }
         >
-          <Plus size={16} aria-hidden="true" />
+          <Icon name="plus-lg" size={16} />
           Thêm biến thể
         </Button>
       </div>
@@ -50,7 +50,7 @@ export default function VariantEditor({
                   onChange(variants.filter((v) => v.id !== variant.id))
                 }
               >
-                <Trash2 size={14} aria-hidden="true" />
+                <Icon name="trash" size={14} />
                 Xóa biến thể
               </Button>
             </div>

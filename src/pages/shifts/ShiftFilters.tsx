@@ -1,11 +1,5 @@
-import {
-  Download,
-  List,
-  Printer,
-  Search,
-  SlidersHorizontal,
-} from "lucide-react";
 import Card from "../../components/ui/Card";
+import Icon from "../../components/ui/Icon";
 import Input from "../../components/ui/Input";
 import ComboBox from "../../components/ui/ComboBox";
 import Button from "../../components/ui/Button";
@@ -41,21 +35,21 @@ export default function ShiftFilters({ value, onChange }: ShiftFiltersProps) {
           className="app-header-icon-btn border"
           aria-label="Chọn cột hiển thị"
         >
-          <List size={18} />
+          <Icon name="list-ul" size={18} />
         </button>
         <button
           type="button"
           className="app-header-icon-btn border"
           aria-label="In danh sách"
         >
-          <Printer size={18} />
+          <Icon name="printer" size={18} />
         </button>
         <button
           type="button"
           className="app-header-icon-btn border"
           aria-label="Xuất dữ liệu"
         >
-          <Download size={18} />
+          <Icon name="download" size={18} />
         </button>
       </div>
 
@@ -100,7 +94,7 @@ export default function ShiftFilters({ value, onChange }: ShiftFiltersProps) {
             aria-label="Tìm theo mã chốt ca, ghi chú"
             value={value.keyword}
             onChange={(event) => onChange({ keyword: event.target.value })}
-            rightIcon={<Search size={16} />}
+            rightIcon={<Icon name="search" size={16} />}
           />
         </div>
 
@@ -109,7 +103,7 @@ export default function ShiftFilters({ value, onChange }: ShiftFiltersProps) {
             customVariant="secondary"
             className="d-inline-flex align-items-center gap-2 text-nowrap"
           >
-            <SlidersHorizontal size={16} aria-hidden="true" />
+            <Icon name="sliders" size={16} />
             Bộ lọc
           </Button>
         </div>

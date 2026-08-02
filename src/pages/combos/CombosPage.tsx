@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { Layers, Plus, Search } from "lucide-react";
+import Icon from "../../components/ui/Icon";
 import type { Combo } from "../../types/combo";
 import Card from "../../components/ui/Card";
 import Input from "../../components/ui/Input";
@@ -71,7 +71,7 @@ export default function CombosPage() {
       <div className="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-2">
         <div className="d-flex align-items-center gap-3">
           <span className="product-page-icon">
-            <Layers size={24} />
+            <Icon name="layers" size={24} />
           </span>
           <div>
             <h4 className="fw-bold mb-0">Combo</h4>
@@ -83,7 +83,7 @@ export default function CombosPage() {
           className="d-inline-flex align-items-center gap-2"
           onClick={() => setShowForm(true)}
         >
-          <Plus size={18} aria-hidden="true" />
+          <Icon name="plus-lg" size={18} />
           Thêm combo
         </Button>
       </div>
@@ -122,7 +122,7 @@ export default function CombosPage() {
               aria-label="Tìm kiếm combo"
               value={keyword}
               onChange={(e) => withPageReset(setKeyword)(e.target.value)}
-              leftIcon={<Search size={18} />}
+              leftIcon={<Icon name="search" size={18} />}
             />
           </div>
 

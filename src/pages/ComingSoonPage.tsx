@@ -1,4 +1,5 @@
 import { useLocation } from "react-router-dom";
+import Icon from "../components/ui/Icon";
 import { menuItems } from "../components/layout/menuItems";
 
 /** Tên hiển thị của menu ứng với path, để biết đang mở mục nào */
@@ -21,11 +22,7 @@ export default function ComingSoonPage() {
   return (
     <div className="d-flex justify-content-center align-items-center py-5">
       <div className="text-center">
-        <i
-          className="bi bi-cone-striped text-secondary"
-          style={{ fontSize: "3rem" }}
-          aria-hidden="true"
-        />
+        <Icon name="cone-striped" size={48} className="text-secondary" />
         <h3 className="text-secondary mt-3">
           {label ? `${label} đang phát triển` : "Tính năng đang phát triển"}
         </h3>

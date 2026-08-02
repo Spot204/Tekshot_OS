@@ -1,4 +1,4 @@
-import { ChevronDown, Download } from "lucide-react";
+import Icon from "../../components/ui/Icon";
 import DateRangeInput from "../../components/ui/DateRangeInput";
 import Button from "../../components/ui/Button";
 
@@ -34,9 +34,9 @@ export default function ReportToolbar({
         </div>
 
         <Button className="d-inline-flex align-items-center gap-2">
-          <Download size={16} aria-hidden="true" />
+          <Icon name="download" size={16} />
           Xuất báo cáo
-          <ChevronDown size={16} aria-hidden="true" />
+          <Icon name="chevron-down" size={16} />
         </Button>
       </div>
     </div>

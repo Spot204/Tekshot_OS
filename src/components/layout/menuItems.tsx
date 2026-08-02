@@ -1,15 +1,5 @@
 import type { ReactNode } from "react";
-import {
-  ShoppingCart,
-  Box,
-  Warehouse,
-  Wallet,
-  Receipt,
-  Contact,
-  ChartColumn,
-  UserRound,
-  Settings,
-} from "lucide-react";
+import Icon from "../ui/Icon";
 
 export interface SubMenuItem {
   /** Vừa là id, vừa là path: điều hướng tới `/${id}` */
@@ -24,11 +14,11 @@ export interface MenuItem extends SubMenuItem {
 
 /** Nguồn duy nhất cho menu sidebar. Mỗi `id` cần một <Route> trong AppRouter. */
 export const menuItems: MenuItem[] = [
-  { id: "order", label: "Đơn hàng", icon: <ShoppingCart size={18} /> },
+  { id: "order", label: "Đơn hàng", icon: <Icon name="cart" size={18} /> },
   {
     id: "hang-hoa",
     label: "Hàng hóa",
-    icon: <Box size={18} />,
+    icon: <Icon name="box" size={18} />,
     children: [
       { id: "san-pham", label: "Sản phẩm" },
       { id: "vat-tu", label: "Vật tư" },
@@ -38,7 +28,7 @@ export const menuItems: MenuItem[] = [
   {
     id: "kho-hang",
     label: "Kho hàng",
-    icon: <Warehouse size={18} />,
+    icon: <Icon name="buildings" size={18} />,
     children: [
       { id: "nguyen-lieu", label: "Nguyên liệu" },
       { id: "dung-cu", label: "Dụng cụ" },
@@ -52,7 +42,7 @@ export const menuItems: MenuItem[] = [
   {
     id: "so-quy",
     label: "Sổ quỹ",
-    icon: <Wallet size={18} />,
+    icon: <Icon name="wallet2" size={18} />,
     children: [
       { id: "wallet", label: "Sổ quỹ" },
       { id: "cash-receipt", label: "Phiếu thu chi" },
@@ -62,7 +52,7 @@ export const menuItems: MenuItem[] = [
   {
     id: "hoa-don",
     label: "Hóa đơn",
-    icon: <Receipt size={18} />,
+    icon: <Icon name="receipt" size={18} />,
     children: [
       { id: "invoice-in", label: "Hóa đơn đầu vào" },
       { id: "invoice-out", label: "Hóa đơn đầu ra" },
@@ -71,15 +61,19 @@ export const menuItems: MenuItem[] = [
   {
     id: "nhan-su",
     label: "Nhân sự",
-    icon: <UserRound size={18} />,
+    icon: <Icon name="person" size={18} />,
     children: [
       { id: "employee", label: "Nhân viên" },
       { id: "attendance", label: "Chấm công" },
     ],
   },
-  { id: "customer", label: "Khách hàng", icon: <Contact size={18} /> },
-  { id: "report", label: "Báo cáo", icon: <ChartColumn size={18} /> },
-  { id: "setting", label: "Cấu hình", icon: <Settings size={18} /> },
+  {
+    id: "customer",
+    label: "Khách hàng",
+    icon: <Icon name="person-lines-fill" size={18} />,
+  },
+  { id: "report", label: "Báo cáo", icon: <Icon name="bar-chart" size={18} /> },
+  { id: "setting", label: "Cấu hình", icon: <Icon name="gear" size={18} /> },
 ];
 
 /** Khớp cả route con (`/invoice-in/123`) để sidebar highlight đúng */

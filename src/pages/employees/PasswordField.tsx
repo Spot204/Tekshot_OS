@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Eye, EyeOff } from "lucide-react";
+import Icon from "../../components/ui/Icon";
 import Input from "../../components/ui/Input";
 
 interface PasswordFieldProps {
@@ -46,7 +46,11 @@ export default function PasswordField({
             aria-pressed={visible}
             onClick={() => setVisible((open) => !open)}
           >
-            {visible ? <EyeOff size={16} /> : <Eye size={16} />}
+            {visible ? (
+              <Icon name="eye-slash" size={16} />
+            ) : (
+              <Icon name="eye" size={16} />
+            )}
           </button>
         }
       />

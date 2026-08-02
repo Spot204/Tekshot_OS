@@ -1,6 +1,6 @@
 import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
-import { Calendar, ChevronDown } from "lucide-react";
+import Icon from "./Icon";
 import Input from "./Input";
 
 export interface DateRangeInputProps {
@@ -31,8 +31,8 @@ export default function DateRangeInput({
         <Input
           id={id}
           placeholder={placeholder}
-          leftIcon={<Calendar size={16} />}
-          rightIcon={<ChevronDown size={16} />}
+          leftIcon={<Icon name="calendar" size={16} />}
+          rightIcon={<Icon name="chevron-down" size={16} />}
           aria-label={id ? undefined : placeholder}
         />
       }

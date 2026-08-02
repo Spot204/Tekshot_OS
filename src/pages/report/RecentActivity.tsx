@@ -1,6 +1,6 @@
-import { PackagePlus, Receipt, Tag, UserPlus } from "lucide-react";
 import type { ReactNode } from "react";
 import type { ActivityKind } from "../../types/report";
+import Icon from "../../components/ui/Icon";
 import SectionCard from "./SectionCard";
 import SectionLink from "./SectionLink";
 import { chartColor } from "./chartTheme";
@@ -8,10 +8,10 @@ import { formatRelativeTime } from "../../utils/format";
 import { recentActivities } from "../../mocks/report";
 
 const ICONS: Record<ActivityKind, ReactNode> = {
-  order: <Receipt size={18} />,
-  stock: <PackagePlus size={18} />,
-  customer: <UserPlus size={18} />,
-  promotion: <Tag size={18} />,
+  order: <Icon name="receipt-cutoff" size={18} />,
+  stock: <Icon name="box-arrow-in-down" size={18} />,
+  customer: <Icon name="person-plus" size={18} />,
+  promotion: <Icon name="tag" size={18} />,
 };
 
 const COLORS: Record<ActivityKind, string> = {

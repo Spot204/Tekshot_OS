@@ -1,5 +1,5 @@
-import { ArrowDown, ArrowUp } from "lucide-react";
 import clsx from "clsx";
+import Icon from "../../components/ui/Icon";
 import { formatPercent } from "../../utils/format";
 
 interface ChangeBadgeProps {
@@ -16,7 +16,7 @@ export default function ChangeBadge({
   onHero = false,
 }: ChangeBadgeProps) {
   const isUp = percent >= 0;
-  const Icon = isUp ? ArrowUp : ArrowDown;
+  const iconName = isUp ? "arrow-up" : "arrow-down";
 
   return (
     <span
@@ -25,7 +25,7 @@ export default function ChangeBadge({
         !onHero && (isUp ? "text-success" : "text-danger"),
       )}
     >
-      <Icon size={14} aria-hidden="true" />
+      <Icon name={iconName} size={14} />
       {formatPercent(percent)}
       {note && <span className="fw-normal opacity-75 ms-1">{note}</span>}
     </span>

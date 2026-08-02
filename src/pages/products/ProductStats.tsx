@@ -1,5 +1,5 @@
-import { Ban, CircleAlert, Package, Tag, TicketCheck } from "lucide-react";
 import type { ReactNode } from "react";
+import Icon from "../../components/ui/Icon";
 import Card from "../../components/ui/Card";
 import ChangeBadge from "../report/ChangeBadge";
 import { formatCurrency, formatNumber } from "../../utils/format";
@@ -38,7 +38,7 @@ export default function ProductStats() {
     <div className="row g-2 mb-2">
       <div className="col-xl col-md-6">
         <Stat
-          icon={<Package size={20} />}
+          icon={<Icon name="box-seam" size={20} />}
           color="var(--chart-brand)"
           label="Tổng sản phẩm"
           value={formatNumber(productStats.total)}
@@ -47,7 +47,7 @@ export default function ProductStats() {
       </div>
       <div className="col-xl col-md-6">
         <Stat
-          icon={<Tag size={20} />}
+          icon={<Icon name="tag" size={20} />}
           color="var(--chart-success)"
           label="Giá trị tồn kho"
           value={formatCurrency(productStats.inventoryValue)}
@@ -56,7 +56,7 @@ export default function ProductStats() {
       </div>
       <div className="col-xl col-md-6">
         <Stat
-          icon={<TicketCheck size={20} />}
+          icon={<Icon name="ticket-detailed" size={20} />}
           color="var(--chart-purple)"
           label="Đang bán"
           value={formatNumber(productStats.selling)}
@@ -65,7 +65,7 @@ export default function ProductStats() {
       </div>
       <div className="col-xl col-md-6">
         <Stat
-          icon={<CircleAlert size={20} />}
+          icon={<Icon name="exclamation-circle" size={20} />}
           color="var(--warning)"
           label="Sắp hết hàng"
           value={formatNumber(productStats.lowStock)}
@@ -74,7 +74,7 @@ export default function ProductStats() {
       </div>
       <div className="col-xl col-md-6">
         <Stat
-          icon={<Ban size={20} />}
+          icon={<Icon name="slash-circle" size={20} />}
           color="var(--chart-muted)"
           label="Ngừng kinh doanh"
           value={formatNumber(productStats.stopped)}

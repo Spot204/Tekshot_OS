@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import Icon from "../../components/ui/Icon";
 import Card from "../../components/ui/Card";
 import Button from "../../components/ui/Button";
 import Table from "../../components/ui/Table";
@@ -76,11 +77,11 @@ export default function OrderList({
               size="sm"
               onClick={() => console.log("Tạo đơn với OCR")}
             >
-              <i className="bi bi-printer me-1" aria-hidden="true" />
+              <Icon name="printer" className="me-1" />
               Tạo đơn với OCR
             </Button>
             <Button size="sm" onClick={() => console.log("Lọc đơn hàng")}>
-              <i className="bi bi-funnel me-1" aria-hidden="true" />
+              <Icon name="funnel" className="me-1" />
               Lọc
             </Button>
           </>

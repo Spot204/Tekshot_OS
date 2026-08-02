@@ -1,12 +1,6 @@
 import { useMemo, useState } from "react";
-import {
-  Package,
-  Plus,
-  Search,
-  Settings,
-  SlidersHorizontal,
-} from "lucide-react";
 import type { Product } from "../../types/product";
+import Icon from "../../components/ui/Icon";
 import Card from "../../components/ui/Card";
 import Input from "../../components/ui/Input";
 import ComboBox from "../../components/ui/ComboBox";
@@ -104,7 +98,7 @@ export default function ProductsPage() {
     <>
       <div className="d-flex align-items-center gap-3 mb-2">
         <span className="product-page-icon">
-          <Package size={24} />
+          <Icon name="box-seam" size={24} />
         </span>
         <div>
           <h4 className="fw-bold mb-0">Hàng hóa</h4>
@@ -122,7 +116,7 @@ export default function ProductsPage() {
               aria-label="Tìm kiếm hàng hóa"
               value={keyword}
               onChange={(e) => withPageReset(setKeyword)(e.target.value)}
-              leftIcon={<Search size={18} />}
+              leftIcon={<Icon name="search" size={18} />}
             />
           </div>
 
@@ -149,7 +143,7 @@ export default function ProductsPage() {
               customVariant="secondary"
               className="d-inline-flex align-items-center gap-2 text-nowrap"
             >
-              <SlidersHorizontal size={16} aria-hidden="true" />
+              <Icon name="sliders" size={16} />
               Bộ lọc
             </Button>
 
@@ -157,7 +151,7 @@ export default function ProductsPage() {
               className="d-inline-flex align-items-center gap-2 text-nowrap"
               onClick={() => setShowForm(true)}
             >
-              <Plus size={16} aria-hidden="true" />
+              <Icon name="plus-lg" size={16} />
               Thêm mới
             </Button>
 
@@ -166,7 +160,7 @@ export default function ProductsPage() {
               className="app-header-icon-btn border"
               aria-label="Cấu hình bảng"
             >
-              <Settings size={18} />
+              <Icon name="gear" size={18} />
             </button>
           </div>
         </div>

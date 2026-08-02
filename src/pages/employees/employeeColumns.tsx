@@ -1,4 +1,4 @@
-import { Mail, Phone } from "lucide-react";
+import Icon from "../../components/ui/Icon";
 import type { Column } from "../../components/ui/Table";
 import type { Employee } from "../../types/employee";
 import Avatar from "../../components/ui/Avatar";
@@ -79,11 +79,11 @@ export const createEmployeeColumns = ({
     render: (employee) => (
       <div className="d-flex flex-column gap-1 small">
         <span className="d-flex align-items-center gap-2">
-          <Phone size={14} className="text-secondary" aria-hidden="true" />
+          <Icon name="telephone" size={14} className="text-secondary" />
           {employee.phone}
         </span>
         <span className="d-flex align-items-center gap-2">
-          <Mail size={14} className="text-secondary" aria-hidden="true" />
+          <Icon name="envelope" size={14} className="text-secondary" />
           {employee.email}
         </span>
       </div>
@@ -129,12 +129,12 @@ export const createEmployeeColumns = ({
         actions={[
           {
             label: "Sửa thông tin",
-            icon: "bi-pencil",
+            icon: "pencil",
             onClick: () => onEdit(employee),
           },
           {
             label: "Xóa nhân viên",
-            icon: "bi-trash",
+            icon: "trash",
             danger: true,
             dividerBefore: true,
             onClick: () => onDelete(employee),

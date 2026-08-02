@@ -1,4 +1,4 @@
-import { Boxes } from "lucide-react";
+import Icon from "../../components/ui/Icon";
 import StockItemListPage from "./StockItemListPage";
 import { supplies } from "../../mocks/stockItems";
 
@@ -7,7 +7,7 @@ export default function SuppliesPage() {
     <StockItemListPage
       title="Vật tư"
       subtitle="Hàng hóa · Vật tư"
-      icon={<Boxes size={24} />}
+      icon={<Icon name="boxes" size={24} />}
       idPrefix="VT"
       createLabel="Thêm vật tư"
       itemLabel="vật tư"

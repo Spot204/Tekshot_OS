@@ -1,5 +1,5 @@
-import { Download, Filter, Search } from "lucide-react";
 import Card from "../../components/ui/Card";
+import Icon from "../../components/ui/Icon";
 import Input from "../../components/ui/Input";
 import ComboBox from "../../components/ui/ComboBox";
 import Button from "../../components/ui/Button";
@@ -68,13 +68,13 @@ export default function CashBookFilters({
             aria-label="Tìm kiếm mô tả, mã phiếu"
             value={value.keyword}
             onChange={(event) => onChange({ keyword: event.target.value })}
-            rightIcon={<Search size={16} />}
+            rightIcon={<Icon name="search" size={16} />}
           />
         </div>
 
         <div className="col-xl-3 d-flex gap-2">
           <Button className="d-inline-flex align-items-center gap-2 text-nowrap">
-            <Filter size={16} aria-hidden="true" />
+            <Icon name="funnel" size={16} />
             Lọc
           </Button>
 
@@ -82,7 +82,7 @@ export default function CashBookFilters({
             customVariant="secondary"
             className="d-inline-flex align-items-center gap-2 text-nowrap"
           >
-            <Download size={16} aria-hidden="true" />
+            <Icon name="download" size={16} />
             Xuất Excel
           </Button>
         </div>

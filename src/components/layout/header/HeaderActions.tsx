@@ -1,4 +1,4 @@
-import { Bell, CircleQuestionMark, Settings } from "lucide-react";
+import Icon from "../../ui/Icon";
 import HeaderThemeToggle from "./HeaderThemeToggle";
 import { ICON_SIZE } from "./constants";
 
@@ -24,7 +24,7 @@ export default function HeaderActions({
           hasBadge ? `Thông báo, ${notificationCount} chưa đọc` : "Thông báo"
         }
       >
-        <Bell size={ICON_SIZE.action} />
+        <Icon name="bell" size={ICON_SIZE.action} />
         {hasBadge && (
           <span className="app-header-badge" aria-hidden="true">
             {notificationCount > MAX_BADGE_COUNT
@@ -39,7 +39,7 @@ export default function HeaderActions({
         className="app-header-icon-btn d-none d-sm-inline-flex"
         aria-label="Trợ giúp"
       >
-        <CircleQuestionMark size={ICON_SIZE.action} />
+        <Icon name="question-circle" size={ICON_SIZE.action} />
       </button>
 
       <button
@@ -47,7 +47,7 @@ export default function HeaderActions({
         className="app-header-icon-btn d-none d-sm-inline-flex"
         aria-label="Cấu hình"
       >
-        <Settings size={ICON_SIZE.action} />
+        <Icon name="gear" size={ICON_SIZE.action} />
       </button>
 
       <HeaderThemeToggle />

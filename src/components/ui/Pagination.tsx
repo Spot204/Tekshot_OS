@@ -1,3 +1,5 @@
+import Icon from "./Icon";
+
 export interface PaginationProps {
   currentPage: number;
   pageSize: number;
@@ -75,7 +77,7 @@ export default function Pagination({
           disabled={currentPage <= 1}
           onClick={() => onPageChange(1)}
         >
-          <i className="bi bi-chevron-double-left" aria-hidden="true" />
+          <Icon name="chevron-double-left" />
         </button>
 
         <button
@@ -85,7 +87,7 @@ export default function Pagination({
           disabled={currentPage <= 1}
           onClick={() => onPageChange(currentPage - 1)}
         >
-          <i className="bi bi-chevron-left" aria-hidden="true" />
+          <Icon name="chevron-left" />
         </button>
 
         {pages.map((p, i) =>
@@ -111,7 +113,7 @@ export default function Pagination({
           disabled={currentPage >= totalPages}
           onClick={() => onPageChange(currentPage + 1)}
         >
-          <i className="bi bi-chevron-right" aria-hidden="true" />
+          <Icon name="chevron-right" />
         </button>
 
         <button
@@ -121,7 +123,7 @@ export default function Pagination({
           disabled={currentPage >= totalPages}
           onClick={() => onPageChange(totalPages)}
         >
-          <i className="bi bi-chevron-double-right" aria-hidden="true" />
+          <Icon name="chevron-double-right" />
         </button>
       </div>
 

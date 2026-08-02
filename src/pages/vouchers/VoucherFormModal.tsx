@@ -1,11 +1,11 @@
 import { useMemo, useState } from "react";
 import { Collapse, Modal } from "react-bootstrap";
-import { ChevronDown, FileText } from "lucide-react";
 import type {
   CashFlow,
   PaymentMethod,
   VoucherLine,
 } from "../../types/cashbook";
+import Icon from "../../components/ui/Icon";
 import Input from "../../components/ui/Input";
 import ComboBox from "../../components/ui/ComboBox";
 import Button from "../../components/ui/Button";
@@ -107,7 +107,7 @@ export default function VoucherFormModal({
       <Modal.Body>
         <form id="voucher-form" onSubmit={submit} noValidate>
           <div className="voucher-section-bar mb-4">
-            <FileText size={18} aria-hidden="true" />
+            <Icon name="file-earmark-text" size={18} />
             <span className="fw-semibold">Thông tin chung</span>
           </div>
 
@@ -223,12 +223,12 @@ export default function VoucherFormModal({
                   aria-expanded={showFiles}
                   onClick={() => setShowFiles((open) => !open)}
                 >
-                  <ChevronDown
+                  <Icon
+                    name="chevron-down"
                     size={16}
                     className={
                       showFiles ? undefined : "menu-chevron is-collapsed"
                     }
-                    aria-hidden="true"
                   />
                   Tệp đính kèm
                 </button>

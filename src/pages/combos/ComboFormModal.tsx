@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { Modal } from "react-bootstrap";
-import { Minus, Plus, X } from "lucide-react";
+import Icon from "../../components/ui/Icon";
 import type { Combo, ComboItem } from "../../types/combo";
 import type { ProductRow } from "../../types/product";
 import Input from "../../components/ui/Input";
@@ -204,7 +204,7 @@ export default function ComboFormModal({
                             setQuantity(item.variantId, item.quantity - 1)
                           }
                         >
-                          <Minus size={14} />
+                          <Icon name="dash-lg" size={14} />
                         </button>
 
                         <Input
@@ -231,7 +231,7 @@ export default function ComboFormModal({
                             setQuantity(item.variantId, item.quantity + 1)
                           }
                         >
-                          <Plus size={14} />
+                          <Icon name="plus-lg" size={14} />
                         </button>
 
                         <button
@@ -240,7 +240,7 @@ export default function ComboFormModal({
                           aria-label={`Bỏ ${variant?.productName}`}
                           onClick={() => setQuantity(item.variantId, 0)}
                         >
-                          <X size={14} />
+                          <Icon name="x-lg" size={14} />
                         </button>
                       </li>
                     );

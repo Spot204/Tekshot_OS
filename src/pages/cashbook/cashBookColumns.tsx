@@ -107,12 +107,12 @@ export const createCashBookColumns = ({
         actions={[
           {
             label: "Xem chi tiết",
-            icon: "bi-eye",
+            icon: "eye",
             onClick: () => onDetail(row),
           },
           {
             label: "In phiếu",
-            icon: "bi-printer",
+            icon: "printer",
             onClick: () => onPrint(row),
           },
         ]}

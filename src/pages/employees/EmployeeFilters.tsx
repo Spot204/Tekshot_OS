@@ -1,4 +1,4 @@
-import { Search } from "lucide-react";
+import Icon from "../../components/ui/Icon";
 import Card from "../../components/ui/Card";
 import Input from "../../components/ui/Input";
 import ComboBox from "../../components/ui/ComboBox";
@@ -33,7 +33,7 @@ export default function EmployeeFilters({
             placeholder="Tìm theo họ tên, email, SĐT..."
             value={keyword}
             onChange={(event) => onKeywordChange(event.target.value)}
-            leftIcon={<Search size={18} />}
+            leftIcon={<Icon name="search" size={18} />}
           />
         </div>
 

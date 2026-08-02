@@ -1,7 +1,7 @@
-import { Package } from "lucide-react";
 import type { Column } from "../../components/ui/Table";
 import type { SortSpec } from "../../hooks/useTableSort";
 import type { ProductRow } from "../../types/product";
+import Icon from "../../components/ui/Icon";
 import Badge from "../../components/ui/Badge";
 import RowActions from "../../components/ui/RowActions";
 import { PRODUCT_STATUSES } from "../../constants/product";
@@ -65,7 +65,7 @@ export const createProductColumns = ({
           {row.imageUrl ? (
             <img src={row.imageUrl} alt="" />
           ) : (
-            <Package size={18} aria-hidden="true" />
+            <Icon name="box-seam" size={18} />
           )}
         </span>
         <div className="min-w-0">
@@ -114,12 +114,12 @@ export const createProductColumns = ({
         actions={[
           {
             label: "Sửa sản phẩm",
-            icon: "bi-pencil",
+            icon: "pencil",
             onClick: () => onEdit(row),
           },
           {
             label: "Xóa sản phẩm",
-            icon: "bi-trash",
+            icon: "trash",
             danger: true,
             dividerBefore: true,
             onClick: () => onDelete(row),

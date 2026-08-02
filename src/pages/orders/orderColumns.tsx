@@ -86,12 +86,12 @@ export const createOrderColumns = ({
         actions={[
           {
             label: "Sửa",
-            icon: "bi-pencil",
+            icon: "pencil",
             onClick: () => onEdit(order),
           },
           {
             label: "Xóa",
-            icon: "bi-trash",
+            icon: "trash",
             danger: true,
             dividerBefore: true,
             onClick: () => onDelete(order),

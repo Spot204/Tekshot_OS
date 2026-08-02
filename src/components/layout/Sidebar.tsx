@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Nav, Stack, Collapse } from "react-bootstrap";
 import { NavLink, useLocation } from "react-router-dom";
-import { ChevronDown } from "lucide-react";
 import clsx from "clsx";
+import Icon from "../ui/Icon";
 import { menuItems, findParentMenuId, isMenuPathActive } from "./menuItems";
 
 interface SidebarProps {
@@ -74,7 +74,7 @@ const Sidebar = ({ isOpen, onNavigate }: SidebarProps) => {
                         !isOpenGroup && "is-collapsed",
                       )}
                     >
-                      <ChevronDown size={14} />
+                      <Icon name="chevron-down" size={14} />
                     </span>
                   </button>
 

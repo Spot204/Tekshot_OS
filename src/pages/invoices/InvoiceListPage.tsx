@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { Collapse } from "react-bootstrap";
-import { FileText, Plus, Send, Filter, RotateCcw } from "lucide-react";
+import Icon from "../../components/ui/Icon";
 import Button from "../../components/ui/Button";
 import Card from "../../components/ui/Card";
 import Table from "../../components/ui/Table";
@@ -91,7 +91,7 @@ export default function InvoiceListPage({
       <div className="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-2">
         <div className="d-flex align-items-center gap-3">
           <div className="p-3 rounded-3 app-surface shadow-sm text-warning">
-            <FileText size={28} />
+            <Icon name="file-earmark-text" size={28} />
           </div>
           <div>
             <h4 className="fw-bold mb-0">{title}</h4>
@@ -104,14 +104,14 @@ export default function InvoiceListPage({
             customVariant="secondary"
             onClick={() => console.log(createLabel)}
           >
-            <Plus size={18} className="me-1" />
+            <Icon name="plus-lg" size={18} className="me-1" />
             {createLabel}
           </Button>
           <Button
             customVariant="primary"
             onClick={() => console.log(submitLabel)}
           >
-            <Send size={18} className="me-1" />
+            <Icon name="send" size={18} className="me-1" />
             {submitLabel}
           </Button>
         </div>
@@ -124,14 +124,15 @@ export default function InvoiceListPage({
             customVariant="secondary"
             onClick={() => setShowFilter((open) => !open)}
           >
-            <Filter size={18} className="me-1" /> Bộ lọc
+            <Icon name="funnel" size={18} className="me-1" /> Bộ lọc
           </Button>
           <Button
             variant="link"
             className="text-decoration-none text-body d-flex align-items-center"
             onClick={resetFilter}
           >
-            <RotateCcw size={18} className="me-1" /> Đặt lại
+            <Icon name="arrow-counterclockwise" size={18} className="me-1" />{" "}
+            Đặt lại
           </Button>
         </div>
 
@@ -169,7 +170,7 @@ export default function InvoiceListPage({
                   placeholder="Tìm theo số hóa đơn, khách hàng, mã đơn..."
                   value={search}
                   onChange={(e) => withPageReset(setSearch)(e.target.value)}
-                  leftIcon={<i className="bi bi-search" />}
+                  leftIcon={<Icon name="search" />}
                 />
               </div>
             </div>

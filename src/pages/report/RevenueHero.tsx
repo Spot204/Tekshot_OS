@@ -1,5 +1,5 @@
 import { Area, AreaChart, ResponsiveContainer } from "recharts";
-import { Info } from "lucide-react";
+import Icon from "../../components/ui/Icon";
 import Card from "../../components/ui/Card";
 import ChangeBadge from "./ChangeBadge";
 import { formatCurrency } from "../../utils/format";
@@ -20,7 +20,7 @@ export default function RevenueHero() {
     >
       <div className="d-flex align-items-center gap-2 mb-2">
         <span className="small opacity-75">Tổng doanh thu</span>
-        <Info size={14} className="opacity-50" aria-hidden="true" />
+        <Icon name="info-circle" size={14} className="opacity-50" />
       </div>
 
       <div className="display-6 fw-bold mb-2">

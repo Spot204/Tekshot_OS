@@ -132,7 +132,7 @@ export const orderStats: OrderStat[] = [
     label: "Tổng đơn hàng",
     value: 246,
     variant: "primary",
-    icon: "bi-receipt-cutoff",
+    icon: "receipt-cutoff",
     trend: { direction: "up", value: "16.8%", note: "so với hôm qua" },
   },
   {
@@ -140,7 +140,7 @@ export const orderStats: OrderStat[] = [
     label: "Đơn hoàn thành",
     value: 198,
     variant: "success",
-    icon: "bi-check-circle",
+    icon: "check-circle",
     trend: { direction: "up", value: "14.3%", note: "so với hôm qua" },
   },
   {
@@ -148,7 +148,7 @@ export const orderStats: OrderStat[] = [
     label: "Đang xử lý",
     value: 32,
     variant: "warning",
-    icon: "bi-clock-history",
+    icon: "clock-history",
     trend: { direction: "up", value: "8.2%", note: "so với hôm qua" },
   },
   {
@@ -156,7 +156,7 @@ export const orderStats: OrderStat[] = [
     label: "Đã hủy",
     value: 16,
     variant: "danger",
-    icon: "bi-x-circle",
+    icon: "x-circle",
     trend: { direction: "down", value: "4.7%", note: "so với hôm qua" },
   },
 ];

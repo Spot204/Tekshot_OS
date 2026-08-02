@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import Card from "./Card";
+import Icon from "./Icon";
 
 export type StatVariant = "primary" | "success" | "warning" | "danger";
 
@@ -44,10 +45,7 @@ export default function StatCard({
                 trend.direction === "up" ? "text-success" : "text-danger"
               }
             >
-              <i
-                className={`bi bi-arrow-${trend.direction} me-1`}
-                aria-hidden="true"
-              />
+              <Icon name={`arrow-${trend.direction}`} className="me-1" />
               {trend.value}
               {trend.note && (
                 <span className="text-body ms-1">{trend.note}</span>

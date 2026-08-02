@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Modal } from "react-bootstrap";
-import { Users } from "lucide-react";
+import Icon from "../../components/ui/Icon";
 import type { PermissionId } from "../../types/employee";
 import Input from "../../components/ui/Input";
 import Button from "../../components/ui/Button";
@@ -105,7 +105,7 @@ export default function EmployeeFormModal({
         <form id="employee-form" onSubmit={submit} noValidate>
           <div className="d-flex align-items-center gap-2 mb-4">
             <span className="employee-list-icon">
-              <Users size={18} />
+              <Icon name="people" size={18} />
             </span>
             <h3 className="h6 fw-semibold mb-0">Thông tin cơ bản</h3>
           </div>

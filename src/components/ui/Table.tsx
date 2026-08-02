@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import clsx from "clsx";
-import { ChevronDown, ChevronsUpDown, ChevronUp } from "lucide-react";
+import Icon from "./Icon";
 import Input from "./Input";
 
 export interface Column<T> {
@@ -81,13 +81,15 @@ function SortIcon({
   columnId: string;
 }) {
   if (sort?.columnId !== columnId) {
-    return (
-      <ChevronsUpDown size={14} className="opacity-50" aria-hidden="true" />
-    );
+    return <Icon name="chevron-expand" size={14} className="opacity-50" />;
   }
 
-  const Icon = sort.direction === "asc" ? ChevronUp : ChevronDown;
-  return <Icon size={14} aria-hidden="true" />;
+  return (
+    <Icon
+      name={sort.direction === "asc" ? "chevron-up" : "chevron-down"}
+      size={14}
+    />
+  );
 }
 
 function Table<T>({
@@ -144,7 +146,7 @@ function Table<T>({
                           placeholder={searchPlaceholder}
                           value={searchValue}
                           onChange={(e) => onSearchChange(e.target.value)}
-                          leftIcon={<i className="bi bi-search" />}
+                          leftIcon={<Icon name="search" />}
                         />
                       </div>
                     )}

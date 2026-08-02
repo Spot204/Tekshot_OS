@@ -1,8 +1,8 @@
-import { ArrowDown, ArrowUp } from "lucide-react";
 import type { Column } from "../../components/ui/Table";
 import type { SortSpec } from "../../hooks/useTableSort";
 import type { CashEntry } from "../../types/cashbook";
 import Badge from "../../components/ui/Badge";
+import Icon from "../../components/ui/Icon";
 import RowActions from "../../components/ui/RowActions";
 import {
   FLOWS,
@@ -44,9 +44,9 @@ export const createVoucherColumns = ({
         }
       >
         {voucher.flow === "in" ? (
-          <ArrowDown size={18} />
+          <Icon name="arrow-down" size={18} />
         ) : (
-          <ArrowUp size={18} />
+          <Icon name="arrow-up" size={18} />
         )}
       </span>
     ),
@@ -151,12 +151,12 @@ export const createVoucherColumns = ({
         actions={[
           {
             label: "Xem chi tiết",
-            icon: "bi-eye",
+            icon: "eye",
             onClick: () => onDetail(voucher),
           },
           {
             label: "Hủy phiếu",
-            icon: "bi-x-circle",
+            icon: "x-circle",
             danger: true,
             dividerBefore: true,
             onClick: () => onCancel(voucher),

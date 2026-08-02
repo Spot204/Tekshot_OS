@@ -1,12 +1,4 @@
-import {
-  Briefcase,
-  Moon,
-  ReceiptText,
-  ShieldCheck,
-  Store,
-  Sun,
-  Users,
-} from "lucide-react";
+import Icon from "../components/ui/Icon";
 import type { ReactNode } from "react";
 import type { BadgeVariant } from "../components/ui/Badge";
 import type {
@@ -40,25 +32,25 @@ export const PERMISSIONS: {
     id: "staff",
     label: "Nhân viên",
     description: "Thực hiện bán hàng, thao tác đơn hàng",
-    icon: <Users size={22} />,
+    icon: <Icon name="people" size={22} />,
   },
   {
     id: "cashier",
     label: "Thu ngân",
     description: "Thanh toán đơn hàng và quản lý giao dịch",
-    icon: <ReceiptText size={22} />,
+    icon: <Icon name="receipt" size={22} />,
   },
   {
     id: "manager",
     label: "Quản lý cửa hàng",
     description: "Quản lý kho, nhân viên và báo cáo",
-    icon: <Store size={22} />,
+    icon: <Icon name="shop" size={22} />,
   },
   {
     id: "admin",
     label: "Administrator",
     description: "Toàn quyền cấu hình hệ thống",
-    icon: <ShieldCheck size={22} />,
+    icon: <Icon name="shield-check" size={22} />,
   },
 ];
 
@@ -76,28 +68,28 @@ export const SHIFTS: Record<
     label: "Ca sáng",
     from: "06:00",
     to: "14:00",
-    icon: <Sun size={16} />,
+    icon: <Icon name="sun" size={16} />,
     color: "var(--chart-accent)",
   },
   afternoon: {
     label: "Ca chiều",
     from: "14:00",
     to: "22:00",
-    icon: <Sun size={16} />,
+    icon: <Icon name="sun" size={16} />,
     color: "var(--chart-accent)",
   },
   night: {
     label: "Ca tối",
     from: "22:00",
     to: "06:00",
-    icon: <Moon size={16} />,
+    icon: <Icon name="moon" size={16} />,
     color: "var(--chart-brand)",
   },
   office: {
     label: "Hành chính",
     from: "08:00",
     to: "17:00",
-    icon: <Briefcase size={16} />,
+    icon: <Icon name="briefcase" size={16} />,
     color: "var(--chart-brand)",
   },
 };

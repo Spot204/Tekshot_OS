@@ -105,17 +105,17 @@ export const createInvoiceColumns = ({
         actions={[
           {
             label: "Xem chi tiết",
-            icon: "bi-eye",
+            icon: "eye",
             onClick: () => onView(invoice),
           },
           {
             label: "In hóa đơn",
-            icon: "bi-printer",
+            icon: "printer",
             onClick: () => onPrint(invoice),
           },
           {
             label: "Hủy hóa đơn",
-            icon: "bi-x-circle",
+            icon: "x-circle",
             danger: true,
             dividerBefore: true,
             onClick: () => onCancel(invoice),

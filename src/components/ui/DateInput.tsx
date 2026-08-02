@@ -1,7 +1,7 @@
 import "react-datepicker/dist/react-datepicker.css";
 import { forwardRef } from "react";
 import DatePicker from "react-datepicker";
-import { Calendar, ChevronDown } from "lucide-react";
+import Icon from "./Icon";
 import Input from "./Input";
 import type { InputProps } from "./Input";
 import { formatDateWithWeekday } from "../../utils/format";
@@ -57,8 +57,8 @@ const DateInput = ({
     size,
     state,
     message,
-    leftIcon: <Calendar size={16} />,
-    rightIcon: <ChevronDown size={16} />,
+    leftIcon: <Icon name="calendar" size={16} />,
+    rightIcon: <Icon name="chevron-down" size={16} />,
   };
 
   return (

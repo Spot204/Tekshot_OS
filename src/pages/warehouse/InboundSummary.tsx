@@ -1,6 +1,6 @@
-import { ClipboardList, Minus, Plus, X } from "lucide-react";
 import type { ProductRow } from "../../types/product";
 import Card from "../../components/ui/Card";
+import Icon from "../../components/ui/Icon";
 import Input from "../../components/ui/Input";
 import Button from "../../components/ui/Button";
 import { toNumber } from "../vouchers/voucherLine";
@@ -47,11 +47,7 @@ export default function InboundSummary({
 
       {lines.length === 0 ? (
         <div className="inbound-empty">
-          <ClipboardList
-            size={40}
-            className="text-secondary"
-            aria-hidden="true"
-          />
+          <Icon name="list-check" size={40} className="text-secondary" />
           <div className="fw-semibold mt-2">Chưa có sản phẩm nào</div>
           <p className="text-secondary small mb-0">
             Hãy chọn sản phẩm từ danh sách bên trái để thêm vào phiếu nhập.
@@ -80,7 +76,7 @@ export default function InboundSummary({
                   aria-label={`Bỏ ${row.productName}`}
                   onClick={() => onRemove(row.id)}
                 >
-                  <X size={14} />
+                  <Icon name="x-lg" size={14} />
                 </button>
               </div>
 
@@ -92,7 +88,7 @@ export default function InboundSummary({
                   aria-label={`Giảm số lượng ${row.productName}`}
                   onClick={() => onQuantityChange(row.id, quantity - 1)}
                 >
-                  <Minus size={14} />
+                  <Icon name="dash-lg" size={14} />
                 </button>
 
                 <Input
@@ -114,7 +110,7 @@ export default function InboundSummary({
                   aria-label={`Tăng số lượng ${row.productName}`}
                   onClick={() => onQuantityChange(row.id, quantity + 1)}
                 >
-                  <Plus size={14} />
+                  <Icon name="plus-lg" size={14} />
                 </button>
 
                 <span className="ms-auto fw-semibold small">

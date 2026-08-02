@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Collapse, Modal } from "react-bootstrap";
-import { ChevronDown, Upload } from "lucide-react";
 import type { Product, ProductVariant } from "../../types/product";
+import Icon from "../../components/ui/Icon";
 import Input from "../../components/ui/Input";
 import ComboBox from "../../components/ui/ComboBox";
 import Button from "../../components/ui/Button";
@@ -171,7 +171,7 @@ export default function ProductFormModal({
               </span>
               <label className="product-file-picker">
                 <span className="product-file-btn">
-                  <Upload size={16} aria-hidden="true" />
+                  <Icon name="upload" size={16} />
                   Chọn tệp
                 </span>
                 <span className="text-secondary small text-truncate">
@@ -194,12 +194,12 @@ export default function ProductFormModal({
                   aria-expanded={showExtra}
                   onClick={() => setShowExtra((open) => !open)}
                 >
-                  <ChevronDown
+                  <Icon
+                    name="chevron-down"
                     size={16}
                     className={
                       showExtra ? undefined : "menu-chevron is-collapsed"
                     }
-                    aria-hidden="true"
                   />
                   Thông tin thêm
                 </button>

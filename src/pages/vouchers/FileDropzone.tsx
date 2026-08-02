@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { CloudUpload, X } from "lucide-react";
+import Icon from "../../components/ui/Icon";
 
 const ACCEPT = ".jpg,.png,.pdf,.xls,.xlsx";
 const MAX_BYTES = 10 * 1024 * 1024;
@@ -39,7 +39,7 @@ export default function FileDropzone({ files, onChange }: FileDropzoneProps) {
           accept(event.dataTransfer.files);
         }}
       >
-        <CloudUpload size={24} className="text-secondary" aria-hidden="true" />
+        <Icon name="cloud-upload" size={24} className="text-secondary" />
         <span className="text-secondary small">Kéo thả file vào đây hoặc</span>
 
         <button
@@ -83,7 +83,7 @@ export default function FileDropzone({ files, onChange }: FileDropzoneProps) {
                 aria-label={`Bỏ ${file.name}`}
                 onClick={() => onChange(files.filter((_, i) => i !== index))}
               >
-                <X size={14} />
+                <Icon name="x-lg" size={14} />
               </button>
             </li>
           ))}

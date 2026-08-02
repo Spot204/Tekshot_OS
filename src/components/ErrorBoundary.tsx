@@ -2,6 +2,7 @@ import { Component } from "react";
 import type { ErrorInfo, ReactNode } from "react";
 import Card from "./ui/Card";
 import Button from "./ui/Button";
+import Icon from "./ui/Icon";
 
 interface ErrorBoundaryProps {
   children: ReactNode;
@@ -32,7 +33,10 @@ export default class ErrorBoundary extends Component<
 
     return (
       <Card shadow bordered={false} padding="p-5" className="text-center">
-        <i className="bi bi-exclamation-triangle fs-1 text-warning d-block mb-3" />
+        <Icon
+          name="exclamation-triangle"
+          className="fs-1 text-warning d-block mb-3"
+        />
         <h5 className="fw-bold mb-2">Đã có lỗi xảy ra</h5>
         <p className="text-secondary mb-1">
           Trang này không hiển thị được. Bạn thử tải lại, hoặc chọn mục khác ở

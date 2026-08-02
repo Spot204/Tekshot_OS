@@ -114,12 +114,12 @@ export const createComboColumns = ({
         actions={[
           {
             label: "Sửa combo",
-            icon: "bi-pencil",
+            icon: "pencil",
             onClick: () => onEdit(combo),
           },
           {
             label: "Xóa combo",
-            icon: "bi-trash",
+            icon: "trash",
             danger: true,
             dividerBefore: true,
             onClick: () => onDelete(combo),

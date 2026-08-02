@@ -1,5 +1,5 @@
 import { Dropdown } from "react-bootstrap";
-import { ChevronDown, KeyRound, LogOut, UserRound } from "lucide-react";
+import Icon from "../../ui/Icon";
 import type { CurrentUser } from "../../../types/user";
 import { ICON_SIZE } from "./constants";
 
@@ -28,24 +28,32 @@ export default function HeaderUser({ name, role, avatarUrl }: HeaderUserProps) {
           <span className="app-header-role">{role}</span>
         </span>
 
-        <ChevronDown size={ICON_SIZE.caret} className="app-header-caret" />
+        <Icon
+          name="chevron-down"
+          size={ICON_SIZE.caret}
+          className="app-header-caret"
+        />
       </Dropdown.Toggle>
 
       <Dropdown.Menu className="shadow-sm border-0 mt-2">
         <Dropdown.Item as="button" type="button">
-          <UserRound size={ICON_SIZE.caret} className="me-2" />
+          <Icon name="person" size={ICON_SIZE.caret} className="me-2" />
           Thông tin cá nhân
         </Dropdown.Item>
 
         <Dropdown.Item as="button" type="button">
-          <KeyRound size={ICON_SIZE.caret} className="me-2" />
+          <Icon name="key" size={ICON_SIZE.caret} className="me-2" />
           Đổi mật khẩu
         </Dropdown.Item>
 
         <Dropdown.Divider />
 
         <Dropdown.Item as="button" type="button" className="text-danger">
-          <LogOut size={ICON_SIZE.caret} className="me-2" />
+          <Icon
+            name="box-arrow-right"
+            size={ICON_SIZE.caret}
+            className="me-2"
+          />
           Đăng xuất
         </Dropdown.Item>
       </Dropdown.Menu>
