@@ -70,7 +70,7 @@ export default function CombosPage() {
     <>
       <div className="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-2">
         <div className="d-flex align-items-center gap-3">
-          <span className="product-page-icon">
+          <span className="product-page-icon" style={{ width: 56, height: 56 }}>
             <Icon name="layers" size={24} />
           </span>
           <div>

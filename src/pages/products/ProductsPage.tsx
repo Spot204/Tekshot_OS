@@ -98,7 +98,7 @@ export default function ProductsPage() {
     <>
       <div className="d-flex align-items-center gap-3 mb-2">
         <span className="product-page-icon">
-          <Icon name="box-seam" size={24} />
+          <Icon name="box-seam" size={24}  />
         </span>
         <div>
           <h4 className="fw-bold mb-0">Hàng hóa</h4>

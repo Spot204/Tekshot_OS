@@ -73,7 +73,6 @@ export const menuItems: MenuItem[] = [
     icon: <Icon name="person-lines-fill" size={18} />,
   },
   { id: "report", label: "Báo cáo", icon: <Icon name="bar-chart" size={18} /> },
-  { id: "setting", label: "Cấu hình", icon: <Icon name="gear" size={18} /> },
 ];
 
 /** Khớp cả route con (`/invoice-in/123`) để sidebar highlight đúng */

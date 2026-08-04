@@ -102,7 +102,9 @@ export default function StockItemListPage({
     <>
       <div className="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-2">
         <div className="d-flex align-items-center gap-3">
-          <span className="warehouse-page-icon">{icon}</span>
+          <span className="warehouse-page-icon" >
+            {icon}
+          </span>
           <div>
             <h4 className="fw-bold mb-0">{title}</h4>
             <p className="text-secondary small mb-0">{subtitle}</p>

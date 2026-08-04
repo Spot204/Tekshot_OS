@@ -17,8 +17,9 @@ export default function Icon({ name, size, className }: IconProps) {
   return (
     <i
       className={clsx(`bi bi-${name}`, className)}
-      style={size ? { fontSize: size } : undefined}
-      aria-hidden="true"
+      style={size ? { fontSize: size } : undefined }
+      aria-hidden="true" 
+      
     />
   );
 }

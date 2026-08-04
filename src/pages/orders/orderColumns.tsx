@@ -22,7 +22,7 @@ const STATUS_VARIANT: Record<OrderStatus, BadgeVariant> = {
 
 const PAYMENT_VARIANT: Record<PaymentMethod, BadgeVariant> = {
   "Tiền mặt": "info",
-  "Chuyển khoản": "secondary",
+  "Chuyển khoản": "info",
 };
 
 interface OrderColumnHandlers {

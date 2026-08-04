@@ -29,7 +29,7 @@ export default function StatCard({
     <Card shadow bordered={false} className="h-100">
       <div className="d-flex align-items-center">
         <div
-          className={`bg-${variant} bg-opacity-10 text-${variant} rounded-2 d-flex align-items-center justify-content-center me-3 flex-shrink-0`}
+          className={`bg-${variant} bg-opacity-10 text-${variant} rounded-4 d-flex align-items-center justify-content-center me-3 flex-shrink-0`}
           style={{ width: "56px", height: "56px" }}
         >
           {icon}

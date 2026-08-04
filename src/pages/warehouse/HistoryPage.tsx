@@ -221,7 +221,7 @@ export default function HistoryPage() {
   return (
     <>
       <div className="d-flex align-items-center gap-3 mb-2">
-        <span className="warehouse-page-icon">
+        <span className="warehouse-page-icon" style={{ width: 56, height: 56 }}>
           <Icon name="clock-history" size={24} />
         </span>
         <div>

@@ -42,6 +42,7 @@
   --border-subtle: #e9eff5;
   --text-strong: #18212b;
   --text-secondary: #667085;
+  --text-warning: #8a5f16;
   --scrollbar-thumb: #cbd5e1;
   --backdrop: rgb(0 0 0 / 35%);
 
@@ -489,6 +490,8 @@
   color: var(--accent);
   background-color: color-mix(in srgb, var(--accent) 12%, transparent);
   border-radius: var(--radius-input);
+  height: 56px;
+  width: 56px;
 }
 
 /* ================= Hàng hóa ================= */
@@ -501,6 +504,8 @@
   color: var(--chart-accent);
   background-color: color-mix(in srgb, var(--chart-accent) 12%, transparent);
   border-radius: var(--radius-input);
+  height: 56px;
+  width: 56px;
 }
 
 .product-thumb {
@@ -554,6 +559,8 @@
   color: var(--chart-brand);
   background-color: color-mix(in srgb, var(--chart-brand) 12%, transparent);
   border-radius: var(--radius-input);
+  height: 56px;
+  width: 56px;
 }
 
 .warehouse-icon {
@@ -704,6 +711,8 @@
   color: var(--accent);
   background-color: color-mix(in srgb, var(--accent) 12%, transparent);
   border-radius: var(--radius-input);
+  height: 56px;
+  width: 56px;
 }
 
 .attendance-page-icon {
@@ -714,6 +723,8 @@
   color: var(--accent);
   background-color: color-mix(in srgb, var(--accent) 12%, transparent);
   border-radius: var(--radius-input);
+  height: 56px;
+  width: 56px;
 }
 
 /* Viên ca làm, màu lấy từ SHIFTS trong constants/employee */
@@ -737,6 +748,8 @@
   color: var(--chart-brand);
   background-color: color-mix(in srgb, var(--chart-brand) 12%, transparent);
   border-radius: var(--radius-input);
+  height: 56px;
+  width: 56px;
 }
 
 .attendance-list-icon,

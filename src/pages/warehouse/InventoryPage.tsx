@@ -152,7 +152,7 @@ export default function InventoryPage() {
   return (
     <>
       <div className="d-flex align-items-center gap-3 mb-2">
-        <span className="warehouse-page-icon">
+        <span className="warehouse-page-icon" >
           <Icon name="buildings" size={24} />
         </span>
         <div>
