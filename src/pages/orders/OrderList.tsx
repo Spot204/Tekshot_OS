@@ -6,6 +6,7 @@ import Table from "../../components/ui/Table";
 import TablePagination from "../../components/ui/TablePagination";
 import { createOrderColumns } from "./orderColumns";
 import type { Order } from "../../types/order";
+import OrderOCR from "./OrdersOCR";
 
 interface OrderListProps {
   orders: Order[];
@@ -21,6 +22,7 @@ export default function OrderList({
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
+  const [isOcrOpen, setIsOcrOpen] = useState(false);
 
   const filtered = useMemo(() => {
     const keyword = search.trim().toLowerCase();
@@ -58,49 +60,52 @@ export default function OrderList({
   };
 
   return (
-    <Card shadow bordered={false} padding="p-3">
-      <Table
-        columns={columns}
-        data={visible}
-        rowKey="id"
-        title="Danh sách đơn hàng"
-        showIndex
-        currentPage={page}
-        pageSize={pageSize}
-        searchValue={search}
-        onSearchChange={handleSearchChange}
-        searchPlaceholder="Tìm theo mã đơn, khách hàng..."
-        actions={
-          <>
-            <Button
-              customVariant="secondary"
-              size="sm"
-              onClick={() => console.log("Tạo đơn với OCR")}
-            >
-              <Icon name="printer" className="me-1" />
-              Tạo đơn với OCR
-            </Button>
-            <Button size="sm" onClick={() => console.log("Lọc đơn hàng")}>
-              <Icon name="funnel" className="me-1" />
-              Lọc
-            </Button>
-          </>
-        }
-        emptyMessage="Không tìm thấy đơn hàng phù hợp"
-        activeRowKey={selectedOrderId}
-        onRowClick={(order) => onSelectOrder(order.id)}
-      />
-
-      <div className="mt-4">
-        <TablePagination
-          page={page}
+    <>
+      <Card shadow bordered={false} padding="p-3">
+        <Table
+          columns={columns}
+          data={visible}
+          rowKey="id"
+          title="Danh sách đơn hàng"
+          showIndex
+          currentPage={page}
           pageSize={pageSize}
-          total={filtered.length}
-          onPageChange={setPage}
-          onPageSizeChange={handlePageSizeChange}
-          itemLabel="đơn hàng"
+          searchValue={search}
+          onSearchChange={handleSearchChange}
+          searchPlaceholder="Tìm theo mã đơn, khách hàng..."
+          actions={
+            <>
+              <Button
+                customVariant="secondary"
+                size="sm"
+                onClick={() => setIsOcrOpen(true)}
+              >
+                <Icon name="printer" className="me-1" />
+                Tạo đơn OCR
+              </Button>
+              <Button size="sm" onClick={() => console.log("Lọc đơn hàng")}>
+                <Icon name="funnel" className="me-1" />
+                Lọc
+              </Button>
+            </>
+          }
+          emptyMessage="Không tìm thấy đơn hàng phù hợp"
+          activeRowKey={selectedOrderId}
+          onRowClick={(order) => onSelectOrder(order.id)}
         />
-      </div>
-    </Card>
+
+        <div className="mt-4">
+          <TablePagination
+            page={page}
+            pageSize={pageSize}
+            total={filtered.length}
+            onPageChange={setPage}
+            onPageSizeChange={handlePageSizeChange}
+            itemLabel="đơn hàng"
+          />
+        </div>
+      </Card>
+      {isOcrOpen && <OrderOCR onClose={() => setIsOcrOpen(false)} />}
+    </>
   );
 }

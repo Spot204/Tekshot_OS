@@ -23,6 +23,7 @@ const ToolsPage = lazy(() => import("../pages/stock/ToolsPage"));
 const OrderingPage = lazy(() => import("../pages/stock/OrderingPage"));
 const CombosPage = lazy(() => import("../pages/combos/CombosPage"));
 const ComingSoonPage = lazy(() => import("../pages/ComingSoonPage"));
+const DashboardPage = lazy(() => import("../pages/Dashboard/DashboardPage"));
 
 const PageFallback = () => (
   <div className="d-flex justify-content-center py-5">
@@ -62,7 +63,8 @@ const AppRoutes = () => {
           <Route path="/nguyen-lieu" element={<MaterialsPage />} />
           <Route path="/dung-cu" element={<ToolsPage />} />
           <Route path="/ordering" element={<OrderingPage />} />
-
+          <Route path="/dashboard" element={<DashboardPage />} />
+          <Route path="/coming-soon" element={<ComingSoonPage />} />
           <Route path="*" element={<ComingSoonPage />} />
         </Routes>
       </Suspense>

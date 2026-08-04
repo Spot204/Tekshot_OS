@@ -85,7 +85,22 @@ export const createOrderColumns = ({
       <RowActions
         actions={[
           {
-            label: "Sửa",
+            label: "In",
+            icon: "pencil",
+            onClick: () => onEdit(order),
+          },
+          {
+            label: "Tạo hóa đơn",
+            icon: "pencil",
+            onClick: () => onEdit(order),
+          },
+          {
+            label: "Sửa đơn",
+            icon: "pencil",
+            onClick: () => onEdit(order),
+          },
+          {
+            label: "Hủy đơn",
             icon: "pencil",
             onClick: () => onEdit(order),
           },
