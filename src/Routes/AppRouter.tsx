@@ -42,7 +42,7 @@ const AppRoutes = () => {
     <ErrorBoundary key={pathname}>
       <Suspense fallback={<PageFallback />}>
         <Routes>
-          <Route path="/" element={<Navigate to="/order" replace />} />
+          <Route path="/" element={<Navigate to="/dashboard" replace />} />
 
           <Route path="/order" element={<OrdersPage />} />
           <Route path="/invoice-in" element={<InvoiceInPage />} />
