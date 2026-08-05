@@ -1,10 +1,10 @@
 import { Dropdown } from "react-bootstrap";
-import { MoreVertical } from "lucide-react";
+import Icon from "./Icon";
 
 export interface RowAction {
   label: string;
   onClick: () => void;
-  /** Class icon Bootstrap Icons, vd "bi-pencil" */
+  /** Tên Bootstrap Icons, không kèm tiền tố "bi-". Vd "pencil" */
   icon?: string;
   /** Tô đỏ cho hành động phá hủy */
   danger?: boolean;
@@ -30,7 +30,7 @@ export default function RowActions({
         aria-label={label}
         className="btn btn-light btn-sm border rounded-3 no-caret d-inline-flex align-items-center"
       >
-        <MoreVertical size={16} className="text-secondary" />
+        <Icon name="three-dots-vertical" size={16} className="text-secondary" />
       </Dropdown.Toggle>
 
       <Dropdown.Menu className="shadow-sm border-0">
@@ -41,12 +41,7 @@ export default function RowActions({
               onClick={action.onClick}
               className={action.danger ? "text-danger" : undefined}
             >
-              {action.icon && (
-                <i
-                  className={`bi ${action.icon} me-2`}
-                  aria-hidden="true"
-                />
-              )}
+              {action.icon && <Icon name={action.icon} className="me-2" />}
               {action.label}
             </Dropdown.Item>
           </div>

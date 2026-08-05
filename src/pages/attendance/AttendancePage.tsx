@@ -1,14 +1,5 @@
 import { useMemo, useState } from "react";
-import {
-  CalendarDays,
-  ChevronLeft,
-  ChevronRight,
-  Download,
-  Fingerprint,
-  MoreVertical,
-  Settings,
-  Table2,
-} from "lucide-react";
+import Icon from "../../components/ui/Icon";
 import Card from "../../components/ui/Card";
 import Button from "../../components/ui/Button";
 import Table from "../../components/ui/Table";
@@ -16,7 +7,10 @@ import TablePagination from "../../components/ui/TablePagination";
 import DateInput from "../../components/ui/DateInput";
 import AttendanceFilters from "./AttendanceFilters";
 import type { AttendanceFilterState } from "./AttendanceFilters";
-import { createAttendanceColumns, attendanceSortSpec } from "./attendanceColumns";
+import {
+  createAttendanceColumns,
+  attendanceSortSpec,
+} from "./attendanceColumns";
 import { toAttendanceRows } from "./attendanceRow";
 import { useTableSort } from "../../hooks/useTableSort";
 import { attendanceFor } from "../../mocks/attendance";
@@ -99,7 +93,7 @@ export default function AttendancePage() {
       <div className="d-flex justify-content-between align-items-start flex-wrap gap-3 mb-2">
         <div className="d-flex align-items-center gap-3">
           <div className="attendance-page-icon">
-            <Fingerprint size={28} />
+            <Icon name="fingerprint" size={28} />
           </div>
           <div>
             <h4 className="fw-bold mb-0">Chấm công</h4>
@@ -120,7 +114,7 @@ export default function AttendancePage() {
 
           <div className="d-flex gap-2">
             <Button className="d-inline-flex align-items-center gap-2">
-              <Download size={16} aria-hidden="true" />
+              <Icon name="download" size={16} />
               Xuất báo cáo
             </Button>
 
@@ -128,7 +122,7 @@ export default function AttendancePage() {
               customVariant="secondary"
               className="d-inline-flex align-items-center gap-2"
             >
-              <MoreVertical size={16} aria-hidden="true" />
+              <Icon name="three-dots-vertical" size={16} />
               Tùy chọn
             </Button>
           </div>
@@ -148,7 +142,7 @@ export default function AttendancePage() {
         <div className="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
           <div className="d-flex align-items-center gap-2">
             <span className="attendance-list-icon">
-              <Table2 size={18} />
+              <Icon name="table" size={18} />
             </span>
             <h2 className="h6 fw-semibold mb-0">Danh sách chấm công</h2>
           </div>
@@ -159,7 +153,7 @@ export default function AttendancePage() {
               className="d-inline-flex align-items-center gap-2"
               onClick={() => goToDay(new Date())}
             >
-              <CalendarDays size={16} aria-hidden="true" />
+              <Icon name="calendar-week" size={16} />
               Hôm nay
             </Button>
 
@@ -169,7 +163,7 @@ export default function AttendancePage() {
               aria-label={`Ngày trước, ${formatDateWithWeekday(shiftDay(day, -1))}`}
               onClick={() => goToDay(shiftDay(day, -1))}
             >
-              <ChevronLeft size={18} />
+              <Icon name="chevron-left" size={18} />
             </button>
 
             <button
@@ -178,7 +172,7 @@ export default function AttendancePage() {
               aria-label={`Ngày sau, ${formatDateWithWeekday(shiftDay(day, 1))}`}
               onClick={() => goToDay(shiftDay(day, 1))}
             >
-              <ChevronRight size={18} />
+              <Icon name="chevron-right" size={18} />
             </button>
 
             <button
@@ -186,7 +180,7 @@ export default function AttendancePage() {
               className="app-header-icon-btn border"
               aria-label="Cấu hình bảng"
             >
-              <Settings size={18} />
+              <Icon name="gear" size={18} />
             </button>
           </div>
         </div>

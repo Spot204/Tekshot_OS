@@ -1,6 +1,6 @@
-import { ClipboardList, Truck } from "lucide-react";
 import type { ReorderRow, SupplierGroup } from "./orderingRows";
 import Card from "../../components/ui/Card";
+import Icon from "../../components/ui/Icon";
 import Button from "../../components/ui/Button";
 import { formatCurrency, formatNumber } from "../../utils/format";
 
@@ -30,7 +30,7 @@ export default function OrderingSummary({
 
       {groups.length === 0 ? (
         <div className="inbound-empty">
-          <ClipboardList size={40} className="text-secondary" aria-hidden="true" />
+          <Icon name="list-check" size={40} className="text-secondary" />
           <div className="fw-semibold mt-2">Chưa chọn vật phẩm nào</div>
           <p className="text-secondary small mb-0">
             Tick vào các dòng cần gọi thêm ở bảng bên trái.
@@ -41,7 +41,7 @@ export default function OrderingSummary({
           {groups.map((group) => (
             <div key={group.supplier} className="border rounded-3 p-3">
               <div className="d-flex align-items-center gap-2 mb-2">
-                <Truck size={16} className="text-secondary" aria-hidden="true" />
+                <Icon name="truck" size={16} className="text-secondary" />
                 <span className="small fw-semibold text-truncate me-auto">
                   {group.supplier}
                 </span>
@@ -90,7 +90,10 @@ export default function OrderingSummary({
 
       <div className="inbound-total">
         <span className="fw-semibold">Giá trị dự kiến</span>
-        <span className="h5 fw-bold mb-0" style={{ color: "var(--chart-brand)" }}>
+        <span
+          className="h5 fw-bold mb-0"
+          style={{ color: "var(--chart-brand)" }}
+        >
           {formatCurrency(total)}
         </span>
       </div>
@@ -108,7 +111,11 @@ export default function OrderingSummary({
       />
 
       <div className="d-flex gap-2 mt-3">
-        <Button customVariant="secondary" className="flex-fill" onClick={onCancel}>
+        <Button
+          customVariant="secondary"
+          className="flex-fill"
+          onClick={onCancel}
+        >
           Hủy
         </Button>
         <Button

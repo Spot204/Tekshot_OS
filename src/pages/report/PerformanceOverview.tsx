@@ -1,15 +1,15 @@
-import { Box, CalendarCheck, ShoppingCart, Users } from "lucide-react";
 import type { ReactNode } from "react";
+import Icon from "../../components/ui/Icon";
 import SectionCard from "./SectionCard";
 import ChangeBadge from "./ChangeBadge";
 import { formatCurrency, formatNumber } from "../../utils/format";
 import { performanceMetrics } from "../../mocks/report";
 
 const ICONS: Record<string, ReactNode> = {
-  orders: <ShoppingCart size={20} />,
-  aov: <CalendarCheck size={20} />,
-  customers: <Users size={20} />,
-  products: <Box size={20} />,
+  orders: <Icon name="cart" size={20} />,
+  aov: <Icon name="calendar-check" size={20} />,
+  customers: <Icon name="people" size={20} />,
+  products: <Icon name="box" size={20} />,
 };
 
 /** Lưới 2x2 các chỉ số chính của kỳ */

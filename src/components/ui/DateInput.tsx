@@ -1,7 +1,7 @@
 import "react-datepicker/dist/react-datepicker.css";
 import { forwardRef } from "react";
 import DatePicker from "react-datepicker";
-import { Calendar, ChevronDown } from "lucide-react";
+import Icon from "./Icon";
 import Input from "./Input";
 import type { InputProps } from "./Input";
 import { formatDateWithWeekday } from "../../utils/format";
@@ -9,6 +9,8 @@ import { formatDateWithWeekday } from "../../utils/format";
 export interface DateInputProps {
   selected: Date | null;
   onChange: (date: Date | null) => void;
+  /** Gắn với `htmlFor` của label; react-datepicker chuyển tiếp xuống Input */
+  id?: string;
   placeholder?: string;
   size?: "sm" | "md" | "lg";
   state?: "none" | "error" | "success";
@@ -41,6 +43,7 @@ WeekdayInput.displayName = "WeekdayInput";
 const DateInput = ({
   selected,
   onChange,
+  id,
   placeholder = "Chọn ngày",
   size = "md",
   state = "none",
@@ -49,12 +52,13 @@ const DateInput = ({
   showWeekday = false,
 }: DateInputProps) => {
   const shared = {
+    id,
     placeholder,
     size,
     state,
     message,
-    leftIcon: <Calendar size={16} />,
-    rightIcon: <ChevronDown size={16} />,
+    leftIcon: <Icon name="calendar" size={16} />,
+    rightIcon: <Icon name="chevron-down" size={16} />,
   };
 
   return (

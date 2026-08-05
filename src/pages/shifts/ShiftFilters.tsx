@@ -1,5 +1,5 @@
-import { Download, List, Printer, Search, SlidersHorizontal } from "lucide-react";
 import Card from "../../components/ui/Card";
+import Icon from "../../components/ui/Icon";
 import Input from "../../components/ui/Input";
 import ComboBox from "../../components/ui/ComboBox";
 import Button from "../../components/ui/Button";
@@ -30,29 +30,50 @@ export default function ShiftFilters({ value, onChange }: ShiftFiltersProps) {
   return (
     <Card shadow bordered={false} padding="p-3" className="mb-2">
       <div className="d-flex justify-content-end gap-2 mb-3">
-        <button type="button" className="app-header-icon-btn border" aria-label="Chọn cột hiển thị">
-          <List size={18} />
+        <button
+          type="button"
+          className="app-header-icon-btn border"
+          aria-label="Chọn cột hiển thị"
+        >
+          <Icon name="list-ul" size={18} />
         </button>
-        <button type="button" className="app-header-icon-btn border" aria-label="In danh sách">
-          <Printer size={18} />
+        <button
+          type="button"
+          className="app-header-icon-btn border"
+          aria-label="In danh sách"
+        >
+          <Icon name="printer" size={18} />
         </button>
-        <button type="button" className="app-header-icon-btn border" aria-label="Xuất dữ liệu">
-          <Download size={18} />
+        <button
+          type="button"
+          className="app-header-icon-btn border"
+          aria-label="Xuất dữ liệu"
+        >
+          <Icon name="download" size={18} />
         </button>
       </div>
 
       <div className="row g-3 align-items-end">
         <div className="col-xl-2 col-md-6">
-          <label className="form-label fw-semibold">Từ ngày</label>
+          <label htmlFor="shift-from" className="form-label fw-semibold">
+            Từ ngày
+          </label>
           <DateInput
+            id="shift-from"
             selected={value.from}
             onChange={(from) => onChange({ from })}
           />
         </div>
 
         <div className="col-xl-2 col-md-6">
-          <label className="form-label fw-semibold">Đến ngày</label>
-          <DateInput selected={value.to} onChange={(to) => onChange({ to })} />
+          <label htmlFor="shift-to" className="form-label fw-semibold">
+            Đến ngày
+          </label>
+          <DateInput
+            id="shift-to"
+            selected={value.to}
+            onChange={(to) => onChange({ to })}
+          />
         </div>
 
         <div className="col-xl-3 col-md-6">
@@ -73,7 +94,7 @@ export default function ShiftFilters({ value, onChange }: ShiftFiltersProps) {
             aria-label="Tìm theo mã chốt ca, ghi chú"
             value={value.keyword}
             onChange={(event) => onChange({ keyword: event.target.value })}
-            rightIcon={<Search size={16} />}
+            rightIcon={<Icon name="search" size={16} />}
           />
         </div>
 
@@ -82,7 +103,7 @@ export default function ShiftFilters({ value, onChange }: ShiftFiltersProps) {
             customVariant="secondary"
             className="d-inline-flex align-items-center gap-2 text-nowrap"
           >
-            <SlidersHorizontal size={16} aria-hidden="true" />
+            <Icon name="sliders" size={16} />
             Bộ lọc
           </Button>
         </div>

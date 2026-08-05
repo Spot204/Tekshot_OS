@@ -96,10 +96,10 @@ export const createStockItemColumns = ({
       render: (row) => (
         <RowActions
           actions={[
-            { label: "Sửa", icon: "bi-pencil", onClick: () => onEdit(row) },
+            { label: "Sửa", icon: "pencil", onClick: () => onEdit(row) },
             {
               label: "Xóa",
-              icon: "bi-trash",
+              icon: "trash",
               danger: true,
               dividerBefore: true,
               onClick: () => onDelete(row),

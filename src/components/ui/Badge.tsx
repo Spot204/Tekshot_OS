@@ -30,7 +30,7 @@ const backgroundClass: Record<BadgeVariant, string> = {
   warning: "bg-warning-subtle text-warning",
   info: "bg-info-subtle text-info",
   dark: "bg-dark-subtle text-dark",
-  purple: "badge-purple"
+  purple: "badge-purple",
 };
 
 const textClass: Record<BadgeVariant, string> = {
@@ -41,7 +41,7 @@ const textClass: Record<BadgeVariant, string> = {
   warning: "text-warning",
   info: "text-info",
   dark: "text-dark",
-  purple: "text-purple"
+  purple: "text-purple",
 };
 
 /** Nhãn trạng thái dạng pill, không phải nhãn form */

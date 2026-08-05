@@ -46,7 +46,11 @@ export default function Avatar({
   }
 
   return (
-    <span className={clsx("app-avatar", className)} style={style} aria-hidden="true">
+    <span
+      className={clsx("app-avatar", className)}
+      style={style}
+      aria-hidden="true"
+    >
       {name.trim().charAt(0).toUpperCase()}
     </span>
   );

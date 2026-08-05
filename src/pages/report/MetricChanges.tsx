@@ -1,16 +1,20 @@
 import { Area, AreaChart, ResponsiveContainer } from "recharts";
-import { DollarSign, ShoppingCart, Users } from "lucide-react";
 import type { ReactNode } from "react";
 import type { MetricChange } from "../../types/report";
+import Icon from "../../components/ui/Icon";
 import SectionCard from "./SectionCard";
 import { chartColor } from "./chartTheme";
-import { formatCurrency, formatNumber, formatPercent } from "../../utils/format";
+import {
+  formatCurrency,
+  formatNumber,
+  formatPercent,
+} from "../../utils/format";
 import { metricChanges } from "../../mocks/report";
 
 const ICONS: Record<string, ReactNode> = {
-  revenue: <DollarSign size={20} />,
-  orders: <ShoppingCart size={20} />,
-  customers: <Users size={20} />,
+  revenue: <Icon name="currency-dollar" size={20} />,
+  orders: <Icon name="cart" size={20} />,
+  customers: <Icon name="people" size={20} />,
 };
 
 const formatDelta = ({ delta, deltaUnit }: MetricChange) =>

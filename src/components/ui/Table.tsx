@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import clsx from "clsx";
-import { ChevronDown, ChevronsUpDown, ChevronUp } from "lucide-react";
+import Icon from "./Icon";
 import Input from "./Input";
 
 export interface Column<T> {
@@ -81,11 +81,15 @@ function SortIcon({
   columnId: string;
 }) {
   if (sort?.columnId !== columnId) {
-    return <ChevronsUpDown size={14} className="opacity-50" aria-hidden="true" />;
+    return <Icon name="chevron-expand" size={14} className="opacity-50" />;
   }
 
-  const Icon = sort.direction === "asc" ? ChevronUp : ChevronDown;
-  return <Icon size={14} aria-hidden="true" />;
+  return (
+    <Icon
+      name={sort.direction === "asc" ? "chevron-up" : "chevron-down"}
+      size={14}
+    />
+  );
 }
 
 function Table<T>({
@@ -123,10 +127,14 @@ function Table<T>({
           {hasTitleRow && (
             <tr>
               <th colSpan={totalColumnCount} className="border-bottom-0">
+                {/* Hàng công cụ, không phải tiêu đề cột — cần tên cho screen reader */}
+                <span className="visually-hidden">Công cụ bảng</span>
                 <div className="d-flex justify-content-between align-items-center flex-wrap gap-2 px-3">
                   <div>
                     {title && (
-                      <div className="fw-semibold text-body-emphasis">{title}</div>
+                      <div className="fw-semibold text-body-emphasis">
+                        {title}
+                      </div>
                     )}
                   </div>
 
@@ -138,7 +146,7 @@ function Table<T>({
                           placeholder={searchPlaceholder}
                           value={searchValue}
                           onChange={(e) => onSearchChange(e.target.value)}
-                          leftIcon={<i className="bi bi-search" />}
+                          leftIcon={<Icon name="search" />}
                         />
                       </div>
                     )}

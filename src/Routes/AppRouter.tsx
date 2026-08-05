@@ -1,53 +1,74 @@
-import { Routes, Route, Navigate } from "react-router-dom";
-import OrdersPage from "../pages/orders/OrdersPage";
-import InvoiceInPage from "../pages/invoices/InvoiceInPage";
-import InvoiceOutPage from "../pages/invoices/InvoiceOutPage";
-import ReportPage from "../pages/report/ReportPage";
-import CustomersPage from "../pages/customers/CustomersPage";
-import EmployeesPage from "../pages/employees/EmployeesPage";
-import AttendancePage from "../pages/attendance/AttendancePage";
-import CashBookPage from "../pages/cashbook/CashBookPage";
-import VoucherListPage from "../pages/vouchers/VoucherListPage";
-import ShiftClosingPage from "../pages/shifts/ShiftClosingPage";
-import ProductsPage from "../pages/products/ProductsPage";
-import InventoryPage from "../pages/warehouse/InventoryPage";
-import HistoryPage from "../pages/warehouse/HistoryPage";
-import InboundPage from "../pages/warehouse/InboundPage";
-import SuppliesPage from "../pages/stock/SuppliesPage";
-import MaterialsPage from "../pages/stock/MaterialsPage";
-import ToolsPage from "../pages/stock/ToolsPage";
-import OrderingPage from "../pages/stock/OrderingPage";
-import CombosPage from "../pages/combos/CombosPage";
-import ComingSoonPage from "../pages/ComingSoonPage";
+import { lazy, Suspense } from "react";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { Spinner } from "react-bootstrap";
+import ErrorBoundary from "../components/ErrorBoundary";
+
+const OrdersPage = lazy(() => import("../pages/orders/OrdersPage"));
+const InvoiceInPage = lazy(() => import("../pages/invoices/InvoiceInPage"));
+const InvoiceOutPage = lazy(() => import("../pages/invoices/InvoiceOutPage"));
+const ReportPage = lazy(() => import("../pages/report/ReportPage"));
+const CustomersPage = lazy(() => import("../pages/customers/CustomersPage"));
+const EmployeesPage = lazy(() => import("../pages/employees/EmployeesPage"));
+const AttendancePage = lazy(() => import("../pages/attendance/AttendancePage"));
+const CashBookPage = lazy(() => import("../pages/cashbook/CashBookPage"));
+const VoucherListPage = lazy(() => import("../pages/vouchers/VoucherListPage"));
+const ShiftClosingPage = lazy(() => import("../pages/shifts/ShiftClosingPage"));
+const ProductsPage = lazy(() => import("../pages/products/ProductsPage"));
+const InventoryPage = lazy(() => import("../pages/warehouse/InventoryPage"));
+const HistoryPage = lazy(() => import("../pages/warehouse/HistoryPage"));
+const InboundPage = lazy(() => import("../pages/warehouse/InboundPage"));
+const SuppliesPage = lazy(() => import("../pages/stock/SuppliesPage"));
+const MaterialsPage = lazy(() => import("../pages/stock/MaterialsPage"));
+const ToolsPage = lazy(() => import("../pages/stock/ToolsPage"));
+const OrderingPage = lazy(() => import("../pages/stock/OrderingPage"));
+const CombosPage = lazy(() => import("../pages/combos/CombosPage"));
+const ComingSoonPage = lazy(() => import("../pages/ComingSoonPage"));
+const DashboardPage = lazy(() => import("../pages/Dashboard/DashboardPage"));
+
+const PageFallback = () => (
+  <div className="d-flex justify-content-center py-5">
+    <Spinner animation="border" variant="primary" as="output">
+      <span className="visually-hidden">Đang tải…</span>
+    </Spinner>
+  </div>
+);
 
 /** Mỗi path phải khớp một `id` trong menuItems.tsx, không thì rơi vào catch-all */
 const AppRoutes = () => {
+  const { pathname } = useLocation();
+
   return (
-    <Routes>
-      <Route path="/" element={<Navigate to="/order" replace />} />
+    // key theo pathname: đổi trang là boundary tự reset, không cần nút thử lại
+    <ErrorBoundary key={pathname}>
+      <Suspense fallback={<PageFallback />}>
+        <Routes>
+          <Route path="/" element={<Navigate to="/dashboard" replace />} />
 
-      <Route path="/order" element={<OrdersPage />} />
-      <Route path="/invoice-in" element={<InvoiceInPage />} />
-      <Route path="/invoice-out" element={<InvoiceOutPage />} />
-      <Route path="/report" element={<ReportPage />} />
-      <Route path="/customer" element={<CustomersPage />} />
-      <Route path="/employee" element={<EmployeesPage />} />
-      <Route path="/attendance" element={<AttendancePage />} />
-      <Route path="/wallet" element={<CashBookPage />} />
-      <Route path="/cash-receipt" element={<VoucherListPage />} />
-      <Route path="/shift-closing" element={<ShiftClosingPage />} />
-      <Route path="/san-pham" element={<ProductsPage />} />
-      <Route path="/inventory" element={<InventoryPage />} />
-      <Route path="/inbound" element={<InboundPage />} />
-      <Route path="/history" element={<HistoryPage />} />
-      <Route path="/vat-tu" element={<SuppliesPage />} />
-      <Route path="/combo" element={<CombosPage />} />
-      <Route path="/nguyen-lieu" element={<MaterialsPage />} />
-      <Route path="/dung-cu" element={<ToolsPage />} />
-      <Route path="/ordering" element={<OrderingPage />} />
-
-      <Route path="*" element={<ComingSoonPage />} />
-    </Routes>
+          <Route path="/order" element={<OrdersPage />} />
+          <Route path="/invoice-in" element={<InvoiceInPage />} />
+          <Route path="/invoice-out" element={<InvoiceOutPage />} />
+          <Route path="/report" element={<ReportPage />} />
+          <Route path="/customer" element={<CustomersPage />} />
+          <Route path="/employee" element={<EmployeesPage />} />
+          <Route path="/attendance" element={<AttendancePage />} />
+          <Route path="/wallet" element={<CashBookPage />} />
+          <Route path="/cash-receipt" element={<VoucherListPage />} />
+          <Route path="/shift-closing" element={<ShiftClosingPage />} />
+          <Route path="/san-pham" element={<ProductsPage />} />
+          <Route path="/inventory" element={<InventoryPage />} />
+          <Route path="/inbound" element={<InboundPage />} />
+          <Route path="/history" element={<HistoryPage />} />
+          <Route path="/vat-tu" element={<SuppliesPage />} />
+          <Route path="/combo" element={<CombosPage />} />
+          <Route path="/nguyen-lieu" element={<MaterialsPage />} />
+          <Route path="/dung-cu" element={<ToolsPage />} />
+          <Route path="/ordering" element={<OrderingPage />} />
+          <Route path="/dashboard" element={<DashboardPage />} />
+          <Route path="/coming-soon" element={<ComingSoonPage />} />
+          <Route path="*" element={<ComingSoonPage />} />
+        </Routes>
+      </Suspense>
+    </ErrorBoundary>
   );
 };
 

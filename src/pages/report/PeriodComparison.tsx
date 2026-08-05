@@ -48,7 +48,9 @@ function ComparisonTooltip({
           <span className="text-secondary me-auto">
             {entry.dataKey === "current" ? "Kỳ hiện tại" : "Kỳ trước"}
           </span>
-          <span className="fw-semibold">{formatCurrency(Number(entry.value))}</span>
+          <span className="fw-semibold">
+            {formatCurrency(Number(entry.value))}
+          </span>
         </div>
       ))}
     </div>
@@ -97,8 +99,15 @@ export default function PeriodComparison() {
 
       <div style={{ height: 300 }}>
         <ResponsiveContainer width="100%" height="100%">
-          <LineChart data={data} margin={{ top: 8, right: 8, bottom: 0, left: 0 }}>
-            <CartesianGrid stroke={CHART_GRID} strokeDasharray="4 4" vertical={false} />
+          <LineChart
+            data={data}
+            margin={{ top: 8, right: 8, bottom: 0, left: 0 }}
+          >
+            <CartesianGrid
+              stroke={CHART_GRID}
+              strokeDasharray="4 4"
+              vertical={false}
+            />
             <XAxis
               dataKey="date"
               tickFormatter={shortDate}
@@ -115,7 +124,10 @@ export default function PeriodComparison() {
             />
             {/* Truyền tham chiếu component, không phải element — recharts v3
                 bắt buộc đủ props nếu viết <ComparisonTooltip /> */}
-            <Tooltip content={ComparisonTooltip} cursor={{ stroke: CHART_GRID }} />
+            <Tooltip
+              content={ComparisonTooltip}
+              cursor={{ stroke: CHART_GRID }}
+            />
 
             <Line
               type="monotone"

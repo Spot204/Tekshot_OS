@@ -56,7 +56,9 @@ export default function CascadingCategory({
           options={[
             {
               value: "",
-              label: value.industry ? "-- Chọn --" : "-- Chọn ngành hàng trước --",
+              label: value.industry
+                ? "-- Chọn --"
+                : "-- Chọn ngành hàng trước --",
             },
             ...toOptions(groups),
           ]}

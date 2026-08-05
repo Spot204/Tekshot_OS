@@ -1,8 +1,8 @@
 import { useMemo, useState } from "react";
-import { ReceiptText } from "lucide-react";
 import clsx from "clsx";
 import type { CashEntry, CashFlow } from "../../types/cashbook";
 import Card from "../../components/ui/Card";
+import Icon from "../../components/ui/Icon";
 import Table from "../../components/ui/Table";
 import TablePagination from "../../components/ui/TablePagination";
 import VoucherFilters from "./VoucherFilters";
@@ -68,7 +68,10 @@ export default function VoucherListPage() {
     });
   }, [rows, tab, filter, from, to]);
 
-  const { sort, sorted, onSortChange } = useTableSort(filtered, voucherSortSpec);
+  const { sort, sorted, onSortChange } = useTableSort(
+    filtered,
+    voucherSortSpec,
+  );
   const visible = sorted.slice((page - 1) * pageSize, page * pageSize);
 
   // Đổi bộ lọc mà không về trang 1 thì bảng render rỗng
@@ -118,7 +121,7 @@ export default function VoucherListPage() {
     <>
       <div className="d-flex align-items-center gap-3 mb-2">
         <span className="cashbook-page-icon">
-          <ReceiptText size={24} />
+          <Icon name="receipt" size={24} />
         </span>
         <h4 className="fw-bold mb-0">Phiếu thu chi</h4>
       </div>

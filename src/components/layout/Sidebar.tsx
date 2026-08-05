@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { Nav, Collapse } from "react-bootstrap";
 import { NavLink, useLocation } from "react-router-dom";
-import { ChevronDown } from "lucide-react";
 import clsx from "clsx";
+import Icon from "../ui/Icon";
 import { menuItems, findParentMenuId, isMenuPathActive } from "./menuItems";
+import { ChevronDown } from "react-bootstrap-icons";
 
 interface SidebarProps {
   isOpen: boolean;

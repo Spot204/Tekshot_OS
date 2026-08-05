@@ -105,8 +105,16 @@ export const createCashBookColumns = ({
     render: (row) => (
       <RowActions
         actions={[
-          { label: "Xem chi tiết", icon: "bi-eye", onClick: () => onDetail(row) },
-          { label: "In phiếu", icon: "bi-printer", onClick: () => onPrint(row) },
+          {
+            label: "Xem chi tiết",
+            icon: "eye",
+            onClick: () => onDetail(row),
+          },
+          {
+            label: "In phiếu",
+            icon: "printer",
+            onClick: () => onPrint(row),
+          },
         ]}
       />
     ),

@@ -1,5 +1,5 @@
-import { GripVertical, Plus, Trash2 } from "lucide-react";
 import type { VoucherLine } from "../../types/cashbook";
+import Icon from "../../components/ui/Icon";
 import Input from "../../components/ui/Input";
 import { emptyLine, toNumber } from "./voucherLine";
 
@@ -31,13 +31,17 @@ export default function VoucherLineTable({
         <table className="table align-middle mb-2" style={{ minWidth: 720 }}>
           <thead className="app-table-head">
             <tr>
-              <th style={{ width: 32 }} />
+              <th style={{ width: 32 }}>
+                <span className="visually-hidden">Kéo để sắp xếp</span>
+              </th>
               <th>Nội dung</th>
               <th style={{ width: 140 }}>Đơn vị</th>
               <th style={{ width: 110 }}>Số lượng</th>
               <th style={{ width: 140 }}>Thành tiền</th>
               <th>Diễn giải</th>
-              <th style={{ width: 48 }} />
+              <th style={{ width: 48 }}>
+                <span className="visually-hidden">Xoá dòng</span>
+              </th>
             </tr>
           </thead>
 
@@ -45,7 +49,7 @@ export default function VoucherLineTable({
             {lines.map((line) => (
               <tr key={line.id}>
                 <td className="text-secondary">
-                  <GripVertical size={16} aria-hidden="true" />
+                  <Icon name="grip-vertical" size={16} />
                 </td>
                 <td>
                   <Input
@@ -53,7 +57,9 @@ export default function VoucherLineTable({
                     placeholder="Nhập nội dung"
                     aria-label="Nội dung"
                     value={line.content}
-                    onChange={(e) => patch(line.id, { content: e.target.value })}
+                    onChange={(e) =>
+                      patch(line.id, { content: e.target.value })
+                    }
                   />
                 </td>
                 <td>
@@ -104,7 +110,7 @@ export default function VoucherLineTable({
                     disabled={lines.length === 1}
                     onClick={() => remove(line.id)}
                   >
-                    <Trash2 size={16} />
+                    <Icon name="trash" size={16} />
                   </button>
                 </td>
               </tr>
@@ -118,7 +124,7 @@ export default function VoucherLineTable({
         className="btn btn-link p-0 text-decoration-none fw-semibold d-inline-flex align-items-center gap-1"
         onClick={add}
       >
-        <Plus size={16} aria-hidden="true" />
+        <Icon name="plus-lg" size={16} />
         Thêm nội dung thu chi
       </button>
     </div>

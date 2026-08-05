@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { Search, Users } from "lucide-react";
+import Icon from "../../components/ui/Icon";
 import Card from "../../components/ui/Card";
 import Input from "../../components/ui/Input";
 import Table from "../../components/ui/Table";
@@ -30,7 +30,10 @@ export default function CustomersPage() {
     );
   }, [keyword]);
 
-  const { sort, sorted, onSortChange } = useTableSort(filtered, customerColumns);
+  const { sort, sorted, onSortChange } = useTableSort(
+    filtered,
+    customerColumns,
+  );
   const visible = sorted.slice((page - 1) * pageSize, page * pageSize);
 
   // Đổi bộ lọc mà không về trang 1 thì bảng render rỗng
@@ -44,7 +47,7 @@ export default function CustomersPage() {
       <div className="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-2">
         <div className="d-flex align-items-center gap-3">
           <div className="customer-page-icon">
-            <Users size={28} />
+            <Icon name="people" size={28} />
           </div>
           <div>
             <h4 className="fw-bold mb-0">Khách hàng</h4>
@@ -68,14 +71,14 @@ export default function CustomersPage() {
           placeholder="Tìm theo họ tên, SĐT, email..."
           value={keyword}
           onChange={(event) => search(event.target.value)}
-          leftIcon={<Search size={18} />}
+          leftIcon={<Icon name="search" size={18} />}
         />
       </Card>
 
       <Card shadow bordered={false} padding="p-4">
         <div className="d-flex align-items-center gap-2 mb-3">
           <span className="customer-list-icon">
-            <Users size={18} />
+            <Icon name="people" size={18} />
           </span>
           <h2 className="h6 fw-semibold mb-0">
             Danh sách khách hàng ({filtered.length})

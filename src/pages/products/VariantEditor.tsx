@@ -1,5 +1,5 @@
-import { Plus, Trash2 } from "lucide-react";
 import type { ProductVariant } from "../../types/product";
+import Icon from "../../components/ui/Icon";
 import Input from "../../components/ui/Input";
 import Button from "../../components/ui/Button";
 import { toNumber } from "../vouchers/voucherLine";
@@ -27,9 +27,11 @@ export default function VariantEditor({
         <Button
           customVariant="secondary"
           className="d-inline-flex align-items-center gap-2"
-          onClick={() => onChange([...variants, emptyVariant(`v-${Date.now()}`)])}
+          onClick={() =>
+            onChange([...variants, emptyVariant(`v-${Date.now()}`)])
+          }
         >
-          <Plus size={16} aria-hidden="true" />
+          <Icon name="plus-lg" size={16} />
           Thêm biến thể
         </Button>
       </div>
@@ -44,21 +46,26 @@ export default function VariantEditor({
                 size="sm"
                 className="d-inline-flex align-items-center gap-2"
                 disabled={variants.length === 1}
-                onClick={() => onChange(variants.filter((v) => v.id !== variant.id))}
+                onClick={() =>
+                  onChange(variants.filter((v) => v.id !== variant.id))
+                }
               >
-                <Trash2 size={14} aria-hidden="true" />
+                <Icon name="trash" size={14} />
                 Xóa biến thể
               </Button>
             </div>
 
             <div className="row g-3">
               <div className="col-md-3">
-                <label className="form-label fw-semibold">
+                <label
+                  htmlFor={`variant-${variant.id}-name`}
+                  className="form-label fw-semibold"
+                >
                   Tên biến thể <span className="text-danger">*</span>
                 </label>
                 <Input
+                  id={`variant-${variant.id}-name`}
                   placeholder="Nhập tên biến thể"
-                  aria-label={`Tên biến thể ${index + 1}`}
                   value={variant.name}
                   onChange={(e) => patch(variant.id, { name: e.target.value })}
                   state={errors[variant.id] ? "error" : "none"}
@@ -67,23 +74,31 @@ export default function VariantEditor({
               </div>
 
               <div className="col-md-3">
-                <label className="form-label fw-semibold">SKU</label>
+                <label
+                  htmlFor={`variant-${variant.id}-sku`}
+                  className="form-label fw-semibold"
+                >
+                  SKU
+                </label>
                 <Input
+                  id={`variant-${variant.id}-sku`}
                   placeholder="Nhập SKU"
-                  aria-label={`SKU biến thể ${index + 1}`}
                   value={variant.sku}
                   onChange={(e) => patch(variant.id, { sku: e.target.value })}
                 />
               </div>
 
               <div className="col-md-3">
-                <label className="form-label fw-semibold">
+                <label
+                  htmlFor={`variant-${variant.id}-price`}
+                  className="form-label fw-semibold"
+                >
                   Giá bán <span className="text-danger">*</span>
                 </label>
                 <Input
+                  id={`variant-${variant.id}-price`}
                   inputMode="numeric"
                   placeholder="Nhập giá"
-                  aria-label={`Giá bán biến thể ${index + 1}`}
                   value={String(variant.price)}
                   onChange={(e) =>
                     patch(variant.id, { price: toNumber(e.target.value) })
@@ -92,11 +107,16 @@ export default function VariantEditor({
               </div>
 
               <div className="col-md-3">
-                <label className="form-label fw-semibold">VAT (%)</label>
+                <label
+                  htmlFor={`variant-${variant.id}-vat`}
+                  className="form-label fw-semibold"
+                >
+                  VAT (%)
+                </label>
                 <Input
+                  id={`variant-${variant.id}-vat`}
                   inputMode="numeric"
                   placeholder="Nhập VAT"
-                  aria-label={`VAT biến thể ${index + 1}`}
                   value={String(variant.vat)}
                   onChange={(e) =>
                     patch(variant.id, { vat: toNumber(e.target.value) })

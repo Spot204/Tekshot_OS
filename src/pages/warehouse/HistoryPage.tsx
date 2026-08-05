@@ -1,16 +1,9 @@
 import { useMemo, useState } from "react";
-import {
-  ArrowLeftRight,
-  Download,
-  History,
-  Search,
-  SlidersHorizontal,
-  Upload,
-} from "lucide-react";
 import clsx from "clsx";
 import type { Column } from "../../components/ui/Table";
 import type { MovementKind, StockMovement } from "../../types/warehouse";
 import Card from "../../components/ui/Card";
+import Icon from "../../components/ui/Icon";
 import Input from "../../components/ui/Input";
 import ComboBox from "../../components/ui/ComboBox";
 import Button from "../../components/ui/Button";
@@ -22,7 +15,12 @@ import DateRangeInput from "../../components/ui/DateRangeInput";
 import { useTableSort } from "../../hooks/useTableSort";
 import { MOVEMENTS, MOVEMENT_OPTIONS } from "../../constants/warehouse";
 import { stockMovements, warehouses } from "../../mocks/warehouses";
-import { formatCurrency, formatDate, formatTime, isWithinRange } from "../../utils/format";
+import {
+  formatCurrency,
+  formatDate,
+  formatTime,
+  isWithinRange,
+} from "../../utils/format";
 
 const TABS: { id: "" | MovementKind; label: string }[] = [
   { id: "", label: "Tất cả" },
@@ -37,11 +35,11 @@ const SORT = [{ id: "createdAt", accessor: "createdAt" as const }];
 const warehouseName = (id?: string) =>
   warehouses.find((warehouse) => warehouse.id === id)?.name ?? "--";
 
-const ICONS: Record<MovementKind, typeof Download> = {
-  in: Download,
-  out: Upload,
-  adjust: ArrowLeftRight,
-  transfer: ArrowLeftRight,
+const ICONS: Record<MovementKind, string> = {
+  in: "download",
+  out: "upload",
+  adjust: "arrow-left-right",
+  transfer: "arrow-left-right",
 };
 
 const createColumns = (
@@ -51,20 +49,18 @@ const createColumns = (
     id: "flag",
     header: "",
     width: "56px",
-    render: (movement) => {
-      const Icon = ICONS[movement.kind];
-
-      return (
-        <span
-          className="warehouse-icon"
-          style={
-            { "--warehouse-color": MOVEMENTS[movement.kind].color } as React.CSSProperties
-          }
-        >
-          <Icon size={18} aria-hidden="true" />
-        </span>
-      );
-    },
+    render: (movement) => (
+      <span
+        className="warehouse-icon"
+        style={
+          {
+            "--warehouse-color": MOVEMENTS[movement.kind].color,
+          } as React.CSSProperties
+        }
+      >
+        <Icon name={ICONS[movement.kind]} size={18} />
+      </span>
+    ),
   },
   {
     id: "id",
@@ -120,7 +116,9 @@ const createColumns = (
     render: (movement) => (
       <div className="text-nowrap">
         <div>{formatDate(movement.createdAt)}</div>
-        <div className="text-secondary small">{formatTime(movement.createdAt)}</div>
+        <div className="text-secondary small">
+          {formatTime(movement.createdAt)}
+        </div>
       </div>
     ),
   },
@@ -144,7 +142,10 @@ const createColumns = (
     header: "Trạng thái",
     render: () => (
       <span className="d-inline-flex align-items-center gap-2 text-success small fw-semibold">
-        <span className="report-dot" style={{ backgroundColor: "currentColor" }} />
+        <span
+          className="report-dot"
+          style={{ backgroundColor: "currentColor" }}
+        />
         Hoàn thành
       </span>
     ),
@@ -160,10 +161,14 @@ const createColumns = (
         actions={[
           {
             label: "Xem chi tiết",
-            icon: "bi-eye",
+            icon: "eye",
             onClick: () => onDetail(movement),
           },
-          { label: "In phiếu", icon: "bi-printer", onClick: () => onDetail(movement) },
+          {
+            label: "In phiếu",
+            icon: "printer",
+            onClick: () => onDetail(movement),
+          },
         ]}
       />
     ),
@@ -217,7 +222,7 @@ export default function HistoryPage() {
     <>
       <div className="d-flex align-items-center gap-3 mb-2">
         <span className="warehouse-page-icon">
-          <History size={24} />
+          <Icon name="clock-history" size={24} />
         </span>
         <div>
           <h4 className="fw-bold mb-0">Lịch sử</h4>
@@ -250,7 +255,7 @@ export default function HistoryPage() {
               aria-label="Tìm kiếm phiếu kho"
               value={keyword}
               onChange={(e) => withPageReset(setKeyword)(e.target.value)}
-              leftIcon={<Search size={18} />}
+              leftIcon={<Icon name="search" size={18} />}
             />
           </div>
 
@@ -259,7 +264,7 @@ export default function HistoryPage() {
               customVariant="secondary"
               className="d-inline-flex align-items-center gap-2 text-nowrap"
             >
-              <SlidersHorizontal size={16} aria-hidden="true" />
+              <Icon name="sliders" size={16} />
               Bộ lọc
             </Button>
             <Button className="text-nowrap">Apply</Button>

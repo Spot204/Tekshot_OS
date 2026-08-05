@@ -154,7 +154,10 @@ export default function StockItemFormModal({
 
             {showSupplier && (
               <div className="col-md-6">
-                <label htmlFor="stock-supplier" className="form-label fw-semibold">
+                <label
+                  htmlFor="stock-supplier"
+                  className="form-label fw-semibold"
+                >
                   Nhà cung cấp
                 </label>
                 <Input
@@ -167,7 +170,10 @@ export default function StockItemFormModal({
             )}
 
             <div className={showSupplier ? "col-md-6" : "col-md-12"}>
-              <label htmlFor="stock-location" className="form-label fw-semibold">
+              <label
+                htmlFor="stock-location"
+                className="form-label fw-semibold"
+              >
                 Vị trí
               </label>
               <ComboBox

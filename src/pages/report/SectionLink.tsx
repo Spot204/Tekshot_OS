@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import Icon from "../../components/ui/Icon";
 
 interface SectionLinkProps {
   label: string;
@@ -14,7 +14,7 @@ export default function SectionLink({ label, onClick }: SectionLinkProps) {
       className="btn btn-link p-0 text-decoration-none small fw-semibold d-inline-flex align-items-center gap-1"
     >
       {label}
-      <ArrowRight size={14} aria-hidden="true" />
+      <Icon name="arrow-right" size={14} />
     </button>
   );
 }

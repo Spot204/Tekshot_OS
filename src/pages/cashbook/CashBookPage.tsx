@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
-import { ReceiptText } from "lucide-react";
 import Card from "../../components/ui/Card";
+import Icon from "../../components/ui/Icon";
 import Button from "../../components/ui/Button";
 import Table from "../../components/ui/Table";
 import TablePagination from "../../components/ui/TablePagination";
@@ -25,10 +25,7 @@ export default function CashBookPage() {
   const [pageSize, setPageSize] = useState(10);
 
   // Số dư luỹ kế tính một lần trên toàn bộ dữ liệu, trước mọi bộ lọc
-  const allRows = useMemo(
-    () => toCashRows(cashEntries, openingBalance),
-    [],
-  );
+  const allRows = useMemo(() => toCashRows(cashEntries, openingBalance), []);
 
   const [from, to] = filter.range;
 
@@ -74,7 +71,7 @@ export default function CashBookPage() {
     <>
       <div className="d-flex align-items-center gap-3 mb-2">
         <span className="cashbook-page-icon">
-          <ReceiptText size={24} />
+          <Icon name="receipt" size={24} />
         </span>
         <h4 className="fw-bold mb-0">Sổ quỹ</h4>
         <Button variant="danger" className="fw-semibold">

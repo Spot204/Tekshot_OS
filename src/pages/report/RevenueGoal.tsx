@@ -61,7 +61,9 @@ export default function RevenueGoal() {
             />
             Đã đạt
           </span>
-          <div className="fw-semibold">{formatCurrency(revenueGoal.achieved)}</div>
+          <div className="fw-semibold">
+            {formatCurrency(revenueGoal.achieved)}
+          </div>
         </div>
 
         <div className="text-end">
@@ -72,7 +74,9 @@ export default function RevenueGoal() {
             />
             Mục tiêu
           </span>
-          <div className="fw-semibold">{formatCurrency(revenueGoal.target)}</div>
+          <div className="fw-semibold">
+            {formatCurrency(revenueGoal.target)}
+          </div>
         </div>
       </div>
     </SectionCard>

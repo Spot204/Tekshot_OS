@@ -1,4 +1,4 @@
-import { Menu } from "lucide-react";
+import Icon from "../../ui/Icon";
 import HeaderBrand from "./HeaderBrand";
 import HeaderSearch from "./HeaderSearch";
 import HeaderActions from "./HeaderActions";
@@ -20,7 +20,7 @@ export default function Header({ onToggleSidebar }: HeaderProps) {
         aria-label="Mở menu"
         onClick={onToggleSidebar}
       >
-        <Menu size={ICON_SIZE.action} />
+        <Icon name="list" size={ICON_SIZE.action} />
       </button>
 
       <HeaderBrand />

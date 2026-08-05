@@ -1,7 +1,11 @@
-import { ArrowDown, ArrowUp, FileText, Wallet } from "lucide-react";
 import type { ReactNode } from "react";
 import Card from "../../components/ui/Card";
-import { formatCurrency, formatDateTime, formatNumber } from "../../utils/format";
+import Icon from "../../components/ui/Icon";
+import {
+  formatCurrency,
+  formatDateTime,
+  formatNumber,
+} from "../../utils/format";
 
 interface StatProps {
   icon: ReactNode;
@@ -56,7 +60,7 @@ export default function CashBookStats({
     <div className="row g-2 mb-2">
       <div className="col-xl-3 col-md-6">
         <Stat
-          icon={<Wallet size={20} />}
+          icon={<Icon name="wallet2" size={20} />}
           color="var(--chart-brand)"
           label="Tổng quỹ hiện tại"
           value={formatCurrency(balance)}
@@ -70,7 +74,7 @@ export default function CashBookStats({
 
       <div className="col-xl-3 col-md-6">
         <Stat
-          icon={<ArrowUp size={20} />}
+          icon={<Icon name="arrow-up" size={20} />}
           color="var(--chart-success)"
           label="Tổng thu"
           value={formatCurrency(totalIn)}
@@ -80,7 +84,7 @@ export default function CashBookStats({
 
       <div className="col-xl-3 col-md-6">
         <Stat
-          icon={<ArrowDown size={20} />}
+          icon={<Icon name="arrow-down" size={20} />}
           color="var(--danger)"
           label="Tổng chi"
           value={formatCurrency(totalOut)}
@@ -90,7 +94,7 @@ export default function CashBookStats({
 
       <div className="col-xl-3 col-md-6">
         <Stat
-          icon={<FileText size={20} />}
+          icon={<Icon name="file-earmark-text" size={20} />}
           color="var(--chart-purple)"
           label="Số giao dịch"
           value={formatNumber(count)}

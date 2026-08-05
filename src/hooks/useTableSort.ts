@@ -8,7 +8,10 @@ export interface SortSpec<T> {
   sortValue?: (row: T) => string | number;
 }
 
-const collator = new Intl.Collator("vi", { numeric: true, sensitivity: "base" });
+const collator = new Intl.Collator("vi", {
+  numeric: true,
+  sensitivity: "base",
+});
 
 const compare = (a: unknown, b: unknown): number => {
   // Ô trống luôn xuống cuối, bất kể chiều sắp xếp
@@ -30,9 +33,7 @@ export function useTableSort<T>(rows: T[], columns: SortSpec<T>[]) {
   const onSortChange = (columnId: string) =>
     setSort((prev) => {
       if (prev?.columnId !== columnId) return { columnId, direction: "asc" };
-      return prev.direction === "asc"
-        ? { columnId, direction: "desc" }
-        : null;
+      return prev.direction === "asc" ? { columnId, direction: "desc" } : null;
     });
 
   const sorted = useMemo(() => {

@@ -682,17 +682,19 @@
     border: 0;
   }
 
-  .voucher-dropzone {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    align-items: center;
-    padding: 1.5rem 1rem;
-    text-align: center;
-    border: 1px dashed var(--border-subtle);
-    border-radius: var(--radius-input);
-    transition: border-color var(--t-fast), background-color var(--t-fast);
-  }
+.voucher-dropzone {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  border: 1px dashed var(--border-subtle);
+  border-radius: var(--radius-input);
+  transition:
+    border-color var(--t-fast),
+    background-color var(--t-fast);
+}
 
   .voucher-dropzone.is-dragging {
     background-color: color-mix(in srgb, var(--chart-brand) 6%, transparent);

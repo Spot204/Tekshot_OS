@@ -1,9 +1,9 @@
 import { useMemo, useState } from "react";
-import { PackageSearch, Search } from "lucide-react";
 import clsx from "clsx";
 import type { Column } from "../../components/ui/Table";
 import type { ReorderRow } from "./orderingRows";
 import Card from "../../components/ui/Card";
+import Icon from "../../components/ui/Icon";
 import Input from "../../components/ui/Input";
 import ComboBox from "../../components/ui/ComboBox";
 import Table from "../../components/ui/Table";
@@ -81,7 +81,9 @@ export default function OrderingPage() {
   const setQuantity = (row: ReorderRow, quantity: number) =>
     setPicked((prev) =>
       quantity <= 0
-        ? Object.fromEntries(Object.entries(prev).filter(([id]) => id !== row.id))
+        ? Object.fromEntries(
+            Object.entries(prev).filter(([id]) => id !== row.id),
+          )
         : { ...prev, [row.id]: quantity },
     );
 
@@ -135,7 +137,10 @@ export default function OrderingPage() {
       id: "source",
       header: "Loại",
       render: (row) => (
-        <Badge variant={row.source === "supply" ? "primary" : "purple"} size="sm">
+        <Badge
+          variant={row.source === "supply" ? "primary" : "purple"}
+          size="sm"
+        >
           {row.source === "supply" ? "Vật tư" : "Nguyên liệu"}
         </Badge>
       ),
@@ -206,7 +211,7 @@ export default function OrderingPage() {
     <>
       <div className="d-flex align-items-center gap-3 mb-2">
         <span className="warehouse-page-icon">
-          <PackageSearch size={24} />
+          <Icon name="archive" size={24} />
         </span>
         <div>
           <h4 className="fw-bold mb-0">Gọi hàng</h4>
@@ -218,7 +223,10 @@ export default function OrderingPage() {
         <div className="col-md-4">
           <Card shadow bordered={false} padding="p-4">
             <div className="text-secondary small">Cần gọi thêm</div>
-            <div className="h4 fw-bold mb-0" style={{ color: "var(--warning)" }}>
+            <div
+              className="h4 fw-bold mb-0"
+              style={{ color: "var(--warning)" }}
+            >
               {formatNumber(needCount)}
             </div>
           </Card>
@@ -234,7 +242,9 @@ export default function OrderingPage() {
         <div className="col-md-4">
           <Card shadow bordered={false} padding="p-4">
             <div className="text-secondary small">Giá trị gọi hàng gợi ý</div>
-            <div className="h4 fw-bold mb-0">{formatCurrency(suggestedValue)}</div>
+            <div className="h4 fw-bold mb-0">
+              {formatCurrency(suggestedValue)}
+            </div>
           </Card>
         </div>
       </div>
@@ -264,7 +274,7 @@ export default function OrderingPage() {
                   aria-label="Tìm kiếm vật phẩm"
                   value={keyword}
                   onChange={(e) => setKeyword(e.target.value)}
-                  leftIcon={<Search size={18} />}
+                  leftIcon={<Icon name="search" size={18} />}
                 />
               </div>
               <div className="col-lg-3">

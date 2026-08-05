@@ -1,8 +1,8 @@
 import { useMemo, useState } from "react";
-import { Search, SlidersHorizontal, Warehouse as WarehouseIcon } from "lucide-react";
 import type { Column } from "../../components/ui/Table";
 import type { Warehouse } from "../../types/warehouse";
 import Card from "../../components/ui/Card";
+import Icon from "../../components/ui/Icon";
 import Input from "../../components/ui/Input";
 import ComboBox from "../../components/ui/ComboBox";
 import Button from "../../components/ui/Button";
@@ -48,7 +48,7 @@ const createColumns = (
               } as React.CSSProperties
             }
           >
-            <WarehouseIcon size={20} aria-hidden="true" />
+            <Icon name="buildings" size={20} />
           </span>
           <div>
             <div className="fw-semibold">{warehouse.name}</div>
@@ -78,7 +78,9 @@ const createColumns = (
     sortable: true,
     render: (warehouse) => (
       <div>
-        <div className="fw-semibold">{formatNumber(warehouse.productCount)}</div>
+        <div className="fw-semibold">
+          {formatNumber(warehouse.productCount)}
+        </div>
         <div className="text-secondary small">sản phẩm</div>
       </div>
     ),
@@ -151,7 +153,7 @@ export default function InventoryPage() {
     <>
       <div className="d-flex align-items-center gap-3 mb-2">
         <span className="warehouse-page-icon">
-          <WarehouseIcon size={24} />
+          <Icon name="buildings" size={24} />
         </span>
         <div>
           <h4 className="fw-bold mb-0">Tồn kho</h4>
@@ -167,7 +169,7 @@ export default function InventoryPage() {
               aria-label="Tìm kiếm kho hàng"
               value={keyword}
               onChange={(e) => withPageReset(setKeyword)(e.target.value)}
-              leftIcon={<Search size={18} />}
+              leftIcon={<Icon name="search" size={18} />}
             />
           </div>
 
@@ -194,7 +196,7 @@ export default function InventoryPage() {
               customVariant="secondary"
               className="d-inline-flex align-items-center gap-2 text-nowrap"
             >
-              <SlidersHorizontal size={16} aria-hidden="true" />
+              <Icon name="sliders" size={16} />
               Bộ lọc
             </Button>
           </div>

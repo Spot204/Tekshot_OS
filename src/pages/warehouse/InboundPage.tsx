@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
-import { ChevronDown, PackagePlus, Plus, Search, SlidersHorizontal } from "lucide-react";
 import Card from "../../components/ui/Card";
+import Icon from "../../components/ui/Icon";
 import Input from "../../components/ui/Input";
 import ComboBox from "../../components/ui/ComboBox";
 import Button from "../../components/ui/Button";
@@ -93,7 +93,7 @@ export default function InboundPage() {
     <>
       <div className="d-flex align-items-center gap-3 mb-2">
         <span className="warehouse-page-icon">
-          <PackagePlus size={24} />
+          <Icon name="box-arrow-in-down" size={24} />
         </span>
         <div>
           <h4 className="fw-bold mb-0">Nhập hàng</h4>
@@ -106,7 +106,10 @@ export default function InboundPage() {
           <Card shadow bordered={false} padding="p-4" className="mb-2">
             <div className="row g-3">
               <div className="col-md-6">
-                <label htmlFor="inbound-warehouse" className="form-label fw-semibold">
+                <label
+                  htmlFor="inbound-warehouse"
+                  className="form-label fw-semibold"
+                >
                   Kho nhập hàng <span className="text-danger">*</span>
                 </label>
                 <ComboBox
@@ -118,10 +121,17 @@ export default function InboundPage() {
               </div>
 
               <div className="col-md-6">
-                <label className="form-label fw-semibold">
+                <label
+                  htmlFor="inbound-date"
+                  className="form-label fw-semibold"
+                >
                   Ngày nhập <span className="text-danger">*</span>
                 </label>
-                <DateInput selected={date} onChange={setDate} />
+                <DateInput
+                  id="inbound-date"
+                  selected={date}
+                  onChange={setDate}
+                />
               </div>
             </div>
           </Card>
@@ -137,7 +147,7 @@ export default function InboundPage() {
                     setKeyword(e.target.value);
                     setShown(PAGE_STEP);
                   }}
-                  leftIcon={<Search size={18} />}
+                  leftIcon={<Icon name="search" size={18} />}
                 />
               </div>
 
@@ -159,7 +169,7 @@ export default function InboundPage() {
                   className="app-header-icon-btn border"
                   aria-label="Bộ lọc"
                 >
-                  <SlidersHorizontal size={18} />
+                  <Icon name="sliders" size={18} />
                 </button>
               </div>
             </div>
@@ -174,7 +184,7 @@ export default function InboundPage() {
                   <div key={row.id} className="col-xl-3 col-md-4 col-sm-6">
                     <div className="inbound-card">
                       <div className="inbound-thumb">
-                        <PackagePlus size={28} aria-hidden="true" />
+                        <Icon name="box-arrow-in-down" size={28} />
                       </div>
 
                       <div className="small fw-semibold text-truncate">
@@ -198,7 +208,7 @@ export default function InboundPage() {
                           aria-label={`Thêm ${row.productName}`}
                           onClick={() => addLine(row.id)}
                         >
-                          <Plus size={16} />
+                          <Icon name="plus-lg" size={16} />
                         </button>
                       </div>
                     </div>
@@ -215,7 +225,7 @@ export default function InboundPage() {
                   onClick={() => setShown((value) => value + PAGE_STEP)}
                 >
                   Xem thêm sản phẩm
-                  <ChevronDown size={16} aria-hidden="true" />
+                  <Icon name="chevron-down" size={16} />
                 </Button>
               </div>
             )}

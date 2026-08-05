@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Modal } from "react-bootstrap";
-import { Users } from "lucide-react";
+import Icon from "../../components/ui/Icon";
 import type { PermissionId } from "../../types/employee";
 import Input from "../../components/ui/Input";
 import Button from "../../components/ui/Button";
@@ -73,7 +73,8 @@ export default function EmployeeFormModal({
     if (!draft.password) next.password = "Chưa nhập mật khẩu";
     if (!confirm) next.confirm = "Chưa nhập lại mật khẩu";
     else if (confirm !== draft.password) next.confirm = "Mật khẩu không khớp";
-    if (!draft.permissions.length) next.permissions = "Chọn ít nhất một vai trò";
+    if (!draft.permissions.length)
+      next.permissions = "Chọn ít nhất một vai trò";
     return next;
   };
 
@@ -104,7 +105,7 @@ export default function EmployeeFormModal({
         <form id="employee-form" onSubmit={submit} noValidate>
           <div className="d-flex align-items-center gap-2 mb-4">
             <span className="employee-list-icon">
-              <Users size={18} />
+              <Icon name="people" size={18} />
             </span>
             <h3 className="h6 fw-semibold mb-0">Thông tin cơ bản</h3>
           </div>
@@ -161,14 +162,22 @@ export default function EmployeeFormModal({
                   value={confirm}
                   onChange={changeConfirm}
                   state={errors.confirm ? "error" : confirmState}
-                  message={errors.confirm ?? (confirmState === "success" ? "Mật khẩu trùng khớp" : undefined)}
+                  message={
+                    errors.confirm ??
+                    (confirmState === "success"
+                      ? "Mật khẩu trùng khớp"
+                      : undefined)
+                  }
                 />
               </div>
             </div>
 
             <div className="col-lg-6 d-flex flex-column gap-3">
               <div>
-                <label htmlFor="emp-username" className="form-label fw-semibold">
+                <label
+                  htmlFor="emp-username"
+                  className="form-label fw-semibold"
+                >
                   Tên đăng nhập <span className="text-danger">*</span>
                 </label>
                 <Input

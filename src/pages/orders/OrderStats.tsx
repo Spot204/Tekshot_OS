@@ -1,3 +1,4 @@
+import Icon from "../../components/ui/Icon";
 import StatCard from "../../components/ui/StatCard";
 import type { OrderStat } from "../../types/order";
 import { formatNumber } from "../../utils/format";
@@ -16,7 +17,7 @@ export default function OrderStats({ stats }: OrderStatsProps) {
             label={stat.label}
             value={formatNumber(stat.value)}
             trend={stat.trend}
-            icon={<i className={`bi ${stat.icon} fs-3`} aria-hidden="true" />}
+            icon={<Icon name={stat.icon} className="fs-3" />}
           />
         </div>
       ))}

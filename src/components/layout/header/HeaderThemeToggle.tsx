@@ -1,4 +1,4 @@
-import { Moon, Sun } from "lucide-react";
+import Icon from "../../ui/Icon";
 import { useTheme } from "../../../hooks/useTheme";
 import { ICON_SIZE } from "./constants";
 
@@ -17,7 +17,11 @@ export default function HeaderThemeToggle() {
       aria-pressed={isDark}
       onClick={toggleTheme}
     >
-      {isDark ? <Sun size={ICON_SIZE.action} /> : <Moon size={ICON_SIZE.action} />}
+      {isDark ? (
+        <Icon name="sun" size={ICON_SIZE.action} />
+      ) : (
+        <Icon name="moon" size={ICON_SIZE.action} />
+      )}
     </button>
   );
 }

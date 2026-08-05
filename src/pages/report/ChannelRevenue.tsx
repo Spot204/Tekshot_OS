@@ -37,7 +37,10 @@ export default function ChannelRevenue() {
             </ResponsiveContainer>
 
             <div className="position-absolute top-50 start-50 translate-middle text-center">
-              <div className="text-secondary" style={{ fontSize: "var(--fs-micro)" }}>
+              <div
+                className="text-secondary"
+                style={{ fontSize: "var(--fs-micro)" }}
+              >
                 Tổng doanh thu
               </div>
               <div className="fw-bold">{formatCurrency(total)}</div>
@@ -48,7 +51,10 @@ export default function ChannelRevenue() {
         <div className="col-sm-7">
           <ul className="list-unstyled d-flex flex-column gap-3 mb-0">
             {channelRevenue.map((channel) => (
-              <li key={channel.id} className="d-flex align-items-center gap-2 small">
+              <li
+                key={channel.id}
+                className="d-flex align-items-center gap-2 small"
+              >
                 <span
                   className="report-dot"
                   style={{ backgroundColor: chartColor[channel.color] }}

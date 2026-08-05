@@ -44,7 +44,10 @@ export const createComboColumns = ({
         {combo.lines.map((line) => (
           <li key={line.variantId} className="text-nowrap">
             {line.name}
-            <span className="text-secondary"> ×{formatNumber(line.quantity)}</span>
+            <span className="text-secondary">
+              {" "}
+              ×{formatNumber(line.quantity)}
+            </span>
           </li>
         ))}
       </ul>
@@ -109,10 +112,14 @@ export const createComboColumns = ({
     render: (combo) => (
       <RowActions
         actions={[
-          { label: "Sửa combo", icon: "bi-pencil", onClick: () => onEdit(combo) },
+          {
+            label: "Sửa combo",
+            icon: "pencil",
+            onClick: () => onEdit(combo),
+          },
           {
             label: "Xóa combo",
-            icon: "bi-trash",
+            icon: "trash",
             danger: true,
             dividerBefore: true,
             onClick: () => onDelete(combo),
