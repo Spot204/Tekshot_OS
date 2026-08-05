@@ -2,6 +2,8 @@ import type { Column } from "../../components/ui/Table";
 import type { BadgeVariant } from "../../components/ui/Badge";
 import Badge from "../../components/ui/Badge";
 import RowActions from "../../components/ui/RowActions";
+import OrderActions from "./OrderActions";
+
 import type {
   Order,
   OrderLine,
@@ -28,12 +30,18 @@ const PAYMENT_VARIANT: Record<PaymentMethod, BadgeVariant> = {
 interface OrderColumnHandlers {
   onEdit: (order: Order) => void;
   onDelete: (order: Order) => void;
+  onPrint: (order: Order) => void;
+  onCreate: (order: Order) => void;
+  onCancel: (order: Order) => void;
 }
 
 /** Factory vì cột "Thao tác" cần handler từ trang. Cột đó chỉ có `id`, không `accessor`. */
 export const createOrderColumns = ({
   onEdit,
   onDelete,
+  onPrint,
+  onCreate,
+  onCancel,
 }: OrderColumnHandlers): Column<Order>[] => [
   {
     id: "id",
@@ -85,9 +93,24 @@ export const createOrderColumns = ({
       <RowActions
         actions={[
           {
-            label: "Sửa",
+            label: "In",
+            icon: "pencil",
+            onClick: () => onPrint(order),
+          },
+          {
+            label: "Tạo hóa đơn",
+            icon: "pencil",
+            onClick: () => onCreate(order),
+          },
+          {
+            label: "Sửa đơn",
             icon: "pencil",
             onClick: () => onEdit(order),
+          },
+          {
+            label: "Hủy đơn",
+            icon: "pencil",
+            onClick: () => onCancel(order),
           },
           {
             label: "Xóa",

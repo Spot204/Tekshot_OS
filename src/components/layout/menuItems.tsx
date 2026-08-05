@@ -14,6 +14,11 @@ export interface MenuItem extends SubMenuItem {
 
 /** Nguồn duy nhất cho menu sidebar. Mỗi `id` cần một <Route> trong AppRouter. */
 export const menuItems: MenuItem[] = [
+  {
+    id: "dashboard",
+    label: "Dashboard",
+    icon: <Icon name="speedometer" size={18} />,
+  },
   { id: "order", label: "Đơn hàng", icon: <Icon name="cart" size={18} /> },
   {
     id: "hang-hoa",
