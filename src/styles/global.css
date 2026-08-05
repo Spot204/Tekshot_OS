@@ -1,878 +1,883 @@
-/* Design token + class dùng chung. Giá trị theo "Tekshot UI/Bản tóm tắt style.md".
-   Sửa màu / bo góc / cỡ chữ ở :root, không sửa trong class. */
+  /* Design token + class dùng chung. Giá trị theo "Tekshot UI/Bản tóm tắt style.md".
+    Sửa màu / bo góc / cỡ chữ ở :root, không sửa trong class. */
 
-:root {
-  /* ---- Layout ---- */
-  --header-h: 76px;
-  --sidebar-w: 260px;
-  --logo-w: 148px;
-  /* Tỉ lệ cắt khoảng trắng đáy logo.png */
-  --logo-ratio: 0.326;
-  --control-h: 46px;
-  --icon-btn-size: 42px;
-  --avatar-size: 42px;
-  --badge-size: 18px;
-  --search-max-w: 560px;
-  --scrollbar-w: 6px;
+  :root {
+    /* ---- Layout ---- */
+    --header-h: 76px;
+    --sidebar-w: 240px;
+    --sidebar-w-collapsed: 70px;
+    --logo-w: 148px;
+    /* Tỉ lệ cắt khoảng trắng đáy logo.png */
+    --logo-ratio: 0.326;
+    --control-h: 46px;
+    --icon-btn-size: 42px;
+    --avatar-size: 42px;
+    --badge-size: 18px;
+    --search-max-w: 560px;
+    --scrollbar-w: 6px;
 
-  /* ---- Màu thương hiệu (mục 2) ---- */
-  --brand: #084298;
-  --brand-hover: #063677;
-  --on-brand: #ffffff;
-  --accent: #f04432;
-  --success: #16a34a;
-  --warning: #f59e0b;
-  --danger: #ef4444;
+    /* ---- Màu thương hiệu (mục 2) ---- */
+    --brand: #084298;
+    --brand-hover: #063677;
+    --on-brand: #ffffff;
+    --accent: #f04432;
+    --success: #16a34a;
+    --warning: #f59e0b;
+    --danger: #ef4444;
 
-  /* ---- Chuỗi dữ liệu biểu đồ ---- */
-  --chart-brand: #2563eb;
-  --chart-accent: #f97316;
-  --chart-success: #16a34a;
-  --chart-purple: #9333ea;
-  --chart-muted: #94a3b8;
-  --chart-grid: #e9eff5;
-  --hero-gradient: linear-gradient(135deg, #1d63d2 0%, #4a90ec 100%);
-  --hero-on: #ffffff;
+    /* ---- Chuỗi dữ liệu biểu đồ ---- */
+    --chart-brand: #2563eb;
+    --chart-accent: #f97316;
+    --chart-success: #16a34a;
+    --chart-purple: #9333ea;
+    --chart-muted: #94a3b8;
+    --chart-grid: #e9eff5;
+    --hero-gradient: linear-gradient(135deg, #1d63d2 0%, #4a90ec 100%);
+    --hero-on: #ffffff;
 
-  /* ---- Màu giao diện sáng (mục 3) ---- */
-  --app-bg: #f6f8fb;
-  --app-surface: #ffffff;
-  --app-sidebar-bg: #ffffff;
-  --surface-subtle: #f6f8fb;
-  --border-subtle: #e9eff5;
-  --text-strong: #18212b;
-  --text-secondary: #667085;
-  --scrollbar-thumb: #cbd5e1;
-  --backdrop: rgb(0 0 0 / 35%);
+    /* ---- Màu giao diện sáng (mục 3) ---- */
+    --app-bg: #f6f8fb;
+    --app-surface: #ffffff;
+    --app-sidebar-bg: #ffffff;
+    --surface-subtle: #f6f8fb;
+    --border-subtle: #e9eff5;
+    --text-strong: #18212b;
+    --text-secondary: #667085;
+    --scrollbar-thumb: #cbd5e1;
+    --backdrop: rgb(0 0 0 / 35%);
 
-  /* ---- Bo góc (mục 5) ---- */
-  --radius-xs: 6px;
-  --radius-input: 12px;
-  --radius-btn: 14px;
-  --radius-dropdown: 16px;
-  --radius-card: 20px;
-  --radius-modal: 24px;
-  --radius-pill: 999px;
+    /* ---- Bo góc (mục 5) ---- */
+    --radius-xs: 6px;
+    --radius-input: 12px;
+    --radius-btn: 14px;
+    --radius-dropdown: 16px;
+    --radius-card: 20px;
+    --radius-modal: 24px;
+    --radius-pill: 999px;
 
-  /* ---- Đổ bóng (mục 6) ---- */
-  --shadow: 0 10px 30px rgb(18 38 63 / 5%);
-  --shadow-hover: 0 18px 40px rgb(18 38 63 / 8%);
+    /* ---- Đổ bóng (mục 6) ---- */
+    --shadow: 0 10px 30px rgb(18 38 63 / 5%);
+    --shadow-hover: 0 18px 40px rgb(18 38 63 / 8%);
 
-  /* ---- Cỡ chữ (mục 13) ---- */
-  --fs-title: 1.75rem;
-  --fs-number: 1.875rem;
-  --fs-subtitle: 1rem;
-  --fs-body: 0.875rem;
-  --fs-desc: 0.8125rem;
-  --fs-micro: 0.6875rem;
+    /* ---- Cỡ chữ (mục 13) ---- */
+    --fs-title: 1.75rem;
+    --fs-number: 1.875rem;
+    --fs-subtitle: 1rem;
+    --fs-body: 0.875rem;
+    --fs-desc: 0.8125rem;
+    --fs-micro: 0.6875rem;
 
-  /* ---- Chuyển động (mục 15) ---- */
-  --t-fast: 0.15s ease;
-  --t-base: 0.25s ease;
+    /* ---- Chuyển động (mục 15) ---- */
+    --t-fast: 0.15s ease;
+    --t-base: 0.25s ease;
 
-  /* ---- Lớp chồng ---- */
-  --z-header: 1050;
-  --z-sidebar: 1040;
-  --z-backdrop: 1030;
-}
+    /* ---- Lớp chồng ---- */
+    --z-header: 1050;
+    --z-sidebar: 1040;
+    --z-backdrop: 1030;
+  }
 
-/* Bảng màu tối (mục 4) */
-[data-bs-theme="dark"] {
-  --app-bg: #08141f;
-  --app-surface: #122231;
-  --app-sidebar-bg: #0c1c2a;
-  --surface-subtle: #0c1c2a;
-  --border-subtle: #203447;
-  --text-strong: #ffffff;
-  --text-secondary: #8ea3b7;
-  --scrollbar-thumb: #2c4459;
-  --chart-brand: #3b82f6;
-  --chart-accent: #fb923c;
-  --chart-success: #22c55e;
-  --chart-purple: #a855f7;
-  --chart-muted: #64748b;
-  --chart-grid: #1e3145;
-  --hero-gradient: linear-gradient(135deg, #0d2440 0%, #143252 100%);
-  --shadow: 0 0 0 1px rgb(255 255 255 / 3%), 0 20px 40px rgb(0 0 0 / 40%);
-  --shadow-hover: 0 0 0 1px rgb(255 255 255 / 6%), 0 24px 48px rgb(0 0 0 / 50%);
+  /* Bảng màu tối (mục 4) */
+  [data-bs-theme="dark"] {
+    --app-bg: #08141f;
+    --app-surface: #122231;
+    --app-sidebar-bg: #0c1c2a;
+    --surface-subtle: #0c1c2a;
+    --border-subtle: #203447;
+    --text-strong: #ffffff;
+    --text-secondary: #8ea3b7;
+    --scrollbar-thumb: #2c4459;
+    --chart-brand: #3b82f6;
+    --chart-accent: #fb923c;
+    --chart-success: #22c55e;
+    --chart-purple: #a855f7;
+    --chart-muted: #64748b;
+    --chart-grid: #1e3145;
+    --hero-gradient: linear-gradient(135deg, #0d2440 0%, #143252 100%);
+    --shadow: 0 0 0 1px rgb(255 255 255 / 3%), 0 20px 40px rgb(0 0 0 / 40%);
+    --shadow-hover: 0 0 0 1px rgb(255 255 255 / 6%), 0 24px 48px rgb(0 0 0 / 50%);
 
-  /* Navy gốc chìm trên nền tối */
-  --brand: #1b8bc6;
-  --brand-hover: #3aa3d9;
+    /* Navy gốc chìm trên nền tối */
+    --brand: #1b8bc6;
+    --brand-hover: #3aa3d9;
 
-  /* Ghi đè mặc định xám của Bootstrap */
-  --bs-body-bg: #08141f;
-  --bs-body-color: #c8d3de;
-  --bs-emphasis-color: #ffffff;
-  --bs-border-color: #203447;
-  --bs-secondary-color: #8ea3b7;
-}
+    /* Ghi đè mặc định xám của Bootstrap */
+    --bs-body-bg: #08141f;
+    --bs-body-color: #c8d3de;
+    --bs-emphasis-color: #ffffff;
+    --bs-border-color: #203447;
+    --bs-secondary-color: #8ea3b7;
+  }
 
-/* ================= Form ================= */
+  /* ================= Form ================= */
 
-/* Không hardcode rounded-4 trong primitive: utility Bootstrap có !important */
-.form-control,
-.form-select {
-  border-radius: var(--radius-input);
-}
+  /* Không hardcode rounded-4 trong primitive: utility Bootstrap có !important */
+  .form-control,
+  .form-select {
+    border-radius: var(--radius-input);
+  }
 
-/* ================= Nền theo theme ================= */
+  /* ================= Nền theo theme ================= */
 
-/* Thay bg-light / bg-white (màu cố định, không theo theme) */
-.app-shell {
-  background-color: var(--app-bg);
-}
+  /* Thay bg-light / bg-white (màu cố định, không theo theme) */
+  .app-shell {
+    background-color: var(--app-bg);
+  }
 
-.app-surface {
-  background-color: var(--app-surface);
-}
+  .app-surface {
+    background-color: var(--app-surface);
+  }
 
-.app-shadow {
-  box-shadow: var(--shadow);
-}
+  .app-shadow {
+    box-shadow: var(--shadow);
+  }
 
-/* ================= Shell ================= */
+  /* ================= Shell ================= */
 
-.app-header {
-  height: var(--header-h);
-  z-index: var(--z-header);
-  background-color: var(--app-surface);
-  border-bottom: 1px solid var(--border-subtle);
-}
+  .app-header {
+    height: var(--header-h);
+    z-index: var(--z-header);
+    background-color: var(--app-surface);
+    border-bottom: 1px solid var(--border-subtle);
+  }
 
-.app-sidebar {
-  width: var(--sidebar-w);
-  top: var(--header-h);
-  height: calc(100vh - var(--header-h));
-  z-index: var(--z-sidebar);
-  background-color: var(--app-sidebar-bg);
-  transition: transform var(--t-base);
-}
-
-/* Gộp cả offset header. Không thêm p-* của Bootstrap lên <main>. */
-.app-main {
-  margin-left: var(--sidebar-w);
-  padding: calc(var(--header-h) + 0.5rem) 0.5rem 0.5rem;
-  transition: margin-left var(--t-base);
-}
-
-.app-sidebar-backdrop {
-  position: fixed;
-  inset: var(--header-h) 0 0 0;
-  z-index: var(--z-backdrop);
-  background: var(--backdrop);
-}
-
-@media (max-width: 991.98px) {
   .app-sidebar {
-    transform: translateX(-100%);
+    width: var(--sidebar-w-collapsed);
+    top: var(--header-h);
+    height: calc(100vh - var(--header-h));
+    z-index: var(--z-sidebar);
+    background-color: var(--app-sidebar-bg);
+    transition: width var(--t-base);
   }
 
-  .app-sidebar.is-open {
-    transform: translateX(0);
+  .app-sidebar.is-expanded {
+    width: var(--sidebar-w);
   }
 
+  /* Gộp cả offset header. Không thêm p-* của Bootstrap lên <main>. */
   .app-main {
-    margin-left: 0;
+    margin-left: var(--sidebar-w-collapsed);
+    padding: calc(var(--header-h) + 0.5rem) 0.5rem 0.5rem;
+    transition: margin-left var(--t-base);
   }
-}
 
-/* ================= Header ================= */
+  .app-sidebar-backdrop {
+    position: fixed;
+    inset: var(--header-h) 0 0 0;
+    z-index: var(--z-backdrop);
+    background: var(--backdrop);
+  }
 
-/* Rộng bằng sidebar để đường kẻ dọc trùng mép */
-.app-header-brand {
-  width: var(--sidebar-w);
-  border-right: 1px solid var(--border-subtle);
-}
+  @media (max-width: 991.98px) {
+    .app-sidebar {
+      transform: translateX(-100%);
+    }
 
-/* Height suy từ --logo-ratio: đổi --logo-w là đủ */
-.app-header-logo {
-  width: var(--logo-w);
-  height: calc(var(--logo-w) * var(--logo-ratio));
-  object-fit: cover;
-  object-position: left top;
-}
+    .app-sidebar.is-open {
+      transform: translateX(0);
+    }
 
-.app-header-subtitle {
-  font-size: var(--fs-micro);
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  color: var(--text-secondary);
-}
+    .app-main {
+      margin-left: 0;
+    }
+  }
 
-.app-header-search {
-  max-width: var(--search-max-w);
-}
+  /* ================= Header ================= */
 
-.app-header-search .form-control {
-  height: var(--control-h);
-  background-color: var(--surface-subtle);
-  border-color: var(--border-subtle);
-  border-radius: var(--radius-input);
-}
-
-.app-header-search .form-control:focus {
-  background-color: var(--app-surface);
-  border-color: var(--brand);
-}
-
-.app-header-kbd {
-  padding: 0.125rem 0.375rem;
-  font-size: var(--fs-desc);
-  color: var(--text-secondary);
-  background-color: var(--app-surface);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-xs);
-}
-
-.app-header-icon-btn {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: var(--icon-btn-size);
-  height: var(--icon-btn-size);
-  color: var(--text-strong);
-  background: transparent;
-  border: 0;
-  border-radius: var(--radius-input);
-  transition: background-color var(--t-fast);
-}
-
-.app-header-icon-btn:hover,
-.app-header-user:hover {
-  background-color: var(--surface-subtle);
-}
-
-.app-header-badge {
-  position: absolute;
-  top: 3px;
-  right: 3px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: var(--badge-size);
-  height: var(--badge-size);
-  padding: 0 4px;
-  font-size: var(--fs-micro);
-  font-weight: 600;
-  line-height: 1;
-  color: var(--on-brand);
-  background-color: var(--accent);
-  border-radius: var(--radius-pill);
-}
-
-.app-header-user {
-  display: flex;
-  gap: 0.625rem;
-  padding: 0.25rem 0.5rem;
-  background: transparent;
-  border: 0;
-  border-radius: var(--radius-input);
-  transition: background-color var(--t-fast);
-}
-
-.app-header-avatar {
-  display: inline-flex;
-  flex-shrink: 0;
-  align-items: center;
-  justify-content: center;
-  width: var(--avatar-size);
-  height: var(--avatar-size);
-  font-size: var(--fs-subtitle);
-  font-weight: 600;
-  color: var(--on-brand);
-  object-fit: cover;
-  background-color: var(--brand);
-  border-radius: 50%;
-}
-
-.app-header-role {
-  font-size: var(--fs-desc);
-  color: var(--text-secondary);
-}
-
-.app-header-caret {
-  flex-shrink: 0;
-  color: var(--text-secondary);
-}
-
-/* Dưới lg không còn sidebar */
-@media (max-width: 991.98px) {
+  /* Rộng bằng sidebar để đường kẻ dọc trùng mép */
   .app-header-brand {
-    width: auto;
-    border-right: 0;
+    width: var(--sidebar-w);
+    border-right: 1px solid var(--border-subtle);
   }
-}
-
-/* ================= Sidebar menu ================= */
-
-.hover-menu-item:hover {
-  background-color: var(--surface-subtle);
-}
-
-.menu-chevron {
-  transition: transform var(--t-base);
-}
-
-.menu-chevron.is-collapsed {
-  transform: rotate(-90deg);
-}
-
-.custom-sidebar-scroll {
-  scrollbar-width: thin;
-  scrollbar-color: var(--scrollbar-thumb) transparent;
-}
-
-.custom-sidebar-scroll::-webkit-scrollbar {
-  width: var(--scrollbar-w);
-}
-
-.custom-sidebar-scroll::-webkit-scrollbar-thumb {
-  background-color: var(--scrollbar-thumb);
-  border-radius: calc(var(--scrollbar-w) / 2);
-}
-
-/* ================= Nút thương hiệu ================= */
-
-.btn-brand,
-.btn-brand:focus {
-  color: var(--on-brand);
-  background-color: var(--brand);
-  border-color: var(--brand);
-}
-
-.btn-brand:hover,
-.btn-brand:active,
-.btn-brand-outline:hover,
-.btn-brand-outline:active {
-  color: var(--on-brand);
-  background-color: var(--brand-hover);
-  border-color: var(--brand-hover);
-}
-
-.btn-brand-outline,
-.btn-brand-outline:focus {
-  color: var(--brand);
-  background-color: var(--app-surface);
-  border-color: var(--brand);
-}
-
-/* ================= Bảng ================= */
-
-/* Thay .table-light / .table-primary (ép color:#000 bất kể theme) */
-/* overflow-x thay cho overflow-hidden: bảng nhiều cột cuộn ngang thay vì bị
-   bóp, vẫn cắt được góc bo của table bên trong */
-.app-table-wrap {
-  overflow-x: auto;
-}
-
-.app-table-head {
-  --bs-table-bg: var(--surface-subtle);
-  --bs-table-color: var(--text-strong);
-}
-
-.app-sort-btn {
-  display: inline-flex;
-  gap: 0.375rem;
-  align-items: center;
-  padding: 0;
-  font: inherit;
-  color: inherit;
-  background: none;
-  border: 0;
-}
-
-.app-sort-btn:hover {
-  opacity: 0.75;
-}
-
-.app-row-active {
-  --bs-table-bg: color-mix(in srgb, var(--brand) 12%, transparent);
-  --bs-table-color: var(--bs-body-color);
-}
-
-/* ================= Trang báo cáo ================= */
-
-.report-hero {
-  background: var(--hero-gradient);
-  color: var(--hero-on);
-}
-
-/* Tràn sát mép card. Số này phải khớp padding="p-4" của RevenueHero. */
-.report-hero-chart {
-  margin: 0 -1.5rem -1.5rem;
-}
-
-.report-tab {
-  padding: 0.375rem 0.875rem;
-  font-size: var(--fs-desc);
-  font-weight: 600;
-  color: var(--text-secondary);
-  background: transparent;
-  border: 0;
-  border-radius: var(--radius-xs);
-}
-
-.report-tab.is-active {
-  color: var(--on-brand);
-  background-color: var(--chart-brand);
-}
-
-/* Ô vuông bo góc chứa icon, tô theo màu chuỗi dữ liệu */
-.report-icon {
-  display: inline-flex;
-  flex-shrink: 0;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  color: var(--report-icon-color, var(--chart-brand));
-  background-color: color-mix(
-    in srgb,
-    var(--report-icon-color, var(--chart-brand)) 14%,
-    transparent
-  );
-  border-radius: var(--radius-input);
-}
-
-.report-rank {
-  display: inline-flex;
-  flex-shrink: 0;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-  font-size: var(--fs-desc);
-  font-weight: 600;
-  color: var(--text-secondary);
-  background-color: var(--surface-subtle);
-  border-radius: var(--radius-xs);
-}
-
-.report-bar {
-  height: 6px;
-  overflow: hidden;
-  background-color: var(--surface-subtle);
-  border-radius: var(--radius-pill);
-}
-
-.report-bar-fill {
-  height: 100%;
-  background-color: var(--chart-brand);
-  border-radius: var(--radius-pill);
-}
-
-/* Tooltip của recharts — thư viện chỉ dựng thẻ, màu do đây quyết định */
-.report-tooltip {
-  padding: 0.625rem 0.75rem;
-  background-color: var(--app-surface);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-input);
-  box-shadow: var(--shadow);
-}
-
-.report-dot {
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-}
-
-/* ================= Trang khách hàng ================= */
-
-.customer-page-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.75rem;
-  color: var(--accent);
-  background-color: color-mix(in srgb, var(--accent) 12%, transparent);
-  border-radius: var(--radius-input);
-}
-
-/* ================= Hàng hóa ================= */
-
-.product-page-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5rem;
-  color: var(--chart-accent);
-  background-color: color-mix(in srgb, var(--chart-accent) 12%, transparent);
-  border-radius: var(--radius-input);
-}
-
-.product-thumb {
-  display: inline-flex;
-  flex-shrink: 0;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  overflow: hidden;
-  color: var(--text-secondary);
-  background-color: var(--surface-subtle);
-  border-radius: var(--radius-input);
-}
-
-.product-thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Bọc input[type=file] trong label để bấm cả khối, không lộ nút mặc định */
-.product-file-picker {
-  display: flex;
-  gap: 0.75rem;
-  align-items: center;
-  padding: 0.25rem;
-  cursor: pointer;
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-input);
-}
-
-.product-file-btn {
-  display: inline-flex;
-  gap: 0.5rem;
-  align-items: center;
-  padding: 0.5rem 0.875rem;
-  font-weight: 600;
-  white-space: nowrap;
-  background-color: var(--surface-subtle);
-  border-radius: var(--radius-xs);
-}
-
-/* ================= Kho hàng ================= */
-
-.warehouse-page-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5rem;
-  color: var(--chart-brand);
-  background-color: color-mix(in srgb, var(--chart-brand) 12%, transparent);
-  border-radius: var(--radius-input);
-}
-
-.warehouse-icon {
-  display: inline-flex;
-  flex-shrink: 0;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  color: var(--warehouse-color);
-  background-color: color-mix(in srgb, var(--warehouse-color) 14%, transparent);
-  border-radius: var(--radius-input);
-}
-
-.inbound-card {
-  height: 100%;
-  padding: 0.75rem;
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-input);
-  transition: border-color var(--t-fast);
-}
-
-.inbound-card:hover {
-  border-color: var(--chart-brand);
-}
-
-.inbound-thumb {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 96px;
-  margin-bottom: 0.5rem;
-  color: var(--text-secondary);
-  background-color: var(--surface-subtle);
-  border-radius: var(--radius-xs);
-}
-
-.inbound-empty {
-  padding: 2rem 1rem;
-  margin-bottom: 1rem;
-  text-align: center;
-  border: 1px dashed var(--border-subtle);
-  border-radius: var(--radius-input);
-}
-
-.inbound-row {
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.5rem 0;
-  border-top: 1px solid var(--border-subtle);
-}
-
-.inbound-total {
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.75rem 1rem;
-  margin-top: 0.5rem;
-  background-color: color-mix(in srgb, var(--chart-brand) 8%, transparent);
-  border-radius: var(--radius-input);
-}
-
-/* ================= Phiếu thu chi ================= */
-
-.app-tabs {
-  display: flex;
-  gap: 0.25rem;
-  border-bottom: 1px solid var(--border-subtle);
-}
-
-.app-tab {
-  padding: 0.625rem 1.25rem;
-  font-weight: 600;
-  color: var(--text-secondary);
-  background: transparent;
-  border: 0;
-  border-bottom: 2px solid transparent;
-}
-
-.app-tab.is-active {
-  color: var(--chart-brand);
-  border-bottom-color: var(--chart-brand);
-}
-
-.voucher-flag {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  color: var(--voucher-flag-color);
-  background-color: color-mix(
-    in srgb,
-    var(--voucher-flag-color) 14%,
-    transparent
-  );
-  border-radius: var(--radius-input);
-}
-
-.voucher-section-bar {
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-  padding: 0.75rem 1rem;
-  background-color: var(--surface-subtle);
-  border-radius: var(--radius-input);
-}
-
-.voucher-collapse-toggle {
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-  width: 100%;
-  padding: 0.75rem 1rem;
-  font-weight: 600;
-  color: inherit;
-  background: none;
-  border: 0;
-}
-
-.voucher-dropzone {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  align-items: center;
-  padding: 1.5rem 1rem;
-  text-align: center;
-  border: 1px dashed var(--border-subtle);
-  border-radius: var(--radius-input);
-  transition: border-color var(--t-fast), background-color var(--t-fast);
-}
-
-.voucher-dropzone.is-dragging {
-  background-color: color-mix(in srgb, var(--chart-brand) 6%, transparent);
-  border-color: var(--chart-brand);
-}
-
-.cashbook-page-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5rem;
-  color: var(--accent);
-  background-color: color-mix(in srgb, var(--accent) 12%, transparent);
-  border-radius: var(--radius-input);
-}
-
-.attendance-page-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.75rem;
-  color: var(--accent);
-  background-color: color-mix(in srgb, var(--accent) 12%, transparent);
-  border-radius: var(--radius-input);
-}
-
-/* Viên ca làm, màu lấy từ SHIFTS trong constants/employee */
-.shift-pill {
-  display: inline-flex;
-  gap: 0.375rem;
-  align-items: center;
-  padding: 0.25rem 0.625rem;
-  font-size: var(--fs-desc);
-  font-weight: 600;
-  color: var(--shift-color);
-  background-color: color-mix(in srgb, var(--shift-color) 14%, transparent);
-  border-radius: var(--radius-pill);
-}
-
-.employee-page-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.75rem;
-  color: var(--chart-brand);
-  background-color: color-mix(in srgb, var(--chart-brand) 12%, transparent);
-  border-radius: var(--radius-input);
-}
-
-.attendance-list-icon,
-.employee-list-icon,
-.customer-list-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  color: var(--chart-brand);
-  background-color: color-mix(in srgb, var(--chart-brand) 12%, transparent);
-  border-radius: var(--radius-xs);
-}
-
-/* Kích thước do prop size của Avatar đặt inline */
-.app-avatar {
-  display: inline-flex;
-  flex-shrink: 0;
-  align-items: center;
-  justify-content: center;
-  font-size: var(--fs-desc);
-  font-weight: 600;
-  color: var(--avatar-color);
-  object-fit: cover;
-  background-color: color-mix(in srgb, var(--avatar-color) 16%, transparent);
-  border-radius: 50%;
-}
-
-.badge-purple {
-  color: var(--chart-purple);
-  background-color: color-mix(in srgb, var(--chart-purple) 14%, transparent);
-}
-
-.text-purple {
-  color: var(--chart-purple);
-}
-
-/* ================= Form nhân viên ================= */
-
-/* Edge/Chrome trên Windows tự chèn nút hiện mật khẩu, chồng lên nút của app */
-.form-control::-ms-reveal,
-.form-control::-ms-clear {
-  display: none;
-}
-
-.app-icon-toggle {
-  display: inline-flex;
-  padding: 0;
-  color: inherit;
-  background: none;
-  border: 0;
-}
-
-.password-segment {
-  flex: 1;
-  height: 4px;
-  background-color: var(--surface-subtle);
-  border-radius: var(--radius-pill);
-  transition: background-color var(--t-fast);
-}
-
-.permission-box {
-  padding: 1rem;
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-input);
-}
-
-.permission-box legend {
-  float: none;
-  width: auto;
-  padding: 0;
-  font-size: var(--fs-subtitle);
-}
-
-/* Bấm được cả thẻ vì nội dung nằm trong <label> */
-.permission-card {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  align-items: center;
-  height: 100%;
-  padding: 1rem 0.75rem;
-  text-align: center;
-  cursor: pointer;
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-input);
-  transition:
-    border-color var(--t-fast),
-    background-color var(--t-fast);
-}
-
-.permission-card .form-check-input {
-  align-self: flex-start;
-  margin: 0 0 0.25rem;
-}
-
-.permission-card.is-checked {
-  background-color: color-mix(in srgb, var(--chart-brand) 6%, transparent);
-  border-color: var(--chart-brand);
-}
-
-.permission-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  color: var(--chart-brand);
-  background-color: color-mix(in srgb, var(--chart-brand) 10%, transparent);
-  border-radius: var(--radius-input);
-}
-
-/* ================= Tiện ích ================= */
-
-.cursor-pointer {
-  cursor: pointer;
-}
-
-/* Flex item mặc định min-width:auto nên text-truncate bên trong không cắt */
-.min-w-0 {
-  min-width: 0;
-}
-
-/* Ẩn mũi tên Dropdown.Toggle */
-.no-caret::after {
-  display: none !important;
-}
-
-.pagination .page-link {
-  margin: 0 2px;
-  color: var(--bs-body-color);
-  background-color: transparent;
-  border: 0;
-  border-radius: var(--radius-xs);
-}
-
-.pagination .page-item.active .page-link {
-  color: var(--on-brand);
-  background-color: var(--brand);
-}
+
+  /* Height suy từ --logo-ratio: đổi --logo-w là đủ */
+  .app-header-logo {
+    width: var(--logo-w);
+    height: calc(var(--logo-w) * var(--logo-ratio));
+    object-fit: cover;
+    object-position: left top;
+  }
+
+  .app-header-subtitle {
+    font-size: var(--fs-micro);
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    color: var(--text-secondary);
+  }
+
+  .app-header-search {
+    max-width: var(--search-max-w);
+  }
+
+  .app-header-search .form-control {
+    height: var(--control-h);
+    background-color: var(--surface-subtle);
+    border-color: var(--border-subtle);
+    border-radius: var(--radius-input);
+  }
+
+  .app-header-search .form-control:focus {
+    background-color: var(--app-surface);
+    border-color: var(--brand);
+  }
+
+  .app-header-kbd {
+    padding: 0.125rem 0.375rem;
+    font-size: var(--fs-desc);
+    color: var(--text-secondary);
+    background-color: var(--app-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-xs);
+  }
+
+  .app-header-icon-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--icon-btn-size);
+    height: var(--icon-btn-size);
+    color: var(--text-strong);
+    background: transparent;
+    border: 0;
+    border-radius: var(--radius-input);
+    transition: background-color var(--t-fast);
+  }
+
+  .app-header-icon-btn:hover,
+  .app-header-user:hover {
+    background-color: var(--surface-subtle);
+  }
+
+  .app-header-badge {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: var(--badge-size);
+    height: var(--badge-size);
+    padding: 0 4px;
+    font-size: var(--fs-micro);
+    font-weight: 600;
+    line-height: 1;
+    color: var(--on-brand);
+    background-color: var(--accent);
+    border-radius: var(--radius-pill);
+  }
+
+  .app-header-user {
+    display: flex;
+    gap: 0.625rem;
+    padding: 0.25rem 0.5rem;
+    background: transparent;
+    border: 0;
+    border-radius: var(--radius-input);
+    transition: background-color var(--t-fast);
+  }
+
+  .app-header-avatar {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: var(--avatar-size);
+    height: var(--avatar-size);
+    font-size: var(--fs-subtitle);
+    font-weight: 600;
+    color: var(--on-brand);
+    object-fit: cover;
+    background-color: var(--brand);
+    border-radius: 50%;
+  }
+
+  .app-header-role {
+    font-size: var(--fs-desc);
+    color: var(--text-secondary);
+  }
+
+  .app-header-caret {
+    flex-shrink: 0;
+    color: var(--text-secondary);
+  }
+
+  /* Dưới lg không còn sidebar */
+  @media (max-width: 991.98px) {
+    .app-header-brand {
+      width: auto;
+      border-right: 0;
+    }
+  }
+
+  /* ================= Sidebar menu ================= */
+
+  .hover-menu-item:hover {
+    background-color: var(--surface-subtle);
+  }
+
+  .menu-chevron {
+    transition: transform var(--t-base);
+  }
+
+  .menu-chevron.is-collapsed {
+    transform: rotate(-90deg);
+  }
+
+  .custom-sidebar-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb) transparent;
+  }
+
+  .custom-sidebar-scroll::-webkit-scrollbar {
+    width: var(--scrollbar-w);
+  }
+
+  .custom-sidebar-scroll::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb);
+    border-radius: calc(var(--scrollbar-w) / 2);
+  }
+
+  /* ================= Nút thương hiệu ================= */
+
+  .btn-brand,
+  .btn-brand:focus {
+    color: var(--on-brand);
+    background-color: var(--brand);
+    border-color: var(--brand);
+  }
+
+  .btn-brand:hover,
+  .btn-brand:active,
+  .btn-brand-outline:hover,
+  .btn-brand-outline:active {
+    color: var(--on-brand);
+    background-color: var(--brand-hover);
+    border-color: var(--brand-hover);
+  }
+
+  .btn-brand-outline,
+  .btn-brand-outline:focus {
+    color: var(--brand);
+    background-color: var(--app-surface);
+    border-color: var(--brand);
+  }
+
+  /* ================= Bảng ================= */
+
+  /* Thay .table-light / .table-primary (ép color:#000 bất kể theme) */
+  /* overflow-x thay cho overflow-hidden: bảng nhiều cột cuộn ngang thay vì bị
+    bóp, vẫn cắt được góc bo của table bên trong */
+  .app-table-wrap {
+    overflow-x: auto;
+  }
+
+  .app-table-head {
+    --bs-table-bg: var(--surface-subtle);
+    --bs-table-color: var(--text-strong);
+  }
+
+  .app-sort-btn {
+    display: inline-flex;
+    gap: 0.375rem;
+    align-items: center;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+    background: none;
+    border: 0;
+  }
+
+  .app-sort-btn:hover {
+    opacity: 0.75;
+  }
+
+  .app-row-active {
+    --bs-table-bg: color-mix(in srgb, var(--brand) 12%, transparent);
+    --bs-table-color: var(--bs-body-color);
+  }
+
+  /* ================= Trang báo cáo ================= */
+
+  .report-hero {
+    background: var(--hero-gradient);
+    color: var(--hero-on);
+  }
+
+  /* Tràn sát mép card. Số này phải khớp padding="p-4" của RevenueHero. */
+  .report-hero-chart {
+    margin: 0 -1.5rem -1.5rem;
+  }
+
+  .report-tab {
+    padding: 0.375rem 0.875rem;
+    font-size: var(--fs-desc);
+    font-weight: 600;
+    color: var(--text-secondary);
+    background: transparent;
+    border: 0;
+    border-radius: var(--radius-xs);
+  }
+
+  .report-tab.is-active {
+    color: var(--on-brand);
+    background-color: var(--chart-brand);
+  }
+
+  /* Ô vuông bo góc chứa icon, tô theo màu chuỗi dữ liệu */
+  .report-icon {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    color: var(--report-icon-color, var(--chart-brand));
+    background-color: color-mix(
+      in srgb,
+      var(--report-icon-color, var(--chart-brand)) 14%,
+      transparent
+    );
+    border-radius: var(--radius-input);
+  }
+
+  .report-rank {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    font-size: var(--fs-desc);
+    font-weight: 600;
+    color: var(--text-secondary);
+    background-color: var(--surface-subtle);
+    border-radius: var(--radius-xs);
+  }
+
+  .report-bar {
+    height: 6px;
+    overflow: hidden;
+    background-color: var(--surface-subtle);
+    border-radius: var(--radius-pill);
+  }
+
+  .report-bar-fill {
+    height: 100%;
+    background-color: var(--chart-brand);
+    border-radius: var(--radius-pill);
+  }
+
+  /* Tooltip của recharts — thư viện chỉ dựng thẻ, màu do đây quyết định */
+  .report-tooltip {
+    padding: 0.625rem 0.75rem;
+    background-color: var(--app-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-input);
+    box-shadow: var(--shadow);
+  }
+
+  .report-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+
+  /* ================= Trang khách hàng ================= */
+
+  .customer-page-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem;
+    color: var(--accent);
+    background-color: color-mix(in srgb, var(--accent) 12%, transparent);
+    border-radius: var(--radius-input);
+  }
+
+  /* ================= Hàng hóa ================= */
+
+  .product-page-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    color: var(--chart-accent);
+    background-color: color-mix(in srgb, var(--chart-accent) 12%, transparent);
+    border-radius: var(--radius-input);
+  }
+
+  .product-thumb {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    overflow: hidden;
+    color: var(--text-secondary);
+    background-color: var(--surface-subtle);
+    border-radius: var(--radius-input);
+  }
+
+  .product-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Bọc input[type=file] trong label để bấm cả khối, không lộ nút mặc định */
+  .product-file-picker {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    padding: 0.25rem;
+    cursor: pointer;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-input);
+  }
+
+  .product-file-btn {
+    display: inline-flex;
+    gap: 0.5rem;
+    align-items: center;
+    padding: 0.5rem 0.875rem;
+    font-weight: 600;
+    white-space: nowrap;
+    background-color: var(--surface-subtle);
+    border-radius: var(--radius-xs);
+  }
+
+  /* ================= Kho hàng ================= */
+
+  .warehouse-page-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    color: var(--chart-brand);
+    background-color: color-mix(in srgb, var(--chart-brand) 12%, transparent);
+    border-radius: var(--radius-input);
+  }
+
+  .warehouse-icon {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    color: var(--warehouse-color);
+    background-color: color-mix(in srgb, var(--warehouse-color) 14%, transparent);
+    border-radius: var(--radius-input);
+  }
+
+  .inbound-card {
+    height: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-input);
+    transition: border-color var(--t-fast);
+  }
+
+  .inbound-card:hover {
+    border-color: var(--chart-brand);
+  }
+
+  .inbound-thumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 96px;
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+    background-color: var(--surface-subtle);
+    border-radius: var(--radius-xs);
+  }
+
+  .inbound-empty {
+    padding: 2rem 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    border: 1px dashed var(--border-subtle);
+    border-radius: var(--radius-input);
+  }
+
+  .inbound-row {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .inbound-total {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    margin-top: 0.5rem;
+    background-color: color-mix(in srgb, var(--chart-brand) 8%, transparent);
+    border-radius: var(--radius-input);
+  }
+
+  /* ================= Phiếu thu chi ================= */
+
+  .app-tabs {
+    display: flex;
+    gap: 0.25rem;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .app-tab {
+    padding: 0.625rem 1.25rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    background: transparent;
+    border: 0;
+    border-bottom: 2px solid transparent;
+  }
+
+  .app-tab.is-active {
+    color: var(--chart-brand);
+    border-bottom-color: var(--chart-brand);
+  }
+
+  .voucher-flag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    color: var(--voucher-flag-color);
+    background-color: color-mix(
+      in srgb,
+      var(--voucher-flag-color) 14%,
+      transparent
+    );
+    border-radius: var(--radius-input);
+  }
+
+  .voucher-section-bar {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background-color: var(--surface-subtle);
+    border-radius: var(--radius-input);
+  }
+
+  .voucher-collapse-toggle {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+    color: inherit;
+    background: none;
+    border: 0;
+  }
+
+  .voucher-dropzone {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    border: 1px dashed var(--border-subtle);
+    border-radius: var(--radius-input);
+    transition: border-color var(--t-fast), background-color var(--t-fast);
+  }
+
+  .voucher-dropzone.is-dragging {
+    background-color: color-mix(in srgb, var(--chart-brand) 6%, transparent);
+    border-color: var(--chart-brand);
+  }
+
+  .cashbook-page-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    color: var(--accent);
+    background-color: color-mix(in srgb, var(--accent) 12%, transparent);
+    border-radius: var(--radius-input);
+  }
+
+  .attendance-page-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem;
+    color: var(--accent);
+    background-color: color-mix(in srgb, var(--accent) 12%, transparent);
+    border-radius: var(--radius-input);
+  }
+
+  /* Viên ca làm, màu lấy từ SHIFTS trong constants/employee */
+  .shift-pill {
+    display: inline-flex;
+    gap: 0.375rem;
+    align-items: center;
+    padding: 0.25rem 0.625rem;
+    font-size: var(--fs-desc);
+    font-weight: 600;
+    color: var(--shift-color);
+    background-color: color-mix(in srgb, var(--shift-color) 14%, transparent);
+    border-radius: var(--radius-pill);
+  }
+
+  .employee-page-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem;
+    color: var(--chart-brand);
+    background-color: color-mix(in srgb, var(--chart-brand) 12%, transparent);
+    border-radius: var(--radius-input);
+  }
+
+  .attendance-list-icon,
+  .employee-list-icon,
+  .customer-list-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    color: var(--chart-brand);
+    background-color: color-mix(in srgb, var(--chart-brand) 12%, transparent);
+    border-radius: var(--radius-xs);
+  }
+
+  /* Kích thước do prop size của Avatar đặt inline */
+  .app-avatar {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--fs-desc);
+    font-weight: 600;
+    color: var(--avatar-color);
+    object-fit: cover;
+    background-color: color-mix(in srgb, var(--avatar-color) 16%, transparent);
+    border-radius: 50%;
+  }
+
+  .badge-purple {
+    color: var(--chart-purple);
+    background-color: color-mix(in srgb, var(--chart-purple) 14%, transparent);
+  }
+
+  .text-purple {
+    color: var(--chart-purple);
+  }
+
+  /* ================= Form nhân viên ================= */
+
+  /* Edge/Chrome trên Windows tự chèn nút hiện mật khẩu, chồng lên nút của app */
+  .form-control::-ms-reveal,
+  .form-control::-ms-clear {
+    display: none;
+  }
+
+  .app-icon-toggle {
+    display: inline-flex;
+    padding: 0;
+    color: inherit;
+    background: none;
+    border: 0;
+  }
+
+  .password-segment {
+    flex: 1;
+    height: 4px;
+    background-color: var(--surface-subtle);
+    border-radius: var(--radius-pill);
+    transition: background-color var(--t-fast);
+  }
+
+  .permission-box {
+    padding: 1rem;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-input);
+  }
+
+  .permission-box legend {
+    float: none;
+    width: auto;
+    padding: 0;
+    font-size: var(--fs-subtitle);
+  }
+
+  /* Bấm được cả thẻ vì nội dung nằm trong <label> */
+  .permission-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    align-items: center;
+    height: 100%;
+    padding: 1rem 0.75rem;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-input);
+    transition:
+      border-color var(--t-fast),
+      background-color var(--t-fast);
+  }
+
+  .permission-card .form-check-input {
+    align-self: flex-start;
+    margin: 0 0 0.25rem;
+  }
+
+  .permission-card.is-checked {
+    background-color: color-mix(in srgb, var(--chart-brand) 6%, transparent);
+    border-color: var(--chart-brand);
+  }
+
+  .permission-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    color: var(--chart-brand);
+    background-color: color-mix(in srgb, var(--chart-brand) 10%, transparent);
+    border-radius: var(--radius-input);
+  }
+
+  /* ================= Tiện ích ================= */
+
+  .cursor-pointer {
+    cursor: pointer;
+  }
+
+  /* Flex item mặc định min-width:auto nên text-truncate bên trong không cắt */
+  .min-w-0 {
+    min-width: 0;
+  }
+
+  /* Ẩn mũi tên Dropdown.Toggle */
+  .no-caret::after {
+    display: none !important;
+  }
+
+  .pagination .page-link {
+    margin: 0 2px;
+    color: var(--bs-body-color);
+    background-color: transparent;
+    border: 0;
+    border-radius: var(--radius-xs);
+  }
+
+  .pagination .page-item.active .page-link {
+    color: var(--on-brand);
+    background-color: var(--brand);
+  }
