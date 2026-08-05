@@ -11,6 +11,7 @@ import DateInput from "../../components/ui/DateInput";
 import { createInvoiceColumns, INVOICE_STATUS_OPTIONS } from "./invoiceColumns";
 import type { Invoice } from "../../types/invoice";
 import { isWithinRange } from "../../utils/format";
+import InvoiceAction from "./invoiceAction";
 
 export interface InvoiceListPageProps {
   title: string;
@@ -36,6 +37,8 @@ export default function InvoiceListPage({
   const [toDate, setToDate] = useState<Date | null>(null);
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
+  const [actionInvoice, setActionInvoice] = useState<Invoice | null>(null);
+  const [actionMode, setActionMode] = useState<"view" | "edit">("view");
 
   const filtered = useMemo(() => {
     const keyword = search.trim().toLowerCase();
@@ -62,7 +65,14 @@ export default function InvoiceListPage({
   const columns = useMemo(
     () =>
       createInvoiceColumns({
-        onView: (invoice) => console.log("Xem hóa đơn:", invoice.id),
+        onView: (invoice) => {
+          setActionInvoice(invoice);
+          setActionMode("view");
+        },
+        onEdit: (invoice) => {
+          setActionInvoice(invoice);
+          setActionMode("edit");
+        },
         onPrint: (invoice) => console.log("In hóa đơn:", invoice.id),
         onCancel: (invoice) => console.log("Hủy hóa đơn:", invoice.id),
       }),
@@ -201,6 +211,14 @@ export default function InvoiceListPage({
           />
         </div>
       </Card>
+
+      {actionInvoice && (
+        <InvoiceAction
+          invoice={actionInvoice}
+          mode={actionMode}
+          onClose={() => setActionInvoice(null)}
+        />
+      )}
     </>
   );
 }

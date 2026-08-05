@@ -12,6 +12,7 @@ interface MainLayoutProps {
 export default function MainLayout({ children }: MainLayoutProps) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const { pathname } = useLocation();
+  const [collapsed, setCollapsed] = useState(false);
 
   // Đổi trang thì đóng sidebar (chỉ có tác dụng ở mobile)
   useEffect(() => {
