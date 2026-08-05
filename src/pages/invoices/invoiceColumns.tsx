@@ -17,12 +17,14 @@ export const INVOICE_STATUS_OPTIONS = (
 
 interface InvoiceColumnHandlers {
   onView: (invoice: Invoice) => void;
+  onEdit: (invoice: Invoice) => void;
   onPrint: (invoice: Invoice) => void;
   onCancel: (invoice: Invoice) => void;
 }
 
 export const createInvoiceColumns = ({
   onView,
+  onEdit,
   onPrint,
   onCancel,
 }: InvoiceColumnHandlers): Column<Invoice>[] => [
@@ -107,6 +109,11 @@ export const createInvoiceColumns = ({
             label: "Xem chi tiết",
             icon: "eye",
             onClick: () => onView(invoice),
+          },
+          {
+            label: "Sửa hóa đơn",
+            icon: "pencil",
+            onClick: () => onEdit(invoice),
           },
           {
             label: "In hóa đơn",
